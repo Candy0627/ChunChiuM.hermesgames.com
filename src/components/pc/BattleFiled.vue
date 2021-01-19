@@ -1,6 +1,6 @@
 <template>
   <div class="military_wrap">
-    <img src="../../assets/imgs/military_bg.jpg" alt="" />
+    <img src="../../assets/imgs/video_bg.jpg" alt="" />
   </div>
 </template>
 

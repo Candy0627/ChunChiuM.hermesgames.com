@@ -1,36 +1,54 @@
 <template>
-  <div class="appoint_wrap">
-    <img src="../../assets/imgs/appoint/appoint_bg.jpg" alt="" />
-    <div class="appoint">
-      <img
-        src="../../assets/imgs/appoint/scroll_bg.png"
-        alt=""
-        class="appoint_img"
-      />
-      <div class="select" @click="handleClick">{{defaultArea}} <img src="../../assets/imgs/arrow.png" alt="" class="arrow"></div>
-      <ul class="select_ul" v-if="options.isSelect">
-        <li v-for="item in area" :key="item.id" @click="getValue()">{{item.area_name}}</li>
-      </ul>
-      <div class="phone">
-        <span class="fl">+86</span>
-        <input type="text" class="fr">
-      </div>
-      <input type="checkbox" class="">
+    <div class="appoint_wrap">
+        <img src="../../assets/imgs/appoint/appoint_bg.jpg" alt="" />
+        <!-- appoint start -->
+        <div class="appoint">
+            <img
+                src="../../assets/imgs/appoint/scroll_bg.png"
+                alt=""
+                class="appoint_img"
+            />
+            <div class="select" @click="handleClickShow">
+                {{ defaultArea }}
+                <img src="../../assets/imgs/arrow.png" alt="" class="arrow" />
+            </div>
+            <transition>
+                <ul class="select_ul" v-if="options.isSelect">
+                    <li
+                        v-for="item in area"
+                        :key="item.id"
+                        @click="changeValue(item.area_name)"
+                    >
+                        {{ item.area_name }}
+                    </li>
+                </ul>
+            </transition>
+            <div class="phone">
+                <span class="fl">+86</span>
+                <input type="text" class="fr" />
+            </div>
+            <input type="checkbox" class="checkbox" />
+            <router-link to="" class="btn btn_appoint_now"
+                >立即预约</router-link
+            >
+            <router-link to="" class="btn btn_app">app</router-link>
+            <router-link to="" class="btn btn_gp">gp</router-link>
+        </div>
+        <!-- appoint end -->
+        <img src="../../assets/imgs/appoint/bot.png" alt="" class="bot_img" />
+        <img
+            src="../../assets/imgs/appoint/appoint_people.png"
+            alt=""
+            class="people_img"
+        />
+        <div class="progress">
+            <img
+                src="../../assets/imgs/appoint/process.png"
+                alt=""
+                class="appoint_process"
+            />
+        </div>
     </div>
-    <img src="../../assets/imgs/appoint/bot.png" alt="" class="bot_img" />
-    <img
-      src="../../assets/imgs/appoint/appoint_people.png"
-      alt=""
-      class="people_img"
-    />
-    <div class="progress">
-      <img
-        src="../../assets/imgs/appoint/process.png"
-        alt=""
-        class="appoint_process"
-      />
-    </div>
-  </div>
 </template>
 
 <script>
@@ -44,24 +62,24 @@ export default {
       defaultArea: '台灣',
       area: [
         {
-          'id': '01',
-          'area_name': '台灣'
+          id: '01',
+          area_name: '台灣'
         },
         {
-          'id': '02',
-          'area_name': '香港'
+          id: '02',
+          area_name: '香港'
         },
         {
-          'id': '03',
-          'area_name': '澳門'
+          id: '03',
+          area_name: '澳門'
         },
         {
-          'id': '04',
-          'area_name': '新加坡'
+          id: '04',
+          area_name: '新加坡'
         },
         {
-          'id': '05',
-          'area_name': '馬來西亞'
+          id: '05',
+          area_name: '馬來西亞'
         }
       ],
       options: {
@@ -70,139 +88,213 @@ export default {
     }
   },
   methods: {
-    handleClick () {
+    handleClickShow () {
       this.options.isSelect = !this.options.isSelect
+    },
+    changeValue (name) {
+      this.options.isSelect = false
+      this.defaultArea = name
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+//上半场过渡的初始状态，下半场动画的结束状态
+.v-enter,
+.v-leave-to {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+// 设置上半场动画的结束状态、下半场过渡的初始状态
+.v-enter-to,
+.v-leave {
+    opacity: 0.6;
+    transform: translateY(0);
+}
+
+// 设置上半场过渡、下半场过渡的时间、运动曲线
+.v-enter-active,
+.v-leave-active {
+    transition: all 1s ease;
+}
+
 .appoint_wrap {
-  position: relative;
-  width: 100%;
-  .appoint {
-    position: absolute;
-    left: 2.57rem;
-    top: 0.78rem;
-    .checkbox{
-      position: absolute;
-      width: .16rem;
-      height: .16rem;
-    }
-    .phone{
-      position: absolute;
-      width: 3.79rem;
-      height: .47rem;
-      left: 4.14rem;
-      top: .92rem;
-      text-align: center;
-      border:none;
-      background: none;
-      span{
-        display: inline-block;
-        width: 20%;
-        color:#827e6e;
-        height: .47rem;
-        line-height: .47rem;
-        font-size: .24rem;
-        font-weight: bold;
-      }
-      input{
-        width: 80%;
-        height: 100%;
-        color:#827e6e;
-        font-weight: bold;
-        font-size: .21rem;
-        border:none;
-        background:none;
-      }
-    }
-    .select_ul{
-      position: absolute;
-      left: 2.22rem;
-      top: 1.4rem;
-      width: 1.72rem;
-      height: 2.25rem;
-      background: url('.././../assets/imgs/select_bg.png') no-repeat;
-      background-size: 100% 100%;
-      transition: all 0.9s;
-      li{
-        width: 85%;
-        margin: 0 auto;
-        height: .45rem;
-        line-height: .45rem;
-        text-align: center;
-        font-size: .24rem;
-        color:#ffffff;
-        border-bottom:1px solid #faf7de;
-        cursor: pointer;
-        &:last-child{
-          border-bottom: none !important
-        }
-      }
-    }
-    .select {
-      width: 1.7rem;
-      text-align: center;
-      position: absolute;
-      left: 2.22rem;
-      top: 0.96rem;
-      font-size: 0.28rem;
-      color: #ffffff;
-      text-align: left;
-      text-indent: .28rem;
-      cursor: pointer;
-      .arrow {
+    position: relative;
+    width: 100%;
+    .appoint {
         position: absolute;
-        width: .45rem;
-        height: .25rem;
-        right: .24rem;
-        top:50%;
-        margin-top:-.125rem;
-      }
-      select {
+        left: 2.57rem;
+        top: 0.78rem;
+        .checkbox {
+            position: absolute;
+            width: 0.17rem;
+            height: 0.17rem;
+            left: 4.13rem;
+            top: 1.48rem;
+            cursor: pointer;
+        }
+        .btn {
+            display: inline-block;
+            position: absolute;
+            text-indent: -9999px;
+            &.btn_appoint_now {
+                left: 4.02rem;
+                top: 3.72rem;
+                width: 1.91rem;
+                height: 0.56rem;
+                background: url(".././../assets/imgs/appoint/btn_appoint.png")no-repeat;
+                background-size: 100% 100%;
+                transition: all 0.9s;
+                &:hover {
+                    width: 1.91rem;
+                    height: 0.56rem;
+                    background: url(".././../assets/imgs/appoint/btn_appoint_hover.png")
+                        no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            &.btn_app {
+                right: 0.63rem;
+                top: 3.82rem;
+                width: 1.18rem;
+                height: 0.41rem;
+                background: url(".././../assets/imgs/appoint/btn_app.png")
+                    no-repeat;
+                background-size: 100% 100%;
+                transition: all 0.9s;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+            &.btn_gp {
+                right: 0.63rem;
+                top: 4.34rem;
+                width: 1.18rem;
+                height: 0.41rem;
+                background: url(".././../assets/imgs/appoint/btn_gp.png")
+                    no-repeat;
+                background-size: 100% 100%;
+                transition: all 0.9s;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+        .phone {
+            position: absolute;
+            width: 3.79rem;
+            height: 0.47rem;
+            left: 4.14rem;
+            top: 0.92rem;
+            text-align: center;
+            border: none;
+            background: none;
+            span {
+                display: inline-block;
+                width: 20%;
+                color: #827e6e;
+                height: 0.47rem;
+                line-height: 0.47rem;
+                font-size: 0.24rem;
+                font-weight: bold;
+            }
+            input {
+                width: 80%;
+                height: 100%;
+                color: #827e6e;
+                font-weight: bold;
+                font-size: 0.21rem;
+                border: none;
+                background: none;
+            }
+        }
+        .select_ul {
+            position: absolute;
+            left: 2.22rem;
+            top: 1.4rem;
+            width: 1.72rem;
+            height: 2.25rem;
+            background: url(".././../assets/imgs/select_bg.png") no-repeat;
+            background-size: 100% 100%;
+            transition: all 0.9s;
+            li {
+                width: 85%;
+                margin: 0 auto;
+                height: 0.45rem;
+                line-height: 0.45rem;
+                text-align: center;
+                font-size: 0.24rem;
+                color: #ffffff;
+                border-bottom: 1px solid #faf7de;
+                cursor: pointer;
+                &:last-child {
+                    border-bottom: none !important;
+                }
+            }
+        }
+        .select {
+            width: 1.7rem;
+            text-align: center;
+            position: absolute;
+            left: 2.22rem;
+            top: 1rem;
+            font-size: 0.22rem;
+            color: #ffffff;
+            text-align: left;
+            text-indent: 0.28rem;
+            cursor: pointer;
+            .arrow {
+                position: absolute;
+                width: 0.35rem;
+                height: 0.2rem;
+                right: 0.14rem;
+                top: 50%;
+                margin-top: -.07rem;
+            }
+            select {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: none;
+                border: none;
+            }
+        }
+    }
+    .appoint_img {
+        width: 10.7rem;
+        height: 6.22rem;
+    }
+    .appoint_in {
+        position: absolute;
+        top: 0.73rem;
+    }
+    .bot_img {
+        position: absolute;
+        top: 7.25rem;
+        left: 0;
+        z-index: 1;
+    }
+    .people_img {
+        width: 6.57rem;
+        height: 10.8rem;
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: none;
-        border: none;
-      }
+        right: 0;
+        z-index: 1;
     }
-  }
-  .appoint_img {
-    width: 10.7rem;
-    height: 6.22rem;
-  }
-  .appoint_in {
-    position: absolute;
-    top: 0.73rem;
-  }
-  .bot_img {
-    position: absolute;
-    top: 7.25rem;
-    left: 0;
-    z-index: 1;
-  }
-  .people_img {
-    width: 6.57rem;
-    height: 10.8rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-  }
-  .progress {
-    position: absolute;
-    left: 3.4rem;
-    bottom: 0.25rem;
-    z-index: 1;
-    .appoint_process {
-      width: 8.76rem;
-      height: 2.12rem;
+    .progress {
+        position: absolute;
+        left: 3.4rem;
+        bottom: 0.15rem;
+        z-index: 1;
+        .appoint_process {
+            width: 8.76rem;
+            height: 2.12rem;
+        }
     }
-  }
 }
 </style>
