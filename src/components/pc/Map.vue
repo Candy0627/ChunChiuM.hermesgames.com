@@ -11,13 +11,20 @@
         </div>
         <div class="map">
             <!-- <img src="../../assets/imgs/map/map_bg.png" alt="" /> -->
-            <img src="../../assets/imgs/map/yan.png" alt="" class="yan" />
+            <em class="yan"></em>
+            <em class="zhao"></em>
+            <em class="qin"></em>
+            <em class="chu"></em>
+            <em class="wei"></em>
+            <em class="han"></em>
+            <em class="qi"></em>
+            <!-- <img src="../../assets/imgs/map/yan.png" alt="" class="yan" />
             <img src="../../assets/imgs/map/zhao.png" alt="" class="zhao" />
             <img src="../../assets/imgs/map/qin.png" alt="" class="qin" />
             <img src="../../assets/imgs/map/chu.png" alt="" class="chu" />
             <img src="../../assets/imgs/map/wei.png" alt="" class="wei" />
             <img src="../../assets/imgs/map/han.png" alt="" class="han" />
-            <img src="../../assets/imgs/map/qi.png" alt="" class="qi" />
+            <img src="../../assets/imgs/map/qi.png" alt="" class="qi" /> -->
         </div>
         <div class="circle">
             <img src="../../assets/imgs/map/smalll.png" alt="" />
@@ -147,6 +154,7 @@ export default {
             width: 100%;
         }
         .yan {
+            display: inline-block;
             width: 2.85rem;
             height: 1.69rem;
             position: absolute;
