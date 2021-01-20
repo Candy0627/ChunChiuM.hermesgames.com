@@ -13,7 +13,10 @@
             <!-- <img src="../../assets/imgs/map/map_bg.png" alt="" /> -->
             <em class="yan"></em>
             <em class="zhao"></em>
-            <em class="qin"></em>
+            <div class="qin_con">
+                <em class="qin"></em>
+                <em class="qin_on center_on"></em>
+            </div>
             <em class="chu"></em>
             <em class="wei"></em>
             <em class="han"></em>
@@ -43,89 +46,89 @@
 
 <script>
 export default {
-  name: 'Map',
-  props: {
-    msg: String
-  },
-  data () {
-    return {
-      isActive: false,
-      circle: [
-        {
-          id: '01',
-          name: 'yan',
-          deg: -60,
-          pos: 1
-        },
-        {
-          id: '02',
-          name: 'zhao',
-          deg: -30,
-          pos: 2
-        },
-        {
-          id: '03',
-          name: 'qin',
-          deg: 0,
-          pos: 0
-        },
-        {
-          id: '04',
-          name: 'chu',
-          pos: 3
-        },
-        {
-          id: '05',
-          name: 'wei',
-          pos: 4
-        },
-        {
-          id: '06',
-          name: 'han'
-        },
-        {
-          id: '07',
-          name: 'qi',
-          deg: -90
-        },
-        {
-          id: '08',
-          name: 'yan1'
-        },
-        {
-          id: '09',
-          name: 'zhao1'
-        },
-        {
-          id: '10',
-          name: 'qin1'
-        },
-        {
-          id: '11',
-          name: 'chu1'
-        },
-        {
-          id: '12',
-          name: 'wei1'
-        },
-        {
-          id: '13',
-          name: 'han1'
-        },
-        {
-          id: '14',
-          name: 'qi1'
+    name: "Map",
+    props: {
+        msg: String
+    },
+    data () {
+        return {
+            isActive: false,
+            circle: [
+                {
+                    id: "01",
+                    name: "yan",
+                    deg: -60,
+                    pos: 1
+                },
+                {
+                    id: "02",
+                    name: "zhao",
+                    deg: -30,
+                    pos: 2
+                },
+                {
+                    id: "03",
+                    name: "qin",
+                    deg: 0,
+                    pos: 0
+                },
+                {
+                    id: "04",
+                    name: "chu",
+                    pos: 3
+                },
+                {
+                    id: "05",
+                    name: "wei",
+                    pos: 4
+                },
+                {
+                    id: "06",
+                    name: "han"
+                },
+                {
+                    id: "07",
+                    name: "qi",
+                    deg: -90
+                },
+                {
+                    id: "08",
+                    name: "yan1"
+                },
+                {
+                    id: "09",
+                    name: "zhao1"
+                },
+                {
+                    id: "10",
+                    name: "qin1"
+                },
+                {
+                    id: "11",
+                    name: "chu1"
+                },
+                {
+                    id: "12",
+                    name: "wei1"
+                },
+                {
+                    id: "13",
+                    name: "han1"
+                },
+                {
+                    id: "14",
+                    name: "qi1"
+                }
+            ]
+        };
+    },
+    methods: {
+        handleCricle (name, deg, pos) {
+            console.log("转的位置", deg, pos);
+            // this.isActive = !this.isActive;
         }
-      ]
     }
-  },
-  methods: {
-    handleCricle (name) {
-      console.log('转的是', name)
-      this.isActive = !this.isActive
-    }
-  }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -153,6 +156,10 @@ export default {
         img {
             width: 100%;
         }
+        em {
+            display: inline-block;
+            transition: all 0.1s;
+        }
         .yan {
             display: inline-block;
             width: 2.85rem;
@@ -160,6 +167,12 @@ export default {
             position: absolute;
             top: 0;
             right: 0.61rem;
+            background: url(".././../assets/imgs/map/yan.png") no-repeat;
+            background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/yan_on.png") no-repeat;
+                background-size: 100% 100%;
+            }
         }
         .zhao {
             width: 4.21rem;
@@ -167,13 +180,41 @@ export default {
             position: absolute;
             top: 0.03rem;
             left: 2.18rem;
+            background: url(".././../assets/imgs/map/zhao.png") no-repeat;
+            background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/zhao_on.png") no-repeat;
+                background-size: 100% 100%;
+            }
         }
         .qin {
             width: 3.93rem;
             height: 6.32rem;
             position: absolute;
             top: 0.75rem;
-            left: 0;
+            left: 0.05rem;
+            background: url(".././../assets/imgs/map/qin.png") no-repeat;
+            background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/qin_on.png") no-repeat;
+                background-size: 100% 100%;
+            }
+        }
+        .center_on{
+            position: absolute;
+            top: 0.75rem;
+            left: 0.05rem;
+            background: url(".././../assets/imgs/map/qin.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .qin_on {
+            width: 3.93rem;
+            height: 6.32rem;
+            position: absolute;
+            top: 0.75rem;
+            left: 0.05rem;
+            background: url(".././../assets/imgs/map/qin_on.png") no-repeat;
+            background-size: 100% 100%;
         }
         .chu {
             width: 5.77rem;
@@ -181,6 +222,12 @@ export default {
             position: absolute;
             bottom: 0.01rem;
             right: 0.05rem;
+            background: url(".././../assets/imgs/map/chu.png") no-repeat;
+            background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/chu_on.png") no-repeat;
+                background-size: 100% 100%;
+            }
         }
         .wei {
             width: 3.15rem;
@@ -188,13 +235,25 @@ export default {
             position: absolute;
             top: 2.33rem;
             right: 1.75rem;
+            background: url(".././../assets/imgs/map/wei.png") no-repeat;
+            background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/wei_on.png") no-repeat;
+                background-size: 100% 100%;
+            }
         }
         .han {
             width: 2.62rem;
             height: 3.18rem;
             position: absolute;
-            top: 2.25rem;
-            right: 3.8rem;
+            top: 2.18rem;
+            right: 3.7rem;
+            background: url(".././../assets/imgs/map/han.png") no-repeat;
+            background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/han_on.png") no-repeat;
+                background-size: 100% 100%;
+            }
         }
         .qi {
             width: 2.98rem;
@@ -202,6 +261,12 @@ export default {
             position: absolute;
             top: 1.45rem;
             right: 0.25rem;
+            background: url(".././../assets/imgs/map/qi.png") no-repeat;
+            background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/qi_on.png") no-repeat;
+                background-size: 100% 100%;
+            }
         }
     }
 }

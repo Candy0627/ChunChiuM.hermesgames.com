@@ -53,50 +53,50 @@
 
 <script>
 export default {
-  name: 'Appoint',
-  props: {
-    msg: String
-  },
-  data () {
-    return {
-      defaultArea: '台灣',
-      area: [
-        {
-          id: '01',
-          area_name: '台灣'
-        },
-        {
-          id: '02',
-          area_name: '香港'
-        },
-        {
-          id: '03',
-          area_name: '澳門'
-        },
-        {
-          id: '04',
-          area_name: '新加坡'
-        },
-        {
-          id: '05',
-          area_name: '馬來西亞'
-        }
-      ],
-      options: {
-        isSelect: false
-      }
-    }
-  },
-  methods: {
-    handleClickShow () {
-      this.options.isSelect = !this.options.isSelect
+    name: "Appoint",
+    props: {
+        msg: String
     },
-    changeValue (name) {
-      this.options.isSelect = false
-      this.defaultArea = name
+    data () {
+        return {
+            defaultArea: "台灣",
+            area: [
+                {
+                    id: "01",
+                    area_name: "台灣"
+                },
+                {
+                    id: "02",
+                    area_name: "香港"
+                },
+                {
+                    id: "03",
+                    area_name: "澳門"
+                },
+                {
+                    id: "04",
+                    area_name: "新加坡"
+                },
+                {
+                    id: "05",
+                    area_name: "馬來西亞"
+                }
+            ],
+            options: {
+                isSelect: false
+            }
+        };
+    },
+    methods: {
+        handleClickShow () {
+            this.options.isSelect = !this.options.isSelect;
+        },
+        changeValue (name) {
+            this.options.isSelect = false;
+            this.defaultArea = name;
+        }
     }
-  }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -144,7 +144,8 @@ export default {
                 top: 3.72rem;
                 width: 1.91rem;
                 height: 0.56rem;
-                background: url(".././../assets/imgs/appoint/btn_appoint.png")no-repeat;
+                background: url(".././../assets/imgs/appoint/btn_appoint.png")
+                    no-repeat;
                 background-size: 100% 100%;
                 transition: all 0.9s;
                 &:hover {
@@ -251,7 +252,7 @@ export default {
                 height: 0.2rem;
                 right: 0.14rem;
                 top: 50%;
-                margin-top: -.07rem;
+                margin-top: -0.07rem;
             }
             select {
                 position: absolute;
