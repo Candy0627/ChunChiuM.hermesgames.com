@@ -1,11 +1,17 @@
 <template>
     <div class="home">
         <div class="video">
-            <img
-                alt="video"
-                src="../../../assets/imgs/video.jpg"
+            <video
                 width="100%"
-            />
+                height="100%"
+                class="one-background-video"
+                muted="muted"
+                data-autoplay
+                autoplay
+                loop
+            >
+                <source src="../../../assets/top.mp4" type="video/mp4" />
+            </video>
         </div>
         <Appoint />
         <Map />
@@ -40,4 +46,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home{
+    font-size: 0;
+}
+</style>

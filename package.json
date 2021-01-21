@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
+    "element-ui": "^2.15.0",
     "lib-flexible": "^0.3.2",
     "swiper": "^6.4.5",
     "vue": "^2.6.10",

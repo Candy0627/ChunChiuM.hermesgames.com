@@ -21,24 +21,25 @@
             <em class="wei"></em>
             <em class="han"></em>
             <em class="qi"></em>
-            <!-- <img src="../../assets/imgs/map/yan.png" alt="" class="yan" />
-            <img src="../../assets/imgs/map/zhao.png" alt="" class="zhao" />
-            <img src="../../assets/imgs/map/qin.png" alt="" class="qin" />
-            <img src="../../assets/imgs/map/chu.png" alt="" class="chu" />
-            <img src="../../assets/imgs/map/wei.png" alt="" class="wei" />
-            <img src="../../assets/imgs/map/han.png" alt="" class="han" />
-            <img src="../../assets/imgs/map/qi.png" alt="" class="qi" /> -->
         </div>
         <div class="circle">
-            <img src="../../assets/imgs/map/smalll.png" alt="" />
-            <ul :class="{ active: isActive }">
+            <img src="../../assets/imgs/map/smalll.png" alt="" class="img_li" />
+            <ul
+                :class="{ active: isActive }"
+                :style="{ transform: `rotate(${defaultDeg}deg)` }"
+            >
                 <li class="center"></li>
                 <li
                     :class="item.name"
                     v-for="item in circle"
                     :key="item.id"
                     @click="handleCricle(item.name, item.deg, item.pos)"
-                ></li>
+                >
+                    <img
+                        :src="item.imgSrc"
+                        v-show="selectedValue == item.name"
+                    />
+                </li>
             </ul>
         </div>
     </div>
@@ -58,74 +59,143 @@ export default {
                     id: "01",
                     name: "yan",
                     deg: -60,
-                    pos: 1
+                    pos: 1,
+                    imgSrc: require("../../assets/imgs/map/yan_active.png")
                 },
                 {
                     id: "02",
                     name: "zhao",
                     deg: -30,
-                    pos: 2
+                    pos: 2,
+                    imgSrc: require("../../assets/imgs/map/zhao_active.png")
                 },
                 {
                     id: "03",
                     name: "qin",
                     deg: 0,
-                    pos: 0
+                    pos: 0,
+                    imgSrc: require("../../assets/imgs/map/qin_active.png")
                 },
                 {
                     id: "04",
                     name: "chu",
-                    pos: 3
+                    deg: 30,
+                    pos: 3,
+                    imgSrc: require("../../assets/imgs/map/chu_active.png")
                 },
                 {
                     id: "05",
                     name: "wei",
-                    pos: 4
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/wei_active.png")
                 },
                 {
                     id: "06",
-                    name: "han"
+                    name: "han",
+                    deg: 90,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/han_active.png")
                 },
                 {
                     id: "07",
                     name: "qi",
-                    deg: -90
+                    deg: 120,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/qi_active.png")
                 },
                 {
                     id: "08",
-                    name: "yan1"
+                    name: "yan1",
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/yan_active.png")
                 },
                 {
                     id: "09",
-                    name: "zhao1"
+                    name: "zhao1",
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/zhao_active.png")
                 },
                 {
                     id: "10",
-                    name: "qin1"
+                    name: "qin1",
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/qin_active.png")
                 },
                 {
                     id: "11",
-                    name: "chu1"
+                    name: "chu1",
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/chu_active.png")
                 },
                 {
                     id: "12",
-                    name: "wei1"
+                    name: "wei1",
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/wei_active.png")
                 },
                 {
                     id: "13",
-                    name: "han1"
+                    name: "han1",
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/han_active.png")
                 },
                 {
                     id: "14",
-                    name: "qi1"
+                    name: "qi1",
+                    deg: 60,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/qi_active.png")
                 }
-            ]
+            ],
+            defaultDeg: 0,
+            selectedValue: "qin"
         };
     },
     methods: {
         handleCricle (name, deg, pos) {
-            console.log("转的位置", deg, pos);
+            // console.log("转的位置", deg, pos);
             // this.isActive = !this.isActive;
+            console.log(
+                "此时应该显示图片亮字",
+                typeof name,
+                typeof this.selectedValue
+            );
+            switch (name) {
+            case "yan":
+                this.defaultDeg = "-60";
+                this.selectedValue = "yan";
+                break;
+            case "zhao":
+                this.defaultDeg = "-30";
+                this.selectedValue = "zhao";
+                break;
+            case "qin":
+                this.defaultDeg = "0";
+                this.selectedValue = "qin";
+                break;
+            case "chu":
+                this.defaultDeg = "30";
+                this.selectedValue = "chu";
+                break;
+            case "wei":
+                this.defaultDeg = "60";
+                this.selectedValue = "wei";
+                break;
+            case "han":
+                this.defaultDeg = "90";
+                this.selectedValue = "han";
+                break;
+            case "qi":
+                this.defaultDeg = "120";
+                this.selectedValue = "qi";
+            }
         }
     }
 };
@@ -200,7 +270,7 @@ export default {
                 background-size: 100% 100%;
             }
         }
-        .center_on{
+        .center_on {
             position: absolute;
             top: 0.75rem;
             left: 0.05rem;
@@ -279,7 +349,7 @@ export default {
     z-index: 1;
 }
 .circle {
-    img {
+    .img_li {
         position: absolute;
         width: 7.05rem;
         height: 7.11rem;
@@ -301,12 +371,18 @@ export default {
         transition: all 0.9s;
         li {
             position: absolute;
-            width: 1.07rem;
+            width: 1.37rem;
             height: 1.07rem;
             border-radius: 100%;
             cursor: pointer;
-            /*background: pink;
-            opacity: 0.6;*/
+            img {
+                position: absolute;
+                width: 1.37rem;
+                height: 1.06rem;
+                left: 0;
+                top:  0;
+                margin-top: 0;
+            }
             &.qi {
                 right: 5.45rem;
                 top: 0.3rem;

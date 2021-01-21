@@ -8,27 +8,52 @@
                 alt=""
                 class="appoint_img"
             />
+
             <div class="select" @click="handleClickShow">
-                {{ defaultArea }}
+                {{ selectedArea }}
                 <img src="../../assets/imgs/arrow.png" alt="" class="arrow" />
             </div>
+
+            <!-- 地区下拉 -->
             <transition>
                 <ul class="select_ul" v-if="options.isSelect">
                     <li
                         v-for="item in area"
                         :key="item.id"
-                        @click="changeValue(item.area_name)"
+                        @click="changeValue(item.id, item.area, item.areaCode, item.tips, item.areaSimple, item.maxlength)"
                     >
-                        {{ item.area_name }}
+                        {{ item.area }}
                     </li>
                 </ul>
             </transition>
+
             <div class="phone">
-                <span class="fl">+86</span>
-                <input type="text" class="fr" />
+                <span class="fl">+{{ selectedAreaCode }}</span>
+                <input
+                    type="text"
+                    class="fr"
+                    v-model="phone"
+                    :placeholder="selectedtips"
+                    :maxlength="selectedMaxlength"
+                />
             </div>
-            <input type="checkbox" class="checkbox" />
-            <router-link to="" class="btn btn_appoint_now"
+            <input
+                type="checkbox"
+                class="checkbox"
+                v-model="checked"
+                @click="handleCheckbox(this)"
+            />
+            <label for="checkbox" v-show="ischecksimpol"> {{ checked }} </label>
+            <img
+                src="../../assets/imgs/appoint/check.png"
+                alt=""
+                class="check_img"
+                v-if="isCheck"
+            />
+            <router-link
+                to=""
+                class="btn btn_appoint_now"
+                @click.native="handleClickAppoint()"
                 >立即预约</router-link
             >
             <router-link to="" class="btn btn_app">app</router-link>
@@ -42,6 +67,9 @@
             class="people_img"
         />
         <div class="progress">
+            <div class="line">
+                <img src="../../assets/imgs/wline100.png" alt="">
+            </div>
             <img
                 src="../../assets/imgs/appoint/process.png"
                 alt=""
@@ -59,41 +87,158 @@ export default {
     },
     data () {
         return {
-            defaultArea: "台灣",
-            area: [
-                {
-                    id: "01",
-                    area_name: "台灣"
-                },
-                {
-                    id: "02",
-                    area_name: "香港"
-                },
-                {
-                    id: "03",
-                    area_name: "澳門"
-                },
-                {
-                    id: "04",
-                    area_name: "新加坡"
-                },
-                {
-                    id: "05",
-                    area_name: "馬來西亞"
-                }
-            ],
+            selectedArea: "台灣",
             options: {
                 isSelect: false
-            }
+            },
+            phone: "",
+            isCheck: false,
+            checked: false,
+            area: [
+                {
+                    id: "0",
+                    area: "台灣",
+                    areaCode: "886",
+                    tips: "填寫0後的9位行動電話號碼",
+                    areaSimple: "tw",
+                    maxlength: 9
+                },
+                {
+                    id: "1",
+                    area: "香港",
+                    areaCode: "852",
+                    tips: "填寫8位數行動電話號碼",
+                    areaSimple: "xg",
+                    maxlength: 8
+                },
+                {
+                    id: "2",
+                    area: "澳門",
+                    areaCode: "853",
+                    tips: "填寫8位數行動電話號碼",
+                    areaSimple: "am",
+                    maxlength: 8
+                },
+                {
+                    id: "3",
+                    area: "新加坡",
+                    areaCode: "65",
+                    tips: "填寫8位數行動電話號碼",
+                    areaSimple: "xjp",
+                    maxlength: 8
+                },
+                {
+                    id: "4",
+                    area: "馬來西亞",
+                    areaCode: "60",
+                    tips: "填寫9位或者10位數電話號碼",
+                    areaSimple: "mlxy",
+                    maxlength: 10
+                }
+            ],
+            ischecksimpol: false,
+            selectedAreaCode: "886",
+            selectedAreaId: 0,
+            selectedtips: "填寫0後的9位數行動電話號碼",
+            selectedSimple: "tw",
+            selectedMaxlength: 9,
+            number: 0
         };
+    },
+    mounted () {
+        this.getNumber();
     },
     methods: {
         handleClickShow () {
             this.options.isSelect = !this.options.isSelect;
         },
-        changeValue (name) {
+        /**
+         * 下拉赋值
+         */
+        changeValue (id, areaName, areaCode, tips, areaSimple, maxlength) {
             this.options.isSelect = false;
-            this.defaultArea = name;
+            this.selectedArea = areaName;
+            this.selectedAreaCode = areaCode;
+            this.selectedAreaId = id;
+            this.selectedtips = tips;
+            this.selectedSimple = areaSimple;
+            this.selectedMaxlength = maxlength;
+            console.log("此时选中的id", this.selectedAreaId);
+        },
+        handleCheckbox () {
+            console.log(this.checked);
+            if (this.checked === false) {
+                console.log("已选中");
+            } else {
+                console.log("未选中");
+            }
+        },
+        getNumber () {
+            let datas = "";
+            this.getHttp(this, datas, "/api/appointment/getPeopleCount", function (obj, data) {
+                if (data.code === 200) {
+                    obj.number = data.data;
+                    console.log("預約藉口獲取到的值", obj.number);
+                    // obj.$message(data.message);
+                } else {
+                    obj.$message(data.message);
+                }
+            });
+        },
+        handleClickAppoint () {
+            // console.log(
+            //     "电话号码",
+            //     this.phone,
+            //     "地区",
+            //     "地区代号",
+            //     this.selectedAreaCode,
+            //     this.selectedArea,
+            //     "是否勾选",
+            //     this.checked
+            // );
+            let areaCode = this.area[this.selectedAreaId].areaCode;
+            let selectedSimple = this.area[this.selectedAreaId].areaSimple;
+            let tel = areaCode + this.phone;
+            console.log("完整的手机号码:", tel);
+
+            if (this.checked === !true) {
+                this.$message("請您先勾選同意個人資料的蒐集使用及接收獎勵簡訊!");
+                return false;
+            }
+
+            if (this.phone === "") {
+                this.$message("電話號碼不能爲空！");
+                return false;
+            }
+
+            if (!this.validatePhone(tel, areaCode)) {
+                this.$message("电话号码格式錯誤!");
+                return false;
+            }
+
+            let datas = {
+                "phone": tel,
+                "zone": selectedSimple
+            };
+
+            this.postHttp(this, datas, "/api/appointment/store", function (obj, data) {
+                if (data.code === 200) {
+                    console.log("預約藉口獲取到的值", data);
+                    obj.$message(data.message);
+                } else {
+                    obj.$message(data.message);
+                }
+            });
+        },
+        validatePhone (phone, areaCode, number) {
+            let map = {
+                886: /^(886)?\d{9,10}$/,
+                852: /^(852)?\d{8}$/,
+                853: /^(853)?\d{8}$/,
+                60: /^(60)?\d{9,10}$/,
+                65: /^(65)?\d{8}$/
+            };
+            return map[areaCode].test(phone);
         }
     }
 };
@@ -127,6 +272,14 @@ export default {
         position: absolute;
         left: 2.57rem;
         top: 0.78rem;
+        .check_img {
+            position: absolute;
+            width: 0.17rem;
+            height: 0.16rem;
+            left: 4.13rem;
+            top: 1.48rem;
+            cursor: pointer;
+        }
         .checkbox {
             position: absolute;
             width: 0.17rem;
@@ -289,12 +442,15 @@ export default {
     }
     .progress {
         position: absolute;
-        left: 3.4rem;
-        bottom: 0.15rem;
+        left: 3rem;
+        bottom: 0.1rem;
         z-index: 1;
         .appoint_process {
-            width: 8.76rem;
-            height: 2.12rem;
+            width: 8.9rem;
+            height: 2.04rem;
+            position: absolute;
+            left:0;
+    bottom: -.1rem;
         }
     }
 }
