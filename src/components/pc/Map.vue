@@ -3,31 +3,60 @@
         <img src="../../assets/imgs/map/map_bg.jpg" alt="" />
         <img src="../../assets/imgs/map/title.png" alt="" class="title" />
 
-        <div class="info">
+        <!-- 左边国家信息 -->
+        <div class="info_con">
             <div class="qin">
-                <img src="../../assets/imgs/map/i_yan.png" alt="" />
-                <!-- 秦人先祖嬴姓部族早在殷商時期就是鎮守西戎的得力助手。秦襄公派兵護送周平王東遷，被封為諸侯。秦國軍隊自商鞅變法實行獎勵軍功政策後 -->
+                <transition
+                    enter-active-class="animate__animated animate__fadeInUp"
+                    leave-active-class="animate__animated animate__fadeOutDown"
+                    :duration="{ enter: 1000, leave: 2000 }"
+                >
+                    <img
+                        src="../../assets/imgs/map/qin/info.png"
+                        class="info"
+                        v-show="this.show"
+                    />
+                </transition>
+                <transition
+                    enter-active-class="animate__animated animate__fadeInUp"
+                    leave-active-class="animate__animated animate__fadeOutDown"
+                    :duration="{ enter: 2000, leave: 1000 }"
+                >
+                    <img
+                        src="../../assets/imgs/map/qin/fea.png"
+                        alt=""
+                        class="fea"
+                        v-show="this.show"
+                    />
+                </transition>
             </div>
         </div>
+
+        <!-- 中间地图 -->
         <div class="map">
-            <!-- <img src="../../assets/imgs/map/map_bg.png" alt="" /> -->
-            <em class="yan"></em>
+            <div>
+                <em class="yan"></em>
+                <em class="yan_cur"></em>
+            </div>
             <em class="zhao"></em>
-            <div class="qin_con">
+            <div>
                 <em class="qin"></em>
-                <em class="qin_on center_on"></em>
+                <em class="qin_cur center_on"></em>
             </div>
             <em class="chu"></em>
             <em class="wei"></em>
             <em class="han"></em>
             <em class="qi"></em>
         </div>
+
+        <!-- 右边转盘 -->
         <div class="circle">
-            <img src="../../assets/imgs/map/smalll.png" alt="" class="img_li" />
+            <img src="../../assets/imgs/smalll.png" alt="" class="cicle_small" />
             <ul
                 :class="{ active: isActive }"
                 :style="{ transform: `rotate(${defaultDeg}deg)` }"
             >
+            <img src="../../assets/imgs/big.png" alt="" class="cicle_big" />
                 <li class="center"></li>
                 <li
                     :class="item.name"
@@ -35,9 +64,11 @@
                     :key="item.id"
                     @click="handleCricle(item.name, item.deg, item.pos)"
                 >
+                    <img :src="item.imgSrc" alt="" class="first_img">
                     <img
-                        :src="item.imgSrc"
+                        :src="item.imgSrcOn"
                         v-show="selectedValue == item.name"
+                        class="two_img"
                     />
                 </li>
             </ul>
@@ -60,103 +91,126 @@ export default {
                     name: "yan",
                     deg: -60,
                     pos: 1,
-                    imgSrc: require("../../assets/imgs/map/yan_active.png")
+                    imgSrc: require("../../assets/imgs/map/yan/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/yan/name_on.png")
                 },
                 {
                     id: "02",
                     name: "zhao",
                     deg: -30,
                     pos: 2,
-                    imgSrc: require("../../assets/imgs/map/zhao_active.png")
+                    imgSrc: require("../../assets/imgs/map/zhao/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/zhao/name_on.png")
                 },
                 {
                     id: "03",
                     name: "qin",
                     deg: 0,
                     pos: 0,
-                    imgSrc: require("../../assets/imgs/map/qin_active.png")
+                    imgSrc: require("../../assets/imgs/map/qin/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/qin/name_on.png")
                 },
                 {
                     id: "04",
                     name: "chu",
                     deg: 30,
                     pos: 3,
-                    imgSrc: require("../../assets/imgs/map/chu_active.png")
+                    imgSrc: require("../../assets/imgs/map/chu/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/chu/name_on.png")
                 },
                 {
                     id: "05",
                     name: "wei",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/wei_active.png")
+                    imgSrc: require("../../assets/imgs/map/wei/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/wei/name_on.png")
                 },
                 {
                     id: "06",
                     name: "han",
                     deg: 90,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/han_active.png")
+                    imgSrc: require("../../assets/imgs/map/han/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/han/name_on.png")
                 },
                 {
                     id: "07",
                     name: "qi",
                     deg: 120,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/qi_active.png")
+                    imgSrc: require("../../assets/imgs/map/qi/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/qi/name_on.png")
                 },
                 {
                     id: "08",
                     name: "yan1",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/yan_active.png")
+                    imgSrc: require("../../assets/imgs/map/yan/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/yan/name_on.png")
                 },
                 {
                     id: "09",
                     name: "zhao1",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/zhao_active.png")
+                    imgSrc: require("../../assets/imgs/map/zhao/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/zhao/name_on.png")
                 },
                 {
                     id: "10",
                     name: "qin1",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/qin_active.png")
+                    imgSrc: require("../../assets/imgs/map/qin/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/qin/name_on.png")
                 },
                 {
                     id: "11",
                     name: "chu1",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/chu_active.png")
+                    imgSrc: require("../../assets/imgs/map/chu/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/chu/name_on.png")
                 },
                 {
                     id: "12",
                     name: "wei1",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/wei_active.png")
+                    imgSrc: require("../../assets/imgs/map/wei/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/wei/name_on.png")
                 },
                 {
                     id: "13",
                     name: "han1",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/han_active.png")
+                    imgSrc: require("../../assets/imgs/map/han/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/han/name_on.png")
                 },
                 {
                     id: "14",
                     name: "qi1",
                     deg: 60,
                     pos: 4,
-                    imgSrc: require("../../assets/imgs/map/qi_active.png")
+                    imgSrc: require("../../assets/imgs/map/qi/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/qi/name_on.png")
                 }
             ],
             defaultDeg: 0,
-            selectedValue: "qin"
+            selectedValue: "qin",
+            show: false,
+            country: [
+                {
+                    id: "01"
+                }
+            ]
         };
+    },
+    mounted () {
+        this.show = true;
     },
     methods: {
         handleCricle (name, deg, pos) {
@@ -209,12 +263,26 @@ export default {
 .map_wrap {
     position: relative;
     width: 100%;
-    .info {
+    .info_con {
         position: absolute;
         left: 3.55rem;
         top: 2.33rem;
         .qin {
             width: 4.35rem;
+            img {
+                position: absolute;
+                left: 0;
+            }
+            .info {
+                width: 4.35rem;
+                height: 2.86rem;
+                top: 0;
+            }
+            .fea {
+                width: 2.53rem;
+                height: 1.92rem;
+                top: 3.87rem;
+            }
         }
     }
     .map {
@@ -237,10 +305,11 @@ export default {
             position: absolute;
             top: 0;
             right: 0.61rem;
-            background: url(".././../assets/imgs/map/yan.png") no-repeat;
+            background: url(".././../assets/imgs/map/yan/map.png") no-repeat;
             background-size: 100% 100%;
             &:hover {
-                background: url(".././../assets/imgs/map/yan_on.png") no-repeat;
+                background: url(".././../assets/imgs/map/yan/map_on.png")
+                    no-repeat;
                 background-size: 100% 100%;
             }
         }
@@ -250,10 +319,11 @@ export default {
             position: absolute;
             top: 0.03rem;
             left: 2.18rem;
-            background: url(".././../assets/imgs/map/zhao.png") no-repeat;
+            background: url(".././../assets/imgs/map/zhao/map.png") no-repeat;
             background-size: 100% 100%;
             &:hover {
-                background: url(".././../assets/imgs/map/zhao_on.png") no-repeat;
+                background: url(".././../assets/imgs/map/zhao/map_on.png")
+                    no-repeat;
                 background-size: 100% 100%;
             }
         }
@@ -263,10 +333,11 @@ export default {
             position: absolute;
             top: 0.75rem;
             left: 0.05rem;
-            background: url(".././../assets/imgs/map/qin.png") no-repeat;
+            background: url(".././../assets/imgs/map/qin/map.png") no-repeat;
             background-size: 100% 100%;
             &:hover {
-                background: url(".././../assets/imgs/map/qin_on.png") no-repeat;
+                background: url(".././../assets/imgs/map/qin/map_on.png")
+                    no-repeat;
                 background-size: 100% 100%;
             }
         }
@@ -274,16 +345,16 @@ export default {
             position: absolute;
             top: 0.75rem;
             left: 0.05rem;
-            background: url(".././../assets/imgs/map/qin.png") no-repeat;
+            background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
             background-size: 100% 100%;
         }
-        .qin_on {
+        .qin_cur {
             width: 3.93rem;
             height: 6.32rem;
             position: absolute;
             top: 0.75rem;
             left: 0.05rem;
-            background: url(".././../assets/imgs/map/qin_on.png") no-repeat;
+            background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
             background-size: 100% 100%;
         }
         .chu {
@@ -292,10 +363,11 @@ export default {
             position: absolute;
             bottom: 0.01rem;
             right: 0.05rem;
-            background: url(".././../assets/imgs/map/chu.png") no-repeat;
+            background: url(".././../assets/imgs/map/chu/map.png") no-repeat;
             background-size: 100% 100%;
             &:hover {
-                background: url(".././../assets/imgs/map/chu_on.png") no-repeat;
+                background: url(".././../assets/imgs/map/chu/map_on.png")
+                    no-repeat;
                 background-size: 100% 100%;
             }
         }
@@ -305,10 +377,11 @@ export default {
             position: absolute;
             top: 2.33rem;
             right: 1.75rem;
-            background: url(".././../assets/imgs/map/wei.png") no-repeat;
+            background: url(".././../assets/imgs/map/wei/map.png") no-repeat;
             background-size: 100% 100%;
             &:hover {
-                background: url(".././../assets/imgs/map/wei_on.png") no-repeat;
+                background: url(".././../assets/imgs/map/wei/map_on.png")
+                    no-repeat;
                 background-size: 100% 100%;
             }
         }
@@ -318,10 +391,11 @@ export default {
             position: absolute;
             top: 2.18rem;
             right: 3.7rem;
-            background: url(".././../assets/imgs/map/han.png") no-repeat;
+            background: url(".././../assets/imgs/map/han/map.png") no-repeat;
             background-size: 100% 100%;
             &:hover {
-                background: url(".././../assets/imgs/map/han_on.png") no-repeat;
+                background: url(".././../assets/imgs/map/han/map_on.png")
+                    no-repeat;
                 background-size: 100% 100%;
             }
         }
@@ -331,10 +405,11 @@ export default {
             position: absolute;
             top: 1.45rem;
             right: 0.25rem;
-            background: url(".././../assets/imgs/map/qi.png") no-repeat;
+            background: url(".././../assets/imgs/map/qi/map.png") no-repeat;
             background-size: 100% 100%;
             &:hover {
-                background: url(".././../assets/imgs/map/qi_on.png") no-repeat;
+                background: url(".././../assets/imgs/map/qi/map_on.png")
+                    no-repeat;
                 background-size: 100% 100%;
             }
         }
@@ -349,7 +424,7 @@ export default {
     z-index: 1;
 }
 .circle {
-    .img_li {
+    .cicle_small {
         position: absolute;
         width: 7.05rem;
         height: 7.11rem;
@@ -358,16 +433,26 @@ export default {
         margin-top: -3.43rem;
         animation: circle 20s infinite linear;
     }
+    .cicle_big {
+        position: absolute;
+        width: 10.12rem;
+        height: 9.99rem;
+        /*right: -35.2%;*/
+        right: 10%;
+        top: 50%;
+        margin-top: -4.83rem;
+        transition: all 0.9s;
+        z-index: 9999;
+    }
     ul {
         position: absolute;
         width: 10.12rem;
         height: 9.99rem;
-        right: -35.2%;
-        // right: 10%;
+        /*right: -35.2%;*/
+        right: 10%;
         top: 50%;
         margin-top: -4.83rem;
-        background: url(".././../assets/imgs/map/big.png") no-repeat;
-        background-size: 100% 100%;
+        background: pink;
         transition: all 0.9s;
         li {
             position: absolute;
@@ -377,11 +462,17 @@ export default {
             cursor: pointer;
             img {
                 position: absolute;
+                left: 0;
+                top: 0;
+                margin-top: 0;
+            }
+            .first_img{
+                width: 1.06rem;
+                height: 1.07rem;
+            }
+            .two_img{
                 width: 1.37rem;
                 height: 1.06rem;
-                left: 0;
-                top:  0;
-                margin-top: 0;
             }
             &.qi {
                 right: 5.45rem;

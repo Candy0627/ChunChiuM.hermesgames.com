@@ -9,8 +9,8 @@ import {
 } from "element-ui";
 import "../../assets/styles/pc-index.css";
 
-import vueAwesomeSwiper from "vue-awesome-swiper";
-Vue.use(vueAwesomeSwiper);
+import animated from "animate.css";
+Vue.use(animated);
 
 Vue.config.productionTip = false;
 Vue.prototype.$message = Message;

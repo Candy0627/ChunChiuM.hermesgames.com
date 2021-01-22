@@ -450,6 +450,22 @@ img.logo {
 @media only screen and (min-width: 1825px) and (max-width: 1920px){html{font-size: 100px;}} 
 @media only screen and (min-width: 1920px){html{font-size: 100px;}}
 
+/* @media only screen and (max-width: 576px){html{font-size: 25px;}}
+@media only screen and (min-width: 577px) and (max-width: 672px){html{font-size: 30px;}}
+@media only screen and (min-width: 673px) and (max-width: 768px){html{font-size: 35px;}}
+@media only screen and (min-width: 769px) and (max-width: 864px){html{font-size: 40px;}}
+@media only screen and (min-width: 865px) and (max-width: 960px){html{font-size: 45px;}}
+@media only screen and (min-width: 961px) and (max-width: 1056px){html{font-size: 50px;}}
+@media only screen and (min-width: 1057px) and (max-width: 1152px){html{font-size: 55px;}}
+@media only screen and (min-width: 1153px) and (max-width: 1248px){html{font-size: 60px;}}
+@media only screen and (min-width: 1249px) and (max-width: 1344px){html{font-size: 65px;}}
+@media only screen and (min-width: 1345px) and (max-width: 1440px){html{font-size: 70px;}}
+@media only screen and (min-width: 1441px) and (max-width: 1536px){html{font-size: 75px;}}
+@media only screen and (min-width: 1537px) and (max-width: 1632px){html{font-size: 80px;}}
+@media only screen and (min-width: 1633px) and (max-width: 1728px){html{font-size: 85px;}}
+@media only screen and (min-width: 1729px) and (max-width: 1824px){html{font-size: 90px;}}
+@media only screen and (min-width: 1825px) and (max-width: 1919px){html{font-size: 95px;}} 
+@media only screen and (min-width: 1920px){html{font-size: 100px;}} */
 
 .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
   bottom:0;
@@ -523,22 +539,6 @@ img.logo {
     top: 52px;
 }
 
-.footer{
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
-.footer ul{
-    position: absolute;
-    left: 6.4rem;
-    top: .25rem;
-}
-.footer ul li {
-    float: left;
-    width: .74rem;
-    height: 0.333rem;
-    cursor: pointer;
-}
 /* self add */
 .el-message{
 	position: fixed;

@@ -20,7 +20,16 @@
                     <li
                         v-for="item in area"
                         :key="item.id"
-                        @click="changeValue(item.id, item.area, item.areaCode, item.tips, item.areaSimple, item.maxlength)"
+                        @click="
+                            changeValue(
+                                item.id,
+                                item.area,
+                                item.areaCode,
+                                item.tips,
+                                item.areaSimple,
+                                item.maxlength
+                            )
+                        "
                     >
                         {{ item.area }}
                     </li>
@@ -67,13 +76,98 @@
             class="people_img"
         />
         <div class="progress">
+            <img
+                src="../../assets/imgs/simpol.png"
+                alt=""
+                class="simpol"
+                :style="{ left: left_simpol + 'rem' }"
+            />
             <div class="line">
-                <img src="../../assets/imgs/wline100.png" alt="">
+                <img
+                    src="../../assets/imgs/wline0.png"
+                    alt=""
+                    v-if="number == 0"
+                />
+                <img
+                    src="../../assets/imgs/wline05.png"
+                    alt=""
+                    v-if="number > 0 && number < 50000"
+                />
+                <img
+                    src="../../assets/imgs/wline5.png"
+                    alt=""
+                    v-if="number == 50000"
+                />
+                <img
+                    src="../../assets/imgs/wline5-10.png"
+                    alt=""
+                    v-if="number > 50000 && number < 100000"
+                />
+                <img
+                    src="../../assets/imgs/wline10.png"
+                    alt=""
+                    v-if="number == 100000"
+                />
+                <img
+                    src="../../assets/imgs/wline10-20.png"
+                    alt=""
+                    v-if="number > 100000 && number < 200000"
+                />
+                <img
+                    src="../../assets/imgs/wline20.png"
+                    alt=""
+                    v-if="number == 200000"
+                />
+                <img
+                    src="../../assets/imgs/wline20-30.png"
+                    alt=""
+                    v-if="number > 200000 && number < 300000"
+                />
+                <img
+                    src="../../assets/imgs/wline30.png"
+                    alt=""
+                    v-if="number == 300000"
+                />
+                <img
+                    src="../../assets/imgs/wline30-50.png"
+                    alt=""
+                    v-if="number > 300000 && number < 500000"
+                />
+                <img
+                    src="../../assets/imgs/wline50.png"
+                    alt=""
+                    v-if="number == 500000"
+                />
             </div>
             <img
                 src="../../assets/imgs/appoint/process.png"
                 alt=""
                 class="appoint_process"
+            />
+            <img src="../../assets/imgs/appoint/finished.png"
+                alt=""
+                class="finished finished5w"
+                v-if="number == 50000"
+            />
+             <img src="../../assets/imgs/appoint/finished.png"
+                alt=""
+                class="finished finished10w"
+                v-if="number == 100000"
+            />
+            <img src="../../assets/imgs/appoint/finished.png"
+                alt=""
+                class="finished finished20w"
+                v-if="number == 200000"
+            />
+            <img src="../../assets/imgs/appoint/finished.png"
+                alt=""
+                class="finished finished30w"
+                v-if="number == 300000"
+            />
+            <img src="../../assets/imgs/appoint/finished.png"
+                alt=""
+                class="finished finished50w"
+                v-if="number == 500000"
             />
         </div>
     </div>
@@ -142,7 +236,8 @@ export default {
             selectedtips: "填寫0後的9位數行動電話號碼",
             selectedSimple: "tw",
             selectedMaxlength: 9,
-            number: 0
+            number: 100000,
+            left_simpol: 0
         };
     },
     mounted () {
@@ -175,15 +270,53 @@ export default {
         },
         getNumber () {
             let datas = "";
-            this.getHttp(this, datas, "/api/appointment/getPeopleCount", function (obj, data) {
-                if (data.code === 200) {
-                    obj.number = data.data;
-                    console.log("預約藉口獲取到的值", obj.number);
-                    // obj.$message(data.message);
-                } else {
-                    obj.$message(data.message);
+            this.getHttp(
+                this,
+                datas,
+                "/api/appointment/getPeopleCount",
+                function (obj, data) {
+                    if (data.code === 200) {
+                        obj.number = data.data;
+                        let n = obj.number;
+                        n = 50000;
+                        if (n === 0) {
+                            obj.left_simpol = 0;
+                        }
+                        if (n > 0 && n < 50000) {
+                            obj.left_simpol = 0.18;
+                        }
+                        if (n === 50000) {
+                            obj.left_simpol = 0.45;
+                        }
+                        if (n > 50000 && n < 100000) {
+                            obj.left_simpol = 1.35;
+                        }
+                        if (n === 100000) {
+                            obj.left_simpol = 2.3;
+                        }
+                        if (n > 100000 && n < 200000) {
+                            obj.left_simpol = 3.3;
+                        }
+                        if (n === 200000) {
+                            obj.left_simpol = 4.15;
+                        }
+                        if (n > 200000 && n < 300000) {
+                            obj.left_simpol = 5.3;
+                        }
+                        if (n === 300000) {
+                            obj.left_simpol = 5.9;
+                        }
+                        if (n > 300000 && n < 500000) {
+                            obj.left_simpol = 7.09;
+                        }
+                        if (n === 500000) {
+                            obj.left_simpol = 7.6;
+                        }
+                    } else {
+                        obj.$message(data.message);
+                    }
                 }
-            });
+            );
         },
         handleClickAppoint () {
             // console.log(
@@ -202,7 +335,9 @@ export default {
             console.log("完整的手机号码:", tel);
 
             if (this.checked === !true) {
-                this.$message("請您先勾選同意個人資料的蒐集使用及接收獎勵簡訊!");
+                this.$message(
+                    "請您先勾選同意個人資料的蒐集使用及接收獎勵簡訊!"
+                );
                 return false;
             }
 
@@ -217,11 +352,14 @@ export default {
             }
 
             let datas = {
-                "phone": tel,
-                "zone": selectedSimple
+                phone: tel,
+                zone: selectedSimple
             };
 
-            this.postHttp(this, datas, "/api/appointment/store", function (obj, data) {
+            this.postHttp(this, datas, "/api/appointment/store", function (
+                obj,
+                data
+            ) {
                 if (data.code === 200) {
                     console.log("預約藉口獲取到的值", data);
                     obj.$message(data.message);
@@ -443,14 +581,44 @@ export default {
     .progress {
         position: absolute;
         left: 3rem;
-        bottom: 0.1rem;
+        bottom: 0.4rem;
         z-index: 1;
+        width: 9.14rem;
+        height: 2.1rem;
         .appoint_process {
             width: 8.9rem;
             height: 2.04rem;
             position: absolute;
-            left:0;
-    bottom: -.1rem;
+            left: 0;
+            bottom: -0.1rem;
+        }
+        .simpol {
+            width: 0.82rem;
+            height: 0.8rem;
+            position: absolute;
+            top: -0.6rem;
+            left: 0;
+        }
+        .finished{
+            width: 0.62rem;
+            height: 0.71rem;
+            position: absolute;
+            top: .71rem;
+        }
+        .finished5w{
+            left: .26rem;
+        }
+        .finished10w{
+            left: 2.1rem;
+        }
+        .finished20w{
+            left: 3.94rem;
+        }
+        .finished30w{
+            left: 5.78rem;
+        }
+        .finished50w{
+            left: 7.62rem;
         }
     }
 }
