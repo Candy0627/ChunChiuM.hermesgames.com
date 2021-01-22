@@ -2,7 +2,19 @@
     <div class="military_wrap">
         <span></span>
         <div class="con">
-            <img src="../../assets/imgs/video_bg.jpg" alt="" />
+            <video
+                width="100%"
+                height="100%"
+                class="one-background-video"
+                muted="muted"
+                data-autoplay
+                autoplay
+                loop
+                poster=""
+            >
+                <source src="../../assets/battle.mp4" type="video/mp4" />
+            </video>
+            <!-- <img src="../../assets/imgs/video_bg.jpg" alt="" /> -->
             <img src="../../assets/imgs/battle/s1.png" alt="" />
         </div>
         <ul>
