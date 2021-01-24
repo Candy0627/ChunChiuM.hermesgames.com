@@ -1,7 +1,7 @@
 <template>
     <div class="map_wrap">
-        <img src="../../assets/imgs/map/map_bg.jpg" alt="" />
-        <img src="../../assets/imgs/map/title.png" alt="" class="title" />
+        <img src="../../assets/imgs/map/map_bg.jpg" alt />
+        <img src="../../assets/imgs/map/title.png" alt class="title" />
 
         <!-- 左边国家信息 -->
         <div class="info_con">
@@ -24,7 +24,7 @@
                 >
                     <img
                         src="../../assets/imgs/map/qin/fea.png"
-                        alt=""
+                        alt
                         class="fea"
                         v-show="this.show"
                     />
@@ -51,25 +51,26 @@
 
         <!-- 右边转盘 -->
         <div class="circle">
-            <img src="../../assets/imgs/smalll.png" alt="" class="cicle_small" />
-            <ul
-                :class="{ active: isActive }"
-                :style="{ transform: `rotate(${defaultDeg}deg)` }"
-            >
-            <img src="../../assets/imgs/big.png" alt="" class="cicle_big" />
-                <li class="center"></li>
+            <!-- 小圆 -->
+            <img src="../../assets/imgs/smalll.png" alt class="cicle_small" />
+            <ul :class="{ active: isActive }" class="ul">
+                <!-- 大圆 -->
+                <img
+                    src="../../assets/imgs/big.png"
+                    alt
+                    class="cicle_big"
+                    :style="{ transform: `rotate(${defaultDeg}deg)` }"
+                />
+
                 <li
-                    :class="item.name"
-                    v-for="item in circle"
+                    v-for="(item, index) in circle"
                     :key="item.id"
-                    @click="handleCricle(item.name, item.deg, item.pos)"
+                    @click="handleCricle(index, item.name, item.deg, item.pos)"
                 >
-                    <img :src="item.imgSrc" alt="" class="first_img">
-                    <img
-                        :src="item.imgSrcOn"
-                        v-show="selectedValue == item.name"
-                        class="two_img"
-                    />
+                    <em
+                        :class="item.name"
+                        :style="{ transform: `rotate(${defaultDeg}deg)` }"
+                    ></em>
                 </li>
             </ul>
         </div>
@@ -85,120 +86,6 @@ export default {
     data () {
         return {
             isActive: false,
-            circle: [
-                {
-                    id: "01",
-                    name: "yan",
-                    deg: -60,
-                    pos: 1,
-                    imgSrc: require("../../assets/imgs/map/yan/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/yan/name_on.png")
-                },
-                {
-                    id: "02",
-                    name: "zhao",
-                    deg: -30,
-                    pos: 2,
-                    imgSrc: require("../../assets/imgs/map/zhao/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/zhao/name_on.png")
-                },
-                {
-                    id: "03",
-                    name: "qin",
-                    deg: 0,
-                    pos: 0,
-                    imgSrc: require("../../assets/imgs/map/qin/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/qin/name_on.png")
-                },
-                {
-                    id: "04",
-                    name: "chu",
-                    deg: 30,
-                    pos: 3,
-                    imgSrc: require("../../assets/imgs/map/chu/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/chu/name_on.png")
-                },
-                {
-                    id: "05",
-                    name: "wei",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/wei/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/wei/name_on.png")
-                },
-                {
-                    id: "06",
-                    name: "han",
-                    deg: 90,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/han/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/han/name_on.png")
-                },
-                {
-                    id: "07",
-                    name: "qi",
-                    deg: 120,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/qi/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/qi/name_on.png")
-                },
-                {
-                    id: "08",
-                    name: "yan1",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/yan/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/yan/name_on.png")
-                },
-                {
-                    id: "09",
-                    name: "zhao1",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/zhao/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/zhao/name_on.png")
-                },
-                {
-                    id: "10",
-                    name: "qin1",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/qin/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/qin/name_on.png")
-                },
-                {
-                    id: "11",
-                    name: "chu1",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/chu/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/chu/name_on.png")
-                },
-                {
-                    id: "12",
-                    name: "wei1",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/wei/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/wei/name_on.png")
-                },
-                {
-                    id: "13",
-                    name: "han1",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/han/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/han/name_on.png")
-                },
-                {
-                    id: "14",
-                    name: "qi1",
-                    deg: 60,
-                    pos: 4,
-                    imgSrc: require("../../assets/imgs/map/qi/name.png"),
-                    imgSrcOn: require("../../assets/imgs/map/qi/name_on.png")
-                }
-            ],
             defaultDeg: 0,
             selectedValue: "qin",
             show: false,
@@ -206,40 +93,101 @@ export default {
                 {
                     id: "01"
                 }
-            ]
+            ],
+            isY1: false,
+            isY1_1: false,
+            circle: {
+                yan: {
+                    id: "1",
+                    name: "yan",
+                    deg: 0,
+                    pos: -52,
+                    imgSrc: require("../../assets/imgs/map/yan/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/yan/name_on.png")
+                },
+                zhao: {
+                    id: "2",
+                    name: "zhao",
+                    deg: 0,
+                    pos: -26,
+                    imgSrc: require("../../assets/imgs/map/zhao/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/zhao/name_on.png")
+                },
+                qin: {
+                    id: "3",
+                    name: "qin",
+                    deg: 0,
+                    pos: 0,
+                    imgSrc: require("../../assets/imgs/map/qin/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/qin/name_on.png")
+                },
+                chu: {
+                    id: "4",
+                    name: "chu",
+                    deg: 0,
+                    pos: 26,
+                    imgSrc: require("../../assets/imgs/map/chu/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/chu/name_on.png")
+                },
+                wei: {
+                    id: "5",
+                    name: "wei",
+                    deg: 0,
+                    pos: 52,
+                    imgSrc: require("../../assets/imgs/map/wei/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/wei/name_on.png")
+                },
+                han: {
+                    id: "6",
+                    name: "han",
+                    deg: 0,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/han/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/han/name_on.png")
+                },
+                qi: {
+                    id: "7",
+                    name: "qi",
+                    deg: 0,
+                    pos: 4,
+                    imgSrc: require("../../assets/imgs/map/qi/name.png"),
+                    imgSrcOn: require("../../assets/imgs/map/qi/name_on.png")
+                }
+            }
         };
     },
     mounted () {
         this.show = true;
     },
     methods: {
-        handleCricle (name, deg, pos) {
-            // console.log("转的位置", deg, pos);
-            // this.isActive = !this.isActive;
-            console.log(
-                "此时应该显示图片亮字",
-                typeof name,
-                typeof this.selectedValue
-            );
-            switch (name) {
-            case "yan":
-                this.defaultDeg = "-60";
-                this.selectedValue = "yan";
+        handleCricle (i, name, deg, pos) {
+            console.log(name, pos);
+            switch (pos) {
+            case -52:
+                this.defaultDeg = -52;
+                this.selectedValue = "wei";
                 break;
-            case "zhao":
-                this.defaultDeg = "-30";
-                this.selectedValue = "zhao";
+            case -26:
+                this.defaultDeg = -26;
+                this.$set(this.circle.qi, "pos", -78);
+                this.$set(this.circle.qin, "name", "zhao");
+                console.log("新出现的齐的位置", this.circle);
                 break;
-            case "qin":
-                this.defaultDeg = "0";
+            case 0:
+                this.defaultDeg = 0;
                 this.selectedValue = "qin";
                 break;
-            case "chu":
-                this.defaultDeg = "30";
-                this.selectedValue = "chu";
+            case 26:
+                this.defaultDeg = 26;
+                this.selectedValue = "yan";
                 break;
-            case "wei":
-                this.defaultDeg = "60";
+            case 52:
+                this.defaultDeg = 52;
+                this.selectedValue = "zhao";
+                this.circle[i].deg = "-30";
+                break;
+            case -78:
+                this.defaultDeg = -78;
                 this.selectedValue = "wei";
                 break;
             case "han":
@@ -250,34 +198,86 @@ export default {
                 this.defaultDeg = "120";
                 this.selectedValue = "qi";
             }
+        },
+        clickYan () {
+            this.isY1 = true;
+            this.isY1_1 = true;
+            this.defaultDeg = -30;
         }
     }
 };
 </script>
 
 <style scoped lang="scss">
+.wai {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #222;
+}
+
+.y1 {
+    animation: center1 0.9s ease-in-out forwards;
+}
+
+.y1_1 {
+    animation: center2 0.9s ease-in-out forwards;
+}
+
+.li {
+    content: "";
+    display: block;
+    width: 106px;
+    height: 107px;
+    text-align: center;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background: greenyellow;
+    border-radius: 100%;
+}
+
+@keyframes center1 {
+    to {
+        transform: translateY(214px);
+        transform-origin: (100, 100);
+    }
+}
+
+@keyframes center2 {
+    to {
+        transform: translateX(-106px);
+    }
+}
+
 /* 点击转动的样式 */
 .active {
     transform: rotate(-60deg);
 }
+
 .map_wrap {
     position: relative;
     width: 100%;
+
     .info_con {
         position: absolute;
         left: 3.55rem;
         top: 2.33rem;
+
         .qin {
             width: 4.35rem;
+
             img {
                 position: absolute;
                 left: 0;
             }
+
             .info {
                 width: 4.35rem;
                 height: 2.86rem;
                 top: 0;
             }
+
             .fea {
                 width: 2.53rem;
                 height: 1.92rem;
@@ -285,19 +285,23 @@ export default {
             }
         }
     }
+
     .map {
         width: 8.88rem;
         height: 7.04rem;
         position: absolute;
         right: 3.68rem;
         top: 2.33rem;
+
         img {
             width: 100%;
         }
+
         em {
             display: inline-block;
             transition: all 0.1s;
         }
+
         .yan {
             display: inline-block;
             width: 2.85rem;
@@ -307,12 +311,14 @@ export default {
             right: 0.61rem;
             background: url(".././../assets/imgs/map/yan/map.png") no-repeat;
             background-size: 100% 100%;
+
             &:hover {
                 background: url(".././../assets/imgs/map/yan/map_on.png")
                     no-repeat;
                 background-size: 100% 100%;
             }
         }
+
         .zhao {
             width: 4.21rem;
             height: 2.73rem;
@@ -321,12 +327,14 @@ export default {
             left: 2.18rem;
             background: url(".././../assets/imgs/map/zhao/map.png") no-repeat;
             background-size: 100% 100%;
+
             &:hover {
                 background: url(".././../assets/imgs/map/zhao/map_on.png")
                     no-repeat;
                 background-size: 100% 100%;
             }
         }
+
         .qin {
             width: 3.93rem;
             height: 6.32rem;
@@ -335,12 +343,14 @@ export default {
             left: 0.05rem;
             background: url(".././../assets/imgs/map/qin/map.png") no-repeat;
             background-size: 100% 100%;
+
             &:hover {
                 background: url(".././../assets/imgs/map/qin/map_on.png")
                     no-repeat;
                 background-size: 100% 100%;
             }
         }
+
         .center_on {
             position: absolute;
             top: 0.75rem;
@@ -348,6 +358,7 @@ export default {
             background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
             background-size: 100% 100%;
         }
+
         .qin_cur {
             width: 3.93rem;
             height: 6.32rem;
@@ -357,6 +368,7 @@ export default {
             background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
             background-size: 100% 100%;
         }
+
         .chu {
             width: 5.77rem;
             height: 3.44rem;
@@ -365,12 +377,14 @@ export default {
             right: 0.05rem;
             background: url(".././../assets/imgs/map/chu/map.png") no-repeat;
             background-size: 100% 100%;
+
             &:hover {
                 background: url(".././../assets/imgs/map/chu/map_on.png")
                     no-repeat;
                 background-size: 100% 100%;
             }
         }
+
         .wei {
             width: 3.15rem;
             height: 2.38rem;
@@ -379,12 +393,14 @@ export default {
             right: 1.75rem;
             background: url(".././../assets/imgs/map/wei/map.png") no-repeat;
             background-size: 100% 100%;
+
             &:hover {
                 background: url(".././../assets/imgs/map/wei/map_on.png")
                     no-repeat;
                 background-size: 100% 100%;
             }
         }
+
         .han {
             width: 2.62rem;
             height: 3.18rem;
@@ -393,12 +409,14 @@ export default {
             right: 3.7rem;
             background: url(".././../assets/imgs/map/han/map.png") no-repeat;
             background-size: 100% 100%;
+
             &:hover {
                 background: url(".././../assets/imgs/map/han/map_on.png")
                     no-repeat;
                 background-size: 100% 100%;
             }
         }
+
         .qi {
             width: 2.98rem;
             height: 2.61rem;
@@ -407,6 +425,7 @@ export default {
             right: 0.25rem;
             background: url(".././../assets/imgs/map/qi/map.png") no-repeat;
             background-size: 100% 100%;
+
             &:hover {
                 background: url(".././../assets/imgs/map/qi/map_on.png")
                     no-repeat;
@@ -415,14 +434,15 @@ export default {
         }
     }
 }
+
 .title {
     width: 12.09rem;
     height: 1.13rem;
     position: absolute;
     left: 3.55rem;
     top: 0.58rem;
-    z-index: 1;
 }
+
 .circle {
     .cicle_small {
         position: absolute;
@@ -433,114 +453,166 @@ export default {
         margin-top: -3.43rem;
         animation: circle 20s infinite linear;
     }
+
     .cicle_big {
         position: absolute;
-        width: 10.12rem;
+        width: 10rem;
         height: 9.99rem;
-        /*right: -35.2%;*/
-        right: 10%;
+        right: -35.2%;
+        right: 0.1rem;
         top: 50%;
-        margin-top: -4.83rem;
+        margin-top: -4.96rem;
         transition: all 0.9s;
-        z-index: 9999;
+        z-index: 0;
     }
+
     ul {
         position: absolute;
         width: 10.12rem;
         height: 9.99rem;
-        /*right: -35.2%;*/
-        right: 10%;
+        right: -36%;
+        // right: 10%;
         top: 50%;
         margin-top: -4.83rem;
-        background: pink;
-        transition: all 0.9s;
+        transition: all 0.9s ease-in-out;
+
         li {
             position: absolute;
             width: 1.37rem;
             height: 1.07rem;
             border-radius: 100%;
             cursor: pointer;
+
             img {
                 position: absolute;
                 left: 0;
                 top: 0;
                 margin-top: 0;
             }
-            .first_img{
+
+            &:nth-child(1) {
                 width: 1.06rem;
                 height: 1.07rem;
+                transition: all 0.9s;
             }
-            .two_img{
-                width: 1.37rem;
-                height: 1.06rem;
+
+            em {
+                display: block;
+                width: 1.07rem;
+                height: 1.08rem;
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin-top: 0;
             }
-            &.qi {
-                right: 5.45rem;
-                top: 0.3rem;
-            }
-            &.yan {
-                right: 7.2rem;
+
+            .yan {
+                left: 1.84rem;
                 top: 1.16rem;
             }
-            &.zhao {
-                right: 8.4rem;
-                top: 2.66rem;
+
+            .zhao {
+                left: 0.69rem;
+                top: 2.7rem;
             }
-            &.center {
+
+            .center {
                 right: 8.75rem;
                 top: 4.5rem;
             }
-            &.qin {
-                right: 8.75rem;
-                top: 4.5rem;
+            .m-52{
+                left: 1.84rem;
+                top: 1.16rem;
             }
-            &.chu {
-                right: 8.35rem;
-                top: 6.35rem;
+            .m-26{
+                left: 0.69rem;
+                top: 2.7rem;
             }
-            &.wei {
-                right: 7.15rem;
-                top: 7.8rem;
+            .m0 {
+                left: 0.29rem;
+                top: 4.53rem;
             }
-            &.han {
-                right: 5.45rem;
-                top: 8.6rem;
+            .m26 {
+                left: 0.72rem;
+                top: 6.38rem;
             }
-            &.qi1 {
-                right: 3.48rem;
-                top: 8.6rem;
+            .m52 {
+                left: 1.94rem;
+                top: 7.79rem;
             }
-            &.yan1 {
-                right: 1.73rem;
-                top: 7.81rem;
+            .qin {
+                left: 0.29rem;
+                top: 4.53rem;
             }
-            &.zhao1 {
-                right: 0.57rem;
+
+            .chu {
+                left: 0.72rem;
+                top: 6.38rem;
+            }
+
+            .wei {
+                left: 1.94rem;
+                top: 7.79rem;
+            }
+
+            .han {
+                left: 3.65rem;
+                top: 8.62rem;
+            }
+
+            .qi {
+                left: 5.58rem;
+                top: 8.63rem;
+            }
+
+            .yan1 {
+                left: 7.29rem;
+                top: 7.79rem;
+            }
+
+            .zhao1 {
+                left: 8.46rem;
                 top: 6.29rem;
             }
-            &.qin1 {
-                right: 0.16rem;
+
+            .qin1 {
+                left: 8.87rem;
                 top: 4.46rem;
             }
-            &.chu1 {
-                right: 0.59rem;
-                top: 2.6rem;
+
+            .chu1 {
+                left: 8.47rem;
+                top: 2.62rem;
             }
-            &.wei1 {
-                right: 1.75rem;
+
+            .wei1 {
+                left: 7.29rem;
                 top: 1.09rem;
             }
-            &.han1 {
-                right: 3.48rem;
+
+            .han1 {
+                left: 5.55rem;
+                top: 0.29rem;
+            }
+
+            .qi1 {
+                left: 3.59rem;
                 top: 0.27rem;
+            }
+
+            .two_img {
+                width: 1.37rem;
+                height: 1.06rem;
             }
         }
     }
 }
+
 @keyframes circle {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }

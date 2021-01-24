@@ -24,10 +24,11 @@ module.exports = {
     // eslint-loader警告配置
     overlay: {
       warnings: true,
-      errors: true
+      errors: true,
     }
   },
   configureWebpack: {
     devtool: 'source-map'
-  }
+  },
+  lintOnSave: false
 }

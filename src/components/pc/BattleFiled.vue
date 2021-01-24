@@ -2,27 +2,28 @@
     <div class="military_wrap">
         <span></span>
         <div class="con">
-            <video
-                width="100%"
-                height="100%"
-                class="one-background-video"
-                muted="muted"
-                data-autoplay
-                autoplay
-                loop
-                poster=""
-            >
-                <source src="../../assets/battle.mp4" type="video/mp4" />
-            </video>
-            <!-- <img src="../../assets/imgs/video_bg.jpg" alt="" /> -->
-            <img src="../../assets/imgs/battle/s1.png" alt="" />
+            <div v-for="(item, index) in videoList" :key="item.id">
+                <video
+                    width="100%"
+                    height="100%"
+                    class="one-background-video"
+                    muted="muted"
+                    data-autoplay
+                    autoplay
+                    loop
+                    poster="../../assets/imgs/video_bg.jpg"
+                    v-if="index === tabId"
+                >
+                    <source :src="item.videoSrc" type="video/mp4" />
+                </video>
+            </div>
+            <!-- solgan -->
+            <div v-for="(item, index) in solganList" :key="item.id" class="solgan">
+                <img :src="item.imgSrc" alt="" v-if="index === tabId" />
+            </div>
         </div>
         <ul>
-            <li @clcik="handleTab()">真實戰場</li>
-            <li>真實戰場</li>
-            <li>真實戰場</li>
-            <li>真實戰場</li>
-            <li>真實戰場</li>
+            <li v-for="(item,index) in filedList" :key="item.id"  @click="handleTab(index)">{{item.name}}</li>
         </ul>
     </div>
 </template>
@@ -35,17 +36,67 @@ export default {
     },
     data () {
         return {
-            nameList: [
+            tabId: 0,
+            filedList: [
+                {
+                    id: "00001",
+                    name: "真實戰場1"
+                },
+                {
+                    id: "00002",
+                    name: "真實戰場2"
+                },
+                {
+                    id: "00003",
+                    name: "真實戰場3"
+                },
+                {
+                    id: "00004",
+                    name: "真實戰場4"
+                }
+            ],
+            videoList: [
                 {
                     id: "01",
-                    name: "真實戰場"
+                    videoSrc: require("../../assets/media/battle.mp4")
+                },
+                {
+                    id: "02",
+                    videoSrc: require("../../assets/media/top.mp4")
+                },
+                {
+                    id: "03",
+                    videoSrc: require("../../assets/media/battle.mp4")
+                },
+                {
+                    id: "04",
+                    videoSrc: require("../../assets/media/top.mp4")
+                }
+            ],
+            solganList: [
+                {
+                    id: "001",
+                    imgSrc: require("../../assets/imgs/battle/s1.png")
+                },
+                {
+                    id: "002",
+                    imgSrc: require("../../assets/imgs/battle/s1.png")
+                },
+                {
+                    id: "003",
+                    imgSrc: require("../../assets/imgs/battle/s1.png")
+                },
+                {
+                    id: "004",
+                    imgSrc: require("../../assets/imgs/battle/s1.png")
                 }
             ]
         };
     },
     methods: {
-        handleTab () {
-
+        handleTab (i) {
+            this.tabId = i;
+            console.log("当前的是第几个video", i);
         }
     }
 };
@@ -64,9 +115,9 @@ export default {
         background: rgba(0, 0, 0, 0.6);
     }
     .con {
-        img {
+        .solgan {
             margin: 0 auto;
-            &:nth-child(2) {
+            img {
                 width: 4.07rem;
                 height: 1.51rem;
                 position: absolute;
@@ -79,26 +130,27 @@ export default {
     }
     ul {
         display: flex;
-        width: 54%;
+        width: 60%;
         position: absolute;
         bottom: 0.67rem;
         left: 50%;
-        margin-left:-27%;
+        margin-left:-22%;
         li {
-            width: 2rem;
+            width: 1.9rem;
             height: 0.6rem;
             line-height: 0.6rem;
+            margin-right: .8%;
             color: #ac9f7a;
             font-size: 0.24rem;
             background: url(".././../assets/imgs/battle/battle_info.png")
                 no-repeat;
-            background-size: 1.95rem 1.22rem;
+            background-size: 1.93rem 1.22rem;
             background-position: 0 -0.6rem;
             cursor: pointer;
             &:hover {
                 background: url(".././../assets/imgs/battle/battle_info.png")
                     no-repeat;
-                background-size: 1.95rem 1.22rem;
+                background-size: 1.93rem 1.22rem;
                 background-position: 0 0;
             }
         }

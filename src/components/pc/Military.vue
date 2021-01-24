@@ -32,13 +32,27 @@
                 <img
                     src="../../assets/imgs/hero/jun_info.png"
                     alt=""
-                    class="info"
+                    class="img info"
                 />
                 <img
-                    src="../../assets/imgs/hero/jun_corps.png"
+                    src="../../assets/imgs/hero/title2.png"
                     alt=""
-                    class="corps"
+                    class="img"
                 />
+                <div class="corps_center">
+                    <img src="../../assets/imgs/hero/jun_corps.png" alt="" />
+                    <ol>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                </div>
             </div>
         </div>
         <div class="gong" v-if="con === 'gong'">
@@ -54,13 +68,27 @@
                 <img
                     src="../../assets/imgs/hero/gong_info.png"
                     alt=""
-                    class="info"
+                    class="img info"
                 />
                 <img
-                    src="../../assets/imgs/hero/gong_corps.png"
+                    src="../../assets/imgs/hero/title2.png"
                     alt=""
-                    class="corps"
+                    class="img"
                 />
+                <div class="corps_center">
+                    <img src="../../assets/imgs/hero/gong_corps.png" alt="" />
+                    <ol>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                </div>
             </div>
         </div>
         <div class="qi" v-if="con === 'qi'">
@@ -76,13 +104,28 @@
                 <img
                     src="../../assets/imgs/hero/qi_info.png"
                     alt=""
-                    class="info"
+                    class="img info"
                 />
                 <img
-                    src="../../assets/imgs/hero/qi_corps.png"
+                    src="../../assets/imgs/hero/title2.png"
                     alt=""
-                    class="corps"
+                    class="img"
                 />
+                <div class="corps_center">
+                    <img src="../../assets/imgs/hero/qi_corps.png" alt="" />
+                    <ol>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+						<li></li>
+                    </ol>
+                </div>
             </div>
         </div>
         <div class="bu" v-if="con === 'bu'">
@@ -98,14 +141,36 @@
                 <img
                     src="../../assets/imgs/hero/bu_info.png"
                     alt=""
-                    class="info"
+                    class="img info"
                 />
                 <img
-                    src="../../assets/imgs/hero/bu_corps.png"
+                    src="../../assets/imgs/hero/title2.png"
                     alt=""
-                    class="corps"
+                    class="img"
                 />
+                <div class="corps_center">
+                    <img
+                        src="../../assets/imgs/hero/bu_corps.png"
+                        alt=""
+                        class="corps"
+                    />
+                    <ol>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+						<li></li>
+                    </ol>
+                </div>
             </div>
+        </div>
+        <div class="mask">
+
         </div>
     </div>
 </template>
@@ -223,13 +288,13 @@ export default {
         .peo {
             width: 8rem !important;
             height: 9.43rem !important;
-            left:0 !important;
+            left: 0 !important;
         }
-        .info{
+        .info {
             width: 8.21rem !important;
             height: 1.12rem !important;
         }
-        .corps{
+        .corps {
             width: 8.23rem !important;
             height: 4.06rem !important;
         }
@@ -238,13 +303,13 @@ export default {
         .peo {
             width: 7.72rem !important;
             height: 11.97rem !important;
-            left:0 !important;
+            left: 0 !important;
         }
-        .info{
+        .info {
             width: 8.31rem !important;
             height: 1.06rem !important;
         }
-        .corps{
+        .corps {
             width: 8.31rem !important;
             height: 4.06rem !important;
         }
@@ -253,14 +318,14 @@ export default {
         .peo {
             width: 8.27rem !important;
             height: 9.03rem !important;
-            top:1.77rem !important;
-            left:0 !important;
+            top: 1.77rem !important;
+            left: 0 !important;
         }
-        .info{
+        .info {
             width: 7.96rem !important;
-            height: .76rem !important;
+            height: 0.76rem !important;
         }
-        .corps{
+        .corps {
             width: 8.95rem !important;
             height: 4.08rem !important;
         }
@@ -269,14 +334,14 @@ export default {
         .peo {
             width: 6.99rem !important;
             height: 10.2rem !important;
-            top:1.63rem !important;
-            left:0 !important;
+            top: 1.63rem !important;
+            left: 0 !important;
         }
-        .info{
+        .info {
             width: 8.37rem !important;
-            height: .99rem !important;
+            height: 0.99rem !important;
         }
-        .corps{
+        .corps {
             width: 9.02rem !important;
             height: 4.8rem !important;
         }
@@ -300,7 +365,7 @@ export default {
         }
     }
     .content {
-        img {
+        .img {
             display: inline-block;
             position: absolute;
             left: 7.51rem;
@@ -310,9 +375,85 @@ export default {
                 top: 2.67rem;
             }
             &:nth-child(2) {
-                width: 8.21rem;
-                height: 4.03rem;
+                width: 1.94rem;
+                height: 0.44rem;
                 top: 4.25rem;
+            }
+        }
+        .corps_center {
+            position: absolute;
+            width: 8.21rem;
+            height: 3.68rem;
+            top: 4.79rem;
+			left: 7.92rem;
+            ol {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                align-items: top;
+                flex-wrap: wrap;
+                li {
+                    width: 18%;
+                    height: 1.7rem;
+                    background: pink;
+                    opacity: 0.6;
+                    margin-right: 2%;
+                    margin-top: 1.5%;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .gong {
+        .corps_center {
+            width: 7.72rem;
+            height: 4.2rem;
+            top: 4.1rem;
+			left: 7.92rem;
+            ol {
+                top: 0.5rem;
+            }
+        }
+    }
+    .qi {
+        .corps_center {
+            width: 8.45rem;
+            height: 4.06rem;
+            top: 4.2rem;
+			left: 7.92rem;
+            ol {
+                top: 0.5rem;
+                li {
+                    width: 16%;
+                    height: 1.7rem;
+                    background: pink;
+                    opacity: 0.6;
+                    margin-right: 2.8%;
+                    margin-top:0;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+	.bu {
+        .corps_center {
+            width: 8.61rem;
+            height: 4.66rem;
+            top: 3.6rem;
+			left: 7.92rem;
+            ol {
+                top: 0.5rem;
+                li {
+                    width: 16%;
+                    height: 1.7rem;
+                    background: pink;
+                    opacity: 0.6;
+                    margin-right: 2.8%;
+                    margin-top: .6rem;
+                    cursor: pointer;
+                }
             }
         }
     }
