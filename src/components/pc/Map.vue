@@ -177,30 +177,30 @@ export default {
             isShow: false,
             selectedName: "qin",
             circle: [ {
-                id: 1,
-                name: "yan",
-                pos: -52
-            },
-            {
-                id: 2,
-                name: "zhao",
-                pos: -26
-            },
-            {
-                id: 3,
-                name: "qin",
-                pos: 0
-            },
-            {
-                id: 4,
-                name: "chu",
-                pos: 26
-            },
-            {
-                id: 5,
-                name: "wei",
-                pos: 52
-            }
+                          id: 1,
+                          name: "yan",
+                          pos: -52
+                      },
+                      {
+                          id: 2,
+                          name: "zhao",
+                          pos: -26
+                      },
+                      {
+                          id: 3,
+                          name: "qin",
+                          pos: 0
+                      },
+                      {
+                          id: 4,
+                          name: "chu",
+                          pos: 26
+                      },
+                      {
+                          id: 5,
+                          name: "wei",
+                          pos: 52
+                      }
             ]
         };
     },

@@ -420,8 +420,8 @@ export default {
         }
         .checkbox {
             position: absolute;
-            width: 0.17rem;
-            height: 0.17rem;
+            width: 0.18rem;
+            height: 0.18rem;
             left: 4.13rem;
             top: 1.48rem;
             cursor: pointer;

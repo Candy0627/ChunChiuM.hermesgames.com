@@ -12,6 +12,9 @@ html,body,div,span,p,img,ul,ol,li,dd,dt,dl,input,button,form,textarea,select,opt
   box-sizing:border-box;
 }
 
+html,body{
+	overflow-x: hidden;
+}
 html {
   width:100%;
   min-width:1024px;
@@ -130,6 +133,35 @@ input：：-webkit-input-placeholder{
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+.swiper-button-prev {
+	animation: left_to_right ease-in-out 1.5s infinite;
+}
+.swiper-button-next {
+	animation: right_to_left ease-in-out 1.5s infinite;
+}
+
+@keyframes left_to_right {
+	0% {
+		left:2.5%
+	}
+	50% {
+		left:4%
+	}
+	100% {
+		left:2.5%
+	}
+  }
+  @keyframes right_to_left {
+	0% {
+		right:2.5%
+	}
+	50% {
+		right:4%
+	}
+	100% {
+		right:2.5%
+	}
+  }
 
 
 
@@ -186,7 +218,6 @@ input：：-webkit-input-placeholder{
     height: 100%;
     z-index: 115;
     text-align: center;
-    display: none;
 }
 .slideBardiv {
     position: absolute;
