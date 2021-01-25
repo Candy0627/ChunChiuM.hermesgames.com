@@ -40,17 +40,44 @@
                     class="img"
                 />
                 <div class="corps_center">
-                    <img src="../../assets/imgs/hero/jun_corps.png" alt="" />
+                    <!-- <img src="../../assets/imgs/hero/jun_corps.png" alt="" /> -->
                     <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <img src="../../assets/jun/1--1.png" alt="">
+                            <img src="../../assets/jun/1-1.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--2.png" alt="">
+                            <img src="../../assets/jun/1-2.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--3.png" alt="">
+                            <img src="../../assets/jun/1-3.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--4.png" alt="">
+                            <img src="../../assets/jun/1-4.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--5.png" alt="">
+                            <img src="../../assets/jun/1-5.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--6.png" alt="">
+                            <img src="../../assets/jun/1-6.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--7.png" alt="">
+                            <img src="../../assets/jun/1-7.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--8.png" alt="">
+                            <img src="../../assets/jun/1-8.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/jun/1--9.png" alt="">
+                            <img src="../../assets/jun/1-9.png" alt="">
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -76,17 +103,44 @@
                     class="img"
                 />
                 <div class="corps_center">
-                    <img src="../../assets/imgs/hero/gong_corps.png" alt="" />
+                    <!-- <img src="../../assets/imgs/hero/gong_corps.png" alt="" /> -->
                     <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li>
+                            <img src="../../assets/gong/1--1.png" alt="">
+                            <img src="../../assets/gong/1-1.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--2.png" alt="">
+                            <img src="../../assets/gong/1-2.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--3.png" alt="">
+                            <img src="../../assets/gong/1-3.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--4.png" alt="">
+                            <img src="../../assets/gong/1-4.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--5.png" alt="">
+                            <img src="../../assets/gong/1-5.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--6.png" alt="">
+                            <img src="../../assets/gong/1-6.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--7.png" alt="">
+                            <img src="../../assets/gong/1-7.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--8.png" alt="">
+                            <img src="../../assets/gong/1-8.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/gong/1--9.png" alt="">
+                            <img src="../../assets/gong/1-9.png" alt="">
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -112,18 +166,48 @@
                     class="img"
                 />
                 <div class="corps_center">
-                    <img src="../../assets/imgs/hero/qi_corps.png" alt="" />
+                    <!-- <img src="../../assets/imgs/hero/qi_corps.png" alt="" /> -->
                     <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-						<li></li>
+                        <li>
+                            <img src="../../assets/qi/1--1.png" alt="">
+                            <img src="../../assets/qi/1-1.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--2.png" alt="">
+                            <img src="../../assets/qi/1-2.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--3.png" alt="">
+                            <img src="../../assets/qi/1-3.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--4.png" alt="">
+                            <img src="../../assets/qi/1-4.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--5.png" alt="">
+                            <img src="../../assets/qi/1-5.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--6.png" alt="">
+                            <img src="../../assets/qi/1-6.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--7.png" alt="">
+                            <img src="../../assets/qi/1-7.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--8.png" alt="">
+                            <img src="../../assets/qi/1-8.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--9.png" alt="">
+                            <img src="../../assets/qi/1-9.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/qi/1--10.png" alt="">
+                            <img src="../../assets/qi/1-10.png" alt="">
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -149,22 +233,52 @@
                     class="img"
                 />
                 <div class="corps_center">
-                    <img
+                    <!-- <img
                         src="../../assets/imgs/hero/bu_corps.png"
                         alt=""
                         class="corps"
-                    />
+                    /> -->
                     <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-						<li></li>
+                        <li>
+                            <img src="../../assets/bu/1--1.png" alt="">
+                            <img src="../../assets/bu/1-1.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--2.png" alt="">
+                            <img src="../../assets/bu/1-2.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--3.png" alt="">
+                            <img src="../../assets/bu/1-3.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--4.png" alt="">
+                            <img src="../../assets/bu/1-4.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--5.png" alt="">
+                            <img src="../../assets/bu/1-5.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--6.png" alt="">
+                            <img src="../../assets/bu/1-6.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--7.png" alt="">
+                            <img src="../../assets/bu/1-7.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--8.png" alt="">
+                            <img src="../../assets/bu/1-8.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--9.png" alt="">
+                            <img src="../../assets/bu/1-9.png" alt="">
+                        </li>
+                        <li>
+                            <img src="../../assets/bu/1--10.png" alt="">
+                            <img src="../../assets/bu/1-10.png" alt="">
+                        </li>
                     </ol>
                 </div>
             </div>
@@ -395,13 +509,24 @@ export default {
                 align-items: top;
                 flex-wrap: wrap;
                 li {
+                    position: relative;
                     width: 18%;
                     height: 1.7rem;
-                    background: pink;
-                    opacity: 0.6;
+
                     margin-right: 2%;
                     margin-top: 1.5%;
                     cursor: pointer;
+                    img{
+                       &:nth-child(2) {
+                           position: absolute;
+                           bottom:.4rem;
+                           left:.05rem;
+                           transition: all .9s;
+                        &:hover{
+                            transform: scale(1.1,1.1);
+                        }
+                       }
+                    }
                 }
             }
         }
@@ -414,6 +539,19 @@ export default {
 			left: 7.92rem;
             ol {
                 top: 0.5rem;
+                li{
+                    img{
+                       &:nth-child(2) {
+                           position: absolute;
+                           bottom:.5rem;
+                           left:.05rem;
+                           transition: all .9s;
+                        &:hover{
+                            transform: scale(1.1,1.1);
+                        }
+                       }
+                    }
+                }
             }
         }
     }
@@ -428,11 +566,20 @@ export default {
                 li {
                     width: 16%;
                     height: 1.7rem;
-                    background: pink;
-                    opacity: 0.6;
                     margin-right: 2.8%;
                     margin-top:0;
                     cursor: pointer;
+                    img{
+                       &:nth-child(2) {
+                           position: absolute;
+                           bottom:.55rem;
+                           left:.05rem;
+                           transition: all .9s;
+                        &:hover{
+                            transform: scale(1.1,1.1);
+                        }
+                       }
+                    }
                 }
             }
         }
@@ -448,11 +595,21 @@ export default {
                 li {
                     width: 16%;
                     height: 1.7rem;
-                    background: pink;
-                    opacity: 0.6;
+
                     margin-right: 2.8%;
                     margin-top: .6rem;
                     cursor: pointer;
+                    img{
+                       &:nth-child(2) {
+                           position: absolute;
+                           bottom:.5rem;
+                           left:.05rem;
+                           transition: all .9s;
+                        &:hover{
+                            transform: scale(1.1,1.1);
+                        }
+                       }
+                    }
                 }
             }
         }
