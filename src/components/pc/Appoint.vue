@@ -193,7 +193,7 @@ export default {
                     id: "0",
                     area: "台灣",
                     areaCode: "886",
-                    tips: "填寫0後的9位行動電話號碼",
+                    tips: "請填0後的9位行動電話號碼",
                     areaSimple: "tw",
                     maxlength: 9
                 },
@@ -201,7 +201,7 @@ export default {
                     id: "1",
                     area: "香港",
                     areaCode: "852",
-                    tips: "填寫8位數行動電話號碼",
+                    tips: "請填8位數行動電話號碼",
                     areaSimple: "xg",
                     maxlength: 8
                 },
@@ -209,7 +209,7 @@ export default {
                     id: "2",
                     area: "澳門",
                     areaCode: "853",
-                    tips: "填寫8位數行動電話號碼",
+                    tips: "請填8位數行動電話號碼",
                     areaSimple: "am",
                     maxlength: 8
                 },
@@ -217,7 +217,7 @@ export default {
                     id: "3",
                     area: "新加坡",
                     areaCode: "65",
-                    tips: "填寫8位數行動電話號碼",
+                    tips: "請填8位數行動電話號碼",
                     areaSimple: "xjp",
                     maxlength: 8
                 },
@@ -225,7 +225,7 @@ export default {
                     id: "4",
                     area: "馬來西亞",
                     areaCode: "60",
-                    tips: "填寫9位或者10位數電話號碼",
+                    tips: "請填9位或者10位數電話號碼",
                     areaSimple: "mlxy",
                     maxlength: 10
                 }
@@ -233,7 +233,7 @@ export default {
             ischecksimpol: false,
             selectedAreaCode: "886",
             selectedAreaId: 0,
-            selectedtips: "填寫0後的9位數行動電話號碼",
+            selectedtips: "請填0後的9位數行動電話號碼",
             selectedSimple: "tw",
             selectedMaxlength: 9,
             number: 100000,

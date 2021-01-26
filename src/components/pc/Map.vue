@@ -156,6 +156,50 @@
                     class="cicle_big"
                     :style="{ transform: `rotate(${defaultDeg}deg)` }"
                 />
+
+                    <img
+                        src="../../assets/imgs/map/yan/name_on.png"
+                        alt=""
+                        :style="{left:`${l}rem`,top:`${t}rem`}"
+                        v-if="isShow && selectedName == 'yan'"
+                    />
+                    <img
+                        src="../../assets/imgs/map/zhao/name_on.png"
+                        alt=""
+                        :style="{left:`${l}rem`,top:`${t}rem`}"
+                        v-if="isShow && selectedName == 'zhao'"
+                    />
+                    <img
+                        src="../../assets/imgs/map/qin/name_on.png"
+                        alt=""
+                        :style="{left:`${l}rem`,top:`${t}rem`}"
+                        v-if="isShow && selectedName == 'qin'"
+                    />
+                    <img
+                        src="../../assets/imgs/map/chu/name_on.png"
+                        alt=""
+                        :style="{left:`${l}rem`,top:`${t}rem`}"
+                        v-if="isShow && selectedName == 'chu'"
+                    />
+                    <img
+                        src="../../assets/imgs/map/wei/name_on.png"
+                        alt=""
+                        :style="{left:`${l}rem`,top:`${t}rem`}"
+                        v-if="isShow && selectedName == 'wei'"
+                    />
+                    <img
+                        src="../../assets/imgs/map/han/name_on.png"
+                        alt=""
+                        :style="{left:`${l}rem`,top:`${t}rem`}"
+                        v-if="isShow && selectedName == 'han'"
+                    />
+                    <img
+                        src="../../assets/imgs/map/qi/name_on.png"
+                        alt=""
+                        :style="{left:`${l}rem`,top:`${t}rem`}"
+                        v-if="isShow && selectedName == 'qi'"
+                    />
+
                 <li
                     v-for="(item, index) in circle"
                     :key="item.id"
@@ -172,48 +216,6 @@
                             m52: item.pos === 52
                         }"
                     ></em>
-                    <img
-                        src="../../assets/imgs/map/yan/name_on.png"
-                        alt=""
-                        class="center0"
-                        v-show="isShow && selectedName == 'yan'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/zhao/name_on.png"
-                        alt=""
-                        class="center0"
-                        v-show="isShow && selectedName == 'zhao'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/qin/name_on.png"
-                        alt=""
-                        class="center0"
-                        v-show="isShow && selectedName == 'qin'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/chu/name_on.png"
-                        alt=""
-                        class="center0"
-                        v-show="isShow && selectedName == 'chu'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/wei/name_on.png"
-                        alt=""
-                        class="center0"
-                        v-show="isShow && selectedName == 'wei'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/han/name_on.png"
-                        alt=""
-                        class="center0"
-                        v-show="isShow && selectedName == 'han'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/qi/name_on.png"
-                        alt=""
-                        class="center0"
-                        v-show="isShow && selectedName == 'qi'"
-                    />
                 </li>
             </ul>
         </div>
@@ -265,7 +267,9 @@ export default {
                     name: "wei",
                     pos: 52
                 }
-            ]
+            ],
+            l: -0.04,
+            t: 4.53
         };
     },
     mounted () {
@@ -285,9 +289,11 @@ export default {
                     this.circle[3].name = "qin";
                     this.circle[4].name = "chu";
                     this.selectedName = "zhao";
+                    this.l = -0.03;
+                    this.t = 4.55;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "yan") {
                     this.defaultDeg = -(26 + 26);
@@ -297,9 +303,11 @@ export default {
                     this.circle[3].name = "zhao";
                     this.circle[4].name = "qin";
                     this.selectedName = "yan";
+                    this.l = -0.08;
+                    this.t = 4.54;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qi") {
                     this.defaultDeg = -(26 + 26 + 26);
@@ -309,9 +317,11 @@ export default {
                     this.circle[3].name = "yan";
                     this.circle[4].name = "zhao";
                     this.selectedName = "qi";
+                    this.l = -0.08;
+                    this.t = 4.54;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "han") {
                     this.defaultDeg = -(26 + 26 + 26 + 26);
@@ -321,9 +331,11 @@ export default {
                     this.circle[3].name = "qi";
                     this.circle[4].name = "yan";
                     this.selectedName = "han";
+                    this.l = -0.12;
+                    this.t = 4.54;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "wei") {
                     this.defaultDeg = -(26 + 26 + 26 + 26 + 26);
@@ -333,9 +345,11 @@ export default {
                     this.circle[3].name = "han";
                     this.circle[4].name = "qi";
                     this.selectedName = "wei";
+                    this.l = -0.13;
+                    this.t = 4.58;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "chu") {
                     this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26);
@@ -345,9 +359,11 @@ export default {
                     this.circle[3].name = "wei";
                     this.circle[4].name = "han";
                     this.selectedName = "chu";
+                    this.l = -0.14;
+                    this.t = 4.59;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qin") {
                     this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
@@ -357,9 +373,11 @@ export default {
                     this.circle[3].name = "chu";
                     this.circle[4].name = "wei";
                     this.selectedName = "qin";
+                    this.l = -0.13;
+                    this.t = 4.65;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 break;
             case -26:
@@ -371,9 +389,11 @@ export default {
                     this.circle[3].name = "qin";
                     this.circle[4].name = "chu";
                     this.selectedName = "zhao";
+                    this.l = -0.03;
+                    this.t = 4.55;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "yan") {
                     this.defaultDeg = -(25.75 + 25.75);
@@ -383,9 +403,10 @@ export default {
                     this.circle[3].name = "zhao";
                     this.circle[4].name = "qin";
                     this.selectedName = "yan";
+                    this.l = -0.1;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qi") {
                     this.defaultDeg = -(26 + 26 + 26);
@@ -397,7 +418,7 @@ export default {
                     this.selectedName = "qi";
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "han") {
                     this.defaultDeg = -(26 + 26 + 26 + 26);
@@ -407,9 +428,11 @@ export default {
                     this.circle[3].name = "qi";
                     this.circle[4].name = "yan";
                     this.selectedName = "han";
+                    this.l = -0.13;
+                    this.t = 4.54;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "wei") {
                     this.defaultDeg = -(26 + 26 + 26 + 26 + 26);
@@ -419,9 +442,11 @@ export default {
                     this.circle[3].name = "han";
                     this.circle[4].name = "qi";
                     this.selectedName = "wei";
+                    this.l = -0.13;
+                    this.t = 4.57;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "chu") {
                     this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26);
@@ -431,9 +456,11 @@ export default {
                     this.circle[3].name = "wei";
                     this.circle[4].name = "han";
                     this.selectedName = "chu";
+                    this.l = -0.13;
+                    this.t = 4.6;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qin") {
                     this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
@@ -443,9 +470,11 @@ export default {
                     this.circle[3].name = "chu";
                     this.circle[4].name = "wei";
                     this.selectedName = "qin";
+                    this.l = -0.13;
+                    this.t = 4.65;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 break;
             case 0:
@@ -460,9 +489,11 @@ export default {
                     this.circle[3].name = "qin";
                     this.circle[4].name = "chu";
                     this.selectedName = "zhao";
+                    this.t = 4.4;
+                    this.l = -0.13;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "yan") {
                     this.defaultDeg = 26 + 26 + 26 + 26 + 26;
@@ -472,9 +503,11 @@ export default {
                     this.circle[3].name = "zhao";
                     this.circle[4].name = "qin";
                     this.selectedName = "yan";
+                    this.l = -0.15;
+                    this.t = 4.45;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qi") {
                     this.defaultDeg = 26 + 26 + 26 + 26;
@@ -484,9 +517,11 @@ export default {
                     this.circle[3].name = "yan";
                     this.circle[4].name = "zhao";
                     this.selectedName = "qi";
+                    this.l = -0.12;
+                    this.t = 4.46;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "han") {
                     this.defaultDeg = 26 + 26 + 26;
@@ -496,9 +531,10 @@ export default {
                     this.circle[3].name = "qi";
                     this.circle[4].name = "yan";
                     this.selectedName = "han";
+                    this.t = 4.5;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "wei") {
                     this.defaultDeg = 26 + 26;
@@ -508,9 +544,11 @@ export default {
                     this.circle[3].name = "han";
                     this.circle[4].name = "qi";
                     this.selectedName = "wei";
+                    this.t = 4.51;
+                    this.l = -0.07;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "chu") {
                     this.defaultDeg = 26;
@@ -520,9 +558,11 @@ export default {
                     this.circle[3].name = "wei";
                     this.circle[4].name = "han";
                     this.selectedName = "chu";
+                    this.l = -0.04;
+                    this.t = 4.55;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qin") {
                     this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26;
@@ -532,9 +572,11 @@ export default {
                     this.circle[3].name = "chu";
                     this.circle[4].name = "wei";
                     this.selectedName = "qin";
+                    this.l = -0.13;
+                    this.t = 4.35;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 break;
             case 52:
@@ -546,9 +588,11 @@ export default {
                     this.circle[3].name = "qin";
                     this.circle[4].name = "chu";
                     this.selectedName = "zhao";
+                    this.l = -0.14;
+                    this.t = 4.4;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "yan") {
                     this.defaultDeg = 26 + 26 + 26 + 26 + 26;
@@ -558,9 +602,11 @@ export default {
                     this.circle[3].name = "zhao";
                     this.circle[4].name = "qin";
                     this.selectedName = "yan";
+                    this.l = -0.16;
+                    this.t = 4.45;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qi") {
                     this.defaultDeg = 26 + 26 + 26 + 26;
@@ -570,9 +616,11 @@ export default {
                     this.circle[3].name = "yan";
                     this.circle[4].name = "zhao";
                     this.selectedName = "qi";
+                    this.l = -0.12;
+                    this.t = 4.48;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "han") {
                     this.defaultDeg =
@@ -583,9 +631,11 @@ export default {
                     this.circle[3].name = "qi";
                     this.circle[4].name = "yan";
                     this.selectedName = "han";
+                    this.l = -0.12;
+                    this.t = 4.24;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "wei") {
                     this.defaultDeg = 26 + 26;
@@ -595,9 +645,11 @@ export default {
                     this.circle[3].name = "han";
                     this.circle[4].name = "qi";
                     this.selectedName = "wei";
+                    this.l = -0.06;
+                    this.t = 4.53;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "chu") {
                     this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
@@ -607,9 +659,11 @@ export default {
                     this.circle[3].name = "wei";
                     this.circle[4].name = "han";
                     this.selectedName = "chu";
+                    this.l = -0.14;
+                    this.t = 4.27;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
                 if (name === "qin") {
                     this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26;
@@ -619,9 +673,11 @@ export default {
                     this.circle[3].name = "chu";
                     this.circle[4].name = "wei";
                     this.selectedName = "qin";
+                    this.l = -0.14;
+                    this.t = 4.34;
                     setTimeout(() => {
                         this.isShow = true;
-                    }, 500);
+                    }, 150);
                 }
             }
         },
@@ -1010,7 +1066,7 @@ export default {
         right: 0.1rem;
         top: 50%;
         margin-top: -4.96rem;
-        transition: all 0.9s;
+        transition: all 0.3s;
         z-index: 0;
     }
 
@@ -1023,7 +1079,10 @@ export default {
         top: 50%;
         margin-top: -4.83rem;
         transition: all 0.9s ease-in-out;
-
+        img{
+            position: absolute;
+            z-index: 999;
+        }
         li {
             position: absolute;
             width: 1.37rem;
