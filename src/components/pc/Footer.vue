@@ -2,9 +2,9 @@
     <div class="footer">
         <img src="../../assets/imgs/footer_bg.png" alt="" />
         <ul>
-            <li><a href="www.baidu.com"></a></li>
-            <li><a href="javascript"></a></li>
-            <li><a href="javascript"></a></li>
+            <li><a href="https://www.hermesgames.com.tw/#/customerCenter?id=1"></a></li>
+            <li><a href="https://www.hermesgames.com.tw/#/customerCenter?id=2"></a></li>
+            <li><a href="https://www.hermesgames.com.tw/#/customerCenter?id=3"></a></li>
         </ul>
     </div>
 </template>

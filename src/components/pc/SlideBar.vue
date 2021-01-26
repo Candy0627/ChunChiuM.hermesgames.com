@@ -1,13 +1,21 @@
 <template>
-    <div class="slidebar" v-show="isSlideBar">
+<div>
+    <div class="slidebar animate__animated animate__fadeInLeft">
         <img src="../../assets/imgs/appoint/slide_bar.png" alt="" />
         <ul>
             <li><a href="javascript:;"></a></li>
             <li><a href="javascript:;"></a></li>
             <li><a href="javascript:;"></a></li>
         </ul>
-        <img src="../../assets/top.png" alt="" class="top_bot" @click="backTop()" />
+        <a href="#appoint">
+            <img
+                src="../../assets/top.png"
+                alt=""
+                class="top_bot"
+            />
+        </a>
     </div>
+</div>
 </template>
 
 <script>
@@ -22,28 +30,38 @@ export default {
         };
     },
     mounted () {
-        window.addEventListener("scroll", this.showSlideBar, true);
-        window.addEventListener("scroll", this.handleScroll, true);
-        // 监听鼠标滑动的距离距离顶部的距离，判断是否显示隐藏侧栏
+        // 实时监听
+        // window.addEventListener("scroll", this.handleScroll, true);
+        // window.addEventListener("scroll", this.showSlideBar, true);
     },
     methods: {
         showSlideBar () {
-            if (!!document.documentElement.scrollTop && document.documentElement.scrollTop > 1080) {
+            console.log("滚轮距离顶部的高度", window.pageYOffset);
+            if (
+                !!document.documentElement.scrollTop &&
+                document.documentElement.scrollTop > 1080
+            ) {
                 this.isSlideBar = true;
             } else {
-
+                this.isSlideBar = false;
             }
         },
         handleScroll () {
-            let scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
-            scrolltop > 30 ? (this.gotop = true) : (this.gotop = false);
+            console.log("滚轮距离顶部的高度", window.pageYOffset);
+            if (window.pageYOffset >= 1080) {
+                this.isSlideBar = true;
+            } else {
+                this.isSlideBar = false;
+            }
         },
         backTop () {
-            let top = document.documentElement.scrollTop || document.body.scrollTop;
-            // 实现滚动效果
+            // 点击返回顶部，返回距离顶部1080px的距离
+            let top =
+                document.documentElement.scrollTop || document.body.scrollTop;
             const timeTop = setInterval(() => {
                 document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
-                if (top <= 0) {
+                if (top <= 1080) {
+                    this.isSlideBar = true;
                     clearInterval(timeTop);
                 }
             }, 10);

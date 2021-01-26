@@ -1,5 +1,5 @@
 <template>
-    <div class="appoint_wrap">
+    <div class="appoint_wrap" id="appoint" ref="appoint">
         <img src="../../assets/imgs/appoint/appoint_bg.jpg" alt="" />
         <!-- appoint start -->
         <div class="appoint">
@@ -242,6 +242,8 @@ export default {
     },
     mounted () {
         this.getNumber();
+        console.log("appoint 距离顶部的距离", this.$refs.appoint.getBoundingClientRect().top);
+        this.$emit("getAppointKm", this.$refs.appoint.getBoundingClientRect().top);
     },
     methods: {
         handleClickShow () {
@@ -263,9 +265,9 @@ export default {
         handleCheckbox () {
             console.log(this.checked);
             if (this.checked === false) {
-                console.log("已选中");
+                // console.log("已选中");
             } else {
-                console.log("未选中");
+                // console.log("未选中");
             }
         },
         getNumber () {
@@ -488,16 +490,16 @@ export default {
                 width: 20%;
                 color: #827e6e;
                 height: 0.47rem;
-                line-height: 0.47rem;
+                line-height: 0.55rem;
                 font-size: 0.24rem;
-                font-weight: bold;
+                font-weight: 600;
             }
             input {
                 width: 80%;
-                height: 100%;
+                height: 116%;
                 color: #827e6e;
-                font-weight: bold;
-                font-size: 0.21rem;
+                font-weight: 600;
+                font-size: 0.22rem;
                 border: none;
                 background: none;
             }

@@ -9,9 +9,11 @@ import {
 } from "element-ui";
 import "../../assets/styles/pc-index.css";
 
-import animated from "animate.css";
+// import animated from "animate.css";
+// Vue.use(animated);
 
-Vue.use(animated);
+import "animate.css";
+
 Vue.config.productionTip = false;
 Vue.prototype.$message = Message;
 

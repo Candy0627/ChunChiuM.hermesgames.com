@@ -1,6 +1,7 @@
 <template>
     <div class="military_wrap">
         <img src="../../assets/imgs/military_bg.jpg" alt="" />
+        <!-- 导航栏 -->
         <ul>
             <li
                 :class="{ libg: isjun, jun_on: isjun }"
@@ -19,298 +20,194 @@
                 @click="handelTab('bu')"
             ></li>
         </ul>
-        <div class="jun" v-show="con === 'jun'">
-            <div class="people">
-                <img src="../../assets/imgs/hero/jun_name.png" alt="" />
-                <img
-                    src="../../assets/imgs/hero/jun_people.png"
-                    alt=""
-                    class="peo"
-                />
-            </div>
-            <div class="content">
-                <img
-                    src="../../assets/imgs/hero/jun_info.png"
-                    alt=""
-                    class="img info"
-                />
-                <img
-                    src="../../assets/imgs/hero/title2.png"
-                    alt=""
-                    class="img"
-                />
-                <div class="corps_center">
-                    <img src="../../assets/imgs/hero/jun_corps.png" alt="" />
-                    <ol>
-                        <li
-                            v-for="(item, index) in junArr"
-                            :key="item.id"
-                            @click="popShow('jun', index)"
-                        ></li>
-                    </ol>
-                    <!-- <ol>
-                        <li @click="popShow(0)">
-                            <img src="../../assets/jun/1--1.png" alt="" />
-                            <img src="../../assets/jun/1-1.png" alt="" />
-                        </li>
-                        <li @click="popShow(1)">
-                            <img src="../../assets/jun/1--2.png" alt="" />
-                            <img src="../../assets/jun/1-2.png" alt="" />
-                        </li>
-                        <li @click="popShow(2)">
-                            <img src="../../assets/jun/1--3.png" alt="" />
-                            <img src="../../assets/jun/1-3.png" alt="" />
-                        </li>
-                        <li @click="popShow(3)">
-                            <img src="../../assets/jun/1--4.png" alt="" />
-                            <img src="../../assets/jun/1-4.png" alt="" />
-                        </li>
-                        <li @click="popShow(4)">
-                            <img src="../../assets/jun/1--5.png" alt="" />
-                            <img src="../../assets/jun/1-5.png" alt="" />
-                        </li>
-                        <li class="5" @click="popShow('jun')">
-                            <img src="../../assets/jun/1--6.png" alt="" />
-                            <img src="../../assets/jun/1-6.png" alt="" />
-                        </li>
-                        <li class="6" @click="popShow('jun')">
-                            <img src="../../assets/jun/1--7.png" alt="" />
-                            <img src="../../assets/jun/1-7.png" alt="" />
-                        </li>
-                        <li class="7" @click="popShow('jun')">
-                            <img src="../../assets/jun/1--8.png" alt="" />
-                            <img src="../../assets/jun/1-8.png" alt="" />
-                        </li>
-                        <li class="8" @click="popShow('jun')">
-                            <img src="../../assets/jun/1--9.png" alt="" />
-                            <img src="../../assets/jun/1-9.png" alt="" />
-                        </li>
-                    </ol> -->
+        <!-- 使用animate.css 外面需要再包裹一层 v-if 外面div -->
+        <!-- jun 的内容 -->
+            <div class="jun">
+                <div v-if="con === 'jun'">
+                    <div class="people">
+                        <img src="../../assets/imgs/hero/jun_name.png" alt="" class="animate__animated animate__fadeInDown" />
+                        <img
+                            src="../../assets/imgs/hero/jun_people.png"
+                            alt=""
+                            class="peo animate__animated animate__fadeInUp"
+                        />
+                    </div>
+                    <div class="content">
+                        <img
+                            src="../../assets/imgs/hero/jun_info.png"
+                            alt=""
+                            class="img info animate__animated animate__fadeInDown"
+                        />
+                        <img
+                            src="../../assets/imgs/hero/title2.png"
+                            alt=""
+                            class="img animate__animated animate__fadeInUp"
+                        />
+                        <div class="corps_center">
+                            <img src="../../assets/imgs/hero/jun_corps.png" alt="" class="animate__animated animate__fadeInUp" />
+                            <ol>
+                                <li
+                                    v-for="(item, index) in junArr"
+                                    :key="item.id"
+                                    @click="popShow('jun', index)"
+                                ></li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="gong" v-show="con === 'gong'">
-            <div class="people">
-                <img src="../../assets/imgs/hero/gong_name.png" alt="" />
-                <img
-                    src="../../assets/imgs/hero/gong_people.png"
-                    alt=""
-                    class="peo"
-                />
-            </div>
-            <div class="content">
-                <img
-                    src="../../assets/imgs/hero/gong_info.png"
-                    alt=""
-                    class="img info"
-                />
-                <img
-                    src="../../assets/imgs/hero/title2.png"
-                    alt=""
-                    class="img"
-                />
-                <div class="corps_center">
-                    <img src="../../assets/imgs/hero/gong_corps.png" alt="" />
-                    <ol>
-                        <li
-                            v-for="(item, index) in gongArr"
-                            :key="item.id"
-                            @click="popShow('gong', index)"
-                        ></li>
-                    </ol>
-                    <!-- <ol>
-                        <li>
-                            <img src="../../assets/gong/1--1.png" alt="" />
-                            <img src="../../assets/gong/1-1.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/gong/1--2.png" alt="" />
-                            <img src="../../assets/gong/1-2.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/gong/1--3.png" alt="" />
-                            <img src="../../assets/gong/1-3.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/gong/1--4.png" alt="" />
-                            <img src="../../assets/gong/1-4.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/gong/1--5.png" alt="" />
-                            <img src="../../assets/gong/1-5.png" alt="" />
-                        </li>
-                        <li class="top_gong">
-                            <img src="../../assets/gong/1--6.png" alt="" />
-                            <img src="../../assets/gong/1-6.png" alt="" />
-                        </li>
-                        <li class="top_gong">
-                            <img src="../../assets/gong/1--7.png" alt="" />
-                            <img src="../../assets/gong/1-7.png" alt="" />
-                        </li>
-                        <li class="top_gong">
-                            <img src="../../assets/gong/1--8.png" alt="" />
-                            <img src="../../assets/gong/1-8.png" alt="" />
-                        </li>
-                        <li class="top_gong">
-                            <img src="../../assets/gong/1--9.png" alt="" />
-                            <img src="../../assets/gong/1-9.png" alt="" />
-                        </li>
-                    </ol> -->
+        <!-- gong 的内容 -->
+            <div class="gong">
+                <div v-if="con === 'gong'">
+                    <div class="people">
+                        <img src="../../assets/imgs/hero/gong_name.png" alt="" class="animate__animated animate__fadeInDown" />
+                        <img
+                            src="../../assets/imgs/hero/gong_people.png"
+                            alt=""
+                            class="peo animate__animated animate__fadeInUp"
+                        />
+                    </div>
+                    <div class="content">
+                        <img
+                            src="../../assets/imgs/hero/gong_info.png"
+                            alt=""
+                            class="img info animate__animated animate__fadeInDown"
+                        />
+                        <img
+                            src="../../assets/imgs/hero/title2.png"
+                            alt=""
+                            class="img animate__animated animate__fadeInUp"
+                        />
+                        <div class="corps_center">
+                            <img src="../../assets/imgs/hero/gong_corps.png" alt="" class="animate__animated animate__fadeInUp" />
+                            <ol>
+                                <li
+                                    v-for="(item, index) in gongArr"
+                                    :key="item.id"
+                                    @click="popShow('gong', index)"
+                                ></li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="qi" v-show="con === 'qi'">
-            <div class="people">
-                <img src="../../assets/imgs/hero/qi_name.png" alt="" />
-                <img
-                    src="../../assets/imgs/hero/qi_people.png"
-                    alt=""
-                    class="peo"
-                />
-            </div>
-            <div class="content">
-                <img
-                    src="../../assets/imgs/hero/qi_info.png"
-                    alt=""
-                    class="img info"
-                />
-                <img
-                    src="../../assets/imgs/hero/title2.png"
-                    alt=""
-                    class="img"
-                />
-                <div class="corps_center">
-                    <img src="../../assets/imgs/hero/qi_corps.png" alt="" />
-                    <ol>
-                        <li
-                            v-for="(item, index) in qiArr"
-                            :key="item.id"
-                            @click="popShow('qi', index)"
-                        ></li>
-                    </ol>
-                    <!-- <ol>
-                        <li>
-                            <img src="../../assets/qi/1--1.png" alt="" />
-                            <img src="../../assets/qi/1-1.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/qi/1--2.png" alt="" />
-                            <img src="../../assets/qi/1-2.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/qi/1--3.png" alt="" />
-                            <img src="../../assets/qi/1-3.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/qi/1--4.png" alt="" />
-                            <img src="../../assets/qi/1-4.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/qi/1--5.png" alt="" />
-                            <img src="../../assets/qi/1-5.png" alt="" />
-                        </li>
-                        <li class="top_qi">
-                            <img src="../../assets/qi/1--6.png" alt="" />
-                            <img src="../../assets/qi/1-6.png" alt="" />
-                        </li>
-                        <li class="top_qi">
-                            <img src="../../assets/qi/1--7.png" alt="" />
-                            <img src="../../assets/qi/1-7.png" alt="" />
-                        </li>
-                        <li class="top_qi">
-                            <img src="../../assets/qi/1--8.png" alt="" />
-                            <img src="../../assets/qi/1-8.png" alt="" />
-                        </li>
-                        <li class="top_qi">
-                            <img src="../../assets/qi/1--9.png" alt="" />
-                            <img src="../../assets/qi/1-9.png" alt="" />
-                        </li>
-                        <li class="top_qi">
-                            <img src="../../assets/qi/1--10.png" alt="" />
-                            <img src="../../assets/qi/1-10.png" alt="" />
-                        </li>
-                    </ol> -->
+        <!-- qi的内容 -->
+            <div class="qi">
+                <div v-if="con === 'qi'">
+                    <div class="people">
+                        <img src="../../assets/imgs/hero/qi_name.png" alt="" class="animate__animated animate__fadeInDown" />
+                        <img
+                            src="../../assets/imgs/hero/qi_people.png"
+                            alt=""
+                            class="peo animate__animated animate__fadeInUp"
+                        />
+                    </div>
+                    <div class="content">
+                        <img
+                            src="../../assets/imgs/hero/qi_info.png"
+                            alt=""
+                            class="img info animate__animated animate__fadeInDown"
+                        />
+                        <img
+                            src="../../assets/imgs/hero/title2.png"
+                            alt=""
+                            class="img animate__animated animate__fadeInUp"
+                        />
+                        <div class="corps_center">
+                            <img src="../../assets/imgs/hero/qi_corps.png" alt="" class="animate__animated animate__fadeInUp" />
+                            <ol>
+                                <li
+                                    v-for="(item, index) in qiArr"
+                                    :key="item.id"
+                                    @click="popShow('qi', index)"
+                                ></li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="bu" v-show="con === 'bu'">
-            <div class="people">
-                <img src="../../assets/imgs/hero/bu_name.png" alt="" />
-                <img
-                    src="../../assets/imgs/hero/bu_people.png"
-                    alt=""
-                    class="peo"
-                />
-            </div>
-            <div class="content">
-                <img
-                    src="../../assets/imgs/hero/bu_info.png"
-                    alt=""
-                    class="img info"
-                />
-                <img
-                    src="../../assets/imgs/hero/title2.png"
-                    alt=""
-                    class="img"
-                />
-                <div class="corps_center">
-                    <img
-                        src="../../assets/imgs/hero/bu_corps.png"
-                        alt=""
-                        class="corps"
-                    />
-                    <ol>
-                        <li
-                            v-for="(item, index) in buArr"
-                            :key="item.id"
-                            @click="popShow('bu', index)"
-                        ></li>
-                    </ol>
-                    <!-- <ol>
-                        <li>
-                            <img src="../../assets/bu/1--1.png" alt="" />
-                            <img src="../../assets/bu/1-1.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/bu/1--2.png" alt="" />
-                            <img src="../../assets/bu/1-2.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/bu/1--3.png" alt="" />
-                            <img src="../../assets/bu/1-3.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/bu/1--4.png" alt="" />
-                            <img src="../../assets/bu/1-4.png" alt="" />
-                        </li>
-                        <li>
-                            <img src="../../assets/bu/1--5.png" alt="" />
-                            <img src="../../assets/bu/1-5.png" alt="" />
-                        </li>
-                        <li class="top_bu">
-                            <img src="../../assets/bu/1--6.png" alt="" />
-                            <img src="../../assets/bu/1-6.png" alt="" />
-                        </li>
-                        <li class="top_bu">
-                            <img src="../../assets/bu/1--7.png" alt="" />
-                            <img src="../../assets/bu/1-7.png" alt="" />
-                        </li>
-                        <li class="top_bu">
-                            <img src="../../assets/bu/1--8.png" alt="" />
-                            <img src="../../assets/bu/1-8.png" alt="" />
-                        </li>
-                        <li class="top_bu">
-                            <img src="../../assets/bu/1--9.png" alt="" />
-                            <img src="../../assets/bu/1-9.png" alt="" />
-                        </li>
-                        <li class="top_bu">
-                            <img src="../../assets/bu/1--10.png" alt="" />
-                            <img src="../../assets/bu/1-10.png" alt="" />
-                        </li>
-                    </ol> -->
+        <!-- bu的内容 -->
+            <div class="bu">
+                <div v-if="con === 'bu'">
+                    <div class="people">
+                        <img src="../../assets/imgs/hero/bu_name.png" alt="" class="animate__animated animate__fadeInDown" />
+                        <img
+                            src="../../assets/imgs/hero/bu_people.png"
+                            alt=""
+                            class="peo animate__animated animate__fadeInUp"
+                        />
+                    </div>
+                    <div class="content">
+                        <img
+                            src="../../assets/imgs/hero/bu_info.png"
+                            alt=""
+                            class="img info animate__animated animate__fadeInDown"
+                        />
+                        <img
+                            src="../../assets/imgs/hero/title2.png"
+                            alt=""
+                            class="img animate__animated animate__fadeInUp"
+                        />
+                        <div class="corps_center">
+                            <img
+                                src="../../assets/imgs/hero/bu_corps.png"
+                                alt=""
+                                class="corps animate__animated animate__fadeInUp"
+                            />
+                            <ol>
+                                <li
+                                    v-for="(item, index) in buArr"
+                                    :key="item.id"
+                                    @click="popShow('bu', index)"
+                                ></li>
+                            </ol>
+                            <!-- <ol>
+                                <li>
+                                    <img src="../../assets/bu/1--1.png" alt="" />
+                                    <img src="../../assets/bu/1-1.png" alt="" />
+                                </li>
+                                <li>
+                                    <img src="../../assets/bu/1--2.png" alt="" />
+                                    <img src="../../assets/bu/1-2.png" alt="" />
+                                </li>
+                                <li>
+                                    <img src="../../assets/bu/1--3.png" alt="" />
+                                    <img src="../../assets/bu/1-3.png" alt="" />
+                                </li>
+                                <li>
+                                    <img src="../../assets/bu/1--4.png" alt="" />
+                                    <img src="../../assets/bu/1-4.png" alt="" />
+                                </li>
+                                <li>
+                                    <img src="../../assets/bu/1--5.png" alt="" />
+                                    <img src="../../assets/bu/1-5.png" alt="" />
+                                </li>
+                                <li class="top_bu">
+                                    <img src="../../assets/bu/1--6.png" alt="" />
+                                    <img src="../../assets/bu/1-6.png" alt="" />
+                                </li>
+                                <li class="top_bu">
+                                    <img src="../../assets/bu/1--7.png" alt="" />
+                                    <img src="../../assets/bu/1-7.png" alt="" />
+                                </li>
+                                <li class="top_bu">
+                                    <img src="../../assets/bu/1--8.png" alt="" />
+                                    <img src="../../assets/bu/1-8.png" alt="" />
+                                </li>
+                                <li class="top_bu">
+                                    <img src="../../assets/bu/1--9.png" alt="" />
+                                    <img src="../../assets/bu/1-9.png" alt="" />
+                                </li>
+                                <li class="top_bu">
+                                    <img src="../../assets/bu/1--10.png" alt="" />
+                                    <img src="../../assets/bu/1-10.png" alt="" />
+                                </li>
+                            </ol> -->
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        <!-- 遮罩部分 -->
         <div class="mask" v-show="isMask">
             <div class="mask_in">
                 <img src="../../assets/pop_bg.png" alt="" />
@@ -324,7 +221,7 @@
                     <swiper-slide
                         v-for="(item, index) in junPopList"
                         :key="item.id"
-                        v-show="junPopList.length > 0 && selectedType == 'jun'"
+                        v-if="junPopList.length > 0 && selectedType == 'jun'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
@@ -332,7 +229,7 @@
                     <swiper-slide
                         v-for="(item, index) in gongPopList"
                         :key="item.id"
-                        v-show="
+                        v-if="
                             gongPopList.length > 0 && selectedType == 'gong'
                         "
                     >
@@ -342,7 +239,7 @@
                     <swiper-slide
                         v-for="(item, index) in qiPopList"
                         :key="item.id"
-                        v-show="qiPopList.length > 0 && selectedType == 'qi'"
+                        v-if="qiPopList.length > 0 && selectedType == 'qi'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
@@ -350,7 +247,7 @@
                     <swiper-slide
                         v-for="(item, index) in buPopList"
                         :key="item.id"
-                        v-show="buPopList.length > 0 && selectedType == 'bu'"
+                        v-if="buPopList.length > 0 && selectedType == 'bu'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
@@ -369,7 +266,7 @@ import VueAwesomeSwiper from "vue-awesome-swiper";
 import "swiper/swiper-bundle.css";
 Vue.use(VueAwesomeSwiper);
 export default {
-    name: "Military",
+    name: "Hero",
     props: {
         msg: String
     },
@@ -560,6 +457,7 @@ export default {
     },
     computed: {
         swiper () {
+            console.log("mySwiper存在么", this.$refs.mySwiper);
             return this.$refs.mySwiper.swiper;
         }
     },
@@ -611,6 +509,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.animate__animated {
+    animation-duration: .3s;
+}
 .swiper-button-prev,
 .swiper-button-next {
     transition: all 0.9s;
@@ -660,6 +561,7 @@ export default {
 .military_wrap {
     position: relative;
     width: 100%;
+    overflow: hidden;
     .mask {
         & > img {
             width: 100%;
