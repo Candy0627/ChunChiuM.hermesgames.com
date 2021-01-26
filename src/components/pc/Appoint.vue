@@ -248,6 +248,7 @@ export default {
     methods: {
         handleClickShow () {
             this.options.isSelect = !this.options.isSelect;
+            this.phone = "";
         },
         /**
          * 下拉赋值

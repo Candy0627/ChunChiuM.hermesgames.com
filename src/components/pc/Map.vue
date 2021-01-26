@@ -114,6 +114,7 @@
 
         <!-- 中间地图 -->
         <div class="map">
+            <!-- <img src="../../assets/imgs/map/map_bg.png" alt /> -->
             <div>
                 <em class="yan_cur animate__animated animate__fadeIn" v-if="selectedName == 'yan'"></em>
                 <em class="yan" v-else></em>
@@ -975,7 +976,7 @@ export default {
             width: 3.15rem;
             height: 2.38rem;
             position: absolute;
-            top: 2.33rem;
+            top: 2.29rem;
             right: 1.75rem;
             background: url(".././../assets/imgs/map/wei/map.png") no-repeat;
             background-size: 100% 100%;
@@ -1054,7 +1055,7 @@ export default {
         height: 7.11rem;
         right: -28%;
         top: 50%;
-        margin-top: -3.43rem;
+        margin-top: -3.38rem;
         animation: circle 20s infinite linear;
     }
 
