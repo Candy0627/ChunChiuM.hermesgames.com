@@ -75,13 +75,13 @@ export default {
         bottom: 0.26rem;
     }
     50% {
-        bottom: 0.35rem;
+        bottom: 0.34rem;
     }
     60% {
-        bottom: 0.28rem;
+        bottom: 0.3rem;
     }
     80% {
-        bottom: 0.25rem;
+        bottom: 0.26rem;
     }
     100% {
         bottom: 0.23rem;
