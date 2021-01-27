@@ -1,21 +1,17 @@
 <template>
-<div>
-    <div class="slidebar animate__animated animate__fadeInLeft">
-        <img src="../../assets/imgs/appoint/slide_bar.png" alt="" />
-        <ul>
-            <li><a href="javascript:;"></a></li>
-            <li><a href="javascript:;"></a></li>
-            <li><a href="javascript:;"></a></li>
-        </ul>
-        <a href="#appoint">
-            <img
-                src="../../assets/top.png"
-                alt=""
-                class="top_bot"
-            />
-        </a>
+    <div>
+        <div class="slidebar animate__animated animate__fadeInLeft">
+            <img src="../../assets/imgs/appoint/slide_bar.png" alt="" />
+            <ul>
+                <li><a href="javascript:;"></a></li>
+                <li><a href="javascript:;"></a></li>
+                <li><a href="javascript:;"></a></li>
+            </ul>
+            <a href="#appoint" class="top">
+                <img src="../../assets/top.png" alt="" class="top_bot" />
+            </a>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -73,22 +69,22 @@ export default {
 <style scoped lang="scss">
 @keyframes top_bot {
     0% {
-        bottom: 0.63rem;
+        bottom: 0.23rem;
     }
-    25% {
-        bottom: 0.65rem;
+    20% {
+        bottom: 0.26rem;
     }
     50% {
-        bottom: 0.75rem;
+        bottom: 0.35rem;
     }
-    66% {
-        bottom: 0.63rem;
+    60% {
+        bottom: 0.28rem;
     }
-    88% {
-        bottom: 0.65rem;
+    80% {
+        bottom: 0.25rem;
     }
     100% {
-        bottom: 0.75rem;
+        bottom: 0.23rem;
     }
 }
 .slidebar {
@@ -98,14 +94,23 @@ export default {
     top: 25%;
     left: 0;
     z-index: 110;
+    .top {
+        display: inline-block;
+        position: absolute;
+        width: 0.56rem;
+        height: 0.5rem;
+        bottom: 0.6rem;
+        left: 50%;
+        margin-left: -0.28rem;
+    }
     .top_bot {
         display: inline-block;
         position: absolute;
-        width: 0.49rem;
-        height: 0.35rem;
-        bottom: 0.66rem;
+        width: 0.24rem;
+        height: 0.15rem;
+        bottom: 0.23rem;
         left: 50%;
-        margin-left: -0.245rem;
+        margin-left: -0.12rem;
         z-index: 999999;
         animation: top_bot 1s ease infinite;
         cursor: pointer;
