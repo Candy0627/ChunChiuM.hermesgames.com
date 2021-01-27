@@ -60,7 +60,7 @@
                     <img
                         src="../../assets/imgs/map/chu/fea.png"
                         alt
-                    class="fea animate__animated animate__fadeInUp"
+                        class="fea animate__animated animate__fadeInUp"
                         v-show="show"
                     />
                 </div>
@@ -114,33 +114,54 @@
 
         <!-- 中间地图 -->
         <div class="map">
-            <!-- <img src="../../assets/imgs/map/map_bg.png" alt /> -->
+            <img src="../../assets/imgs/map/map_bg.png" alt />
             <div>
-                <em class="yan_cur animate__animated animate__fadeIn" v-if="selectedName == 'yan'"></em>
+                <em
+                    class="yan_cur animate__animated animate__fadeIn"
+                    v-if="selectedName == 'yan'"
+                ></em>
                 <em class="yan" v-else></em>
             </div>
             <div>
-                <em class="zhao_cur animate__animated animate__fadeIn" v-if="selectedName == 'zhao'"></em>
+                <em
+                    class="zhao_cur animate__animated animate__fadeIn"
+                    v-if="selectedName == 'zhao'"
+                ></em>
                 <em class="zhao" v-else></em>
             </div>
             <div>
-                <em class="qin_cur animate__animated animate__fadeIn" v-if="selectedName == 'qin'"></em>
+                <em
+                    class="qin_cur animate__animated animate__fadeIn"
+                    v-if="selectedName == 'qin'"
+                ></em>
                 <em class="qin" v-else></em>
             </div>
             <div>
-                <em class="chu_cur animate__animated animate__fadeIn" v-if="selectedName == 'chu'"></em>
+                <em
+                    class="chu_cur animate__animated animate__fadeIn"
+                    v-if="selectedName == 'chu'"
+                ></em>
                 <em class="chu" v-else></em>
             </div>
             <div>
-                <em class="wei_cur animate__animated animate__fadeIn" v-if="selectedName == 'wei'"></em>
+                <em
+                    class="wei_cur animate__animated animate__fadeIn"
+                    v-if="selectedName == 'wei'"
+                ></em>
                 <em class="wei" v-else></em>
             </div>
             <div>
-                <em class="han_cur animate__animated animate__fadeIn" v-if="selectedName == 'han'"></em>
+                <em
+                    class="han_cur animate__animated animate__fadeIn"
+                    v-if="selectedName == 'han'"
+                ></em>
                 <em class="han" v-else></em>
             </div>
             <div>
-                <em class="qi_cur animate__animated animate__fadeIn" v-if="selectedName == 'qi'"></em>
+                <em
+                    class="qi_cur animate__animated animate__fadeIn"
+                    v-if="selectedName == 'qi'"
+                ></em>
                 <em class="qi" v-else></em>
             </div>
         </div>
@@ -158,48 +179,48 @@
                     :style="{ transform: `rotate(${defaultDeg}deg)` }"
                 />
 
-                    <img
-                        src="../../assets/imgs/map/yan/name_on.png"
-                        alt=""
-                        :style="{left:`${l}rem`,top:`${t}rem`}"
-                        v-if="isShow && selectedName == 'yan'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/zhao/name_on.png"
-                        alt=""
-                        :style="{left:`${l}rem`,top:`${t}rem`}"
-                        v-if="isShow && selectedName == 'zhao'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/qin/name_on.png"
-                        alt=""
-                        :style="{left:`${l}rem`,top:`${t}rem`}"
-                        v-if="isShow && selectedName == 'qin'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/chu/name_on.png"
-                        alt=""
-                        :style="{left:`${l}rem`,top:`${t}rem`}"
-                        v-if="isShow && selectedName == 'chu'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/wei/name_on.png"
-                        alt=""
-                        :style="{left:`${l}rem`,top:`${t}rem`}"
-                        v-if="isShow && selectedName == 'wei'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/han/name_on.png"
-                        alt=""
-                        :style="{left:`${l}rem`,top:`${t}rem`}"
-                        v-if="isShow && selectedName == 'han'"
-                    />
-                    <img
-                        src="../../assets/imgs/map/qi/name_on.png"
-                        alt=""
-                        :style="{left:`${l}rem`,top:`${t}rem`}"
-                        v-if="isShow && selectedName == 'qi'"
-                    />
+                <img
+                    src="../../assets/imgs/map/yan/name_on.png"
+                    alt=""
+                    :style="{ left: `${l}rem`, top: `${t}rem` }"
+                    v-if="isShow && selectedName == 'yan'"
+                />
+                <img
+                    src="../../assets/imgs/map/zhao/name_on.png"
+                    alt=""
+                    :style="{ left: `${l}rem`, top: `${t}rem` }"
+                    v-if="isShow && selectedName == 'zhao'"
+                />
+                <img
+                    src="../../assets/imgs/map/qin/name_on.png"
+                    alt=""
+                    :style="{ left: `${l}rem`, top: `${t}rem` }"
+                    v-if="isShow && selectedName == 'qin'"
+                />
+                <img
+                    src="../../assets/imgs/map/chu/name_on.png"
+                    alt=""
+                    :style="{ left: `${l}rem`, top: `${t}rem` }"
+                    v-if="isShow && selectedName == 'chu'"
+                />
+                <img
+                    src="../../assets/imgs/map/wei/name_on.png"
+                    alt=""
+                    :style="{ left: `${l}rem`, top: `${t}rem` }"
+                    v-if="isShow && selectedName == 'wei'"
+                />
+                <img
+                    src="../../assets/imgs/map/han/name_on.png"
+                    alt=""
+                    :style="{ left: `${l}rem`, top: `${t}rem` }"
+                    v-if="isShow && selectedName == 'han'"
+                />
+                <img
+                    src="../../assets/imgs/map/qi/name_on.png"
+                    alt=""
+                    :style="{ left: `${l}rem`, top: `${t}rem` }"
+                    v-if="isShow && selectedName == 'qi'"
+                />
 
                 <li
                     v-for="(item, index) in circle"
@@ -693,7 +714,7 @@ export default {
 
 <style scoped lang="scss">
 .animate__animated {
-    animation-duration: .6s;
+    animation-duration: 0.6s;
 }
 .wai {
     display: block;
@@ -925,18 +946,10 @@ export default {
             height: 6.32rem;
             position: absolute;
             top: 0.75rem;
-            left: 0.05rem;
+            left: 0;
             background: url(".././../assets/imgs/map/qin/map.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
-        }
-
-        .center_on {
-            position: absolute;
-            top: 0.75rem;
-            left: 0.05rem;
-            background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
-            background-size: 100% 100%;
         }
 
         .qin_cur {
@@ -944,29 +957,29 @@ export default {
             height: 6.32rem;
             position: absolute;
             top: 0.75rem;
-            left: 0.05rem;
+            left: 0;;
             background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
         }
 
         .chu {
-            width: 5.77rem;
-            height: 3.44rem;
+            width: 6rem;
+            height: 3.6rem;
             position: absolute;
-            bottom: 0.01rem;
-            right: 0.05rem;
+            bottom: 0rem;
+            right: -0.03rem;
             background: url(".././../assets/imgs/map/chu/map.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
         }
 
         .chu_cur {
-            width: 5.77rem;
-            height: 3.44rem;
+            width: 6rem;
+            height: 3.6rem;
             position: absolute;
-            bottom: 0.01rem;
-            right: 0.05rem;
+            bottom: 0rem;
+            right: -0.03rem;
             background: url(".././../assets/imgs/map/chu/map_on.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
@@ -999,7 +1012,7 @@ export default {
             height: 3.18rem;
             position: absolute;
             top: 2.18rem;
-            right: 3.7rem;
+            right: 3.8rem;
             background: url(".././../assets/imgs/map/han/map.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
@@ -1010,7 +1023,7 @@ export default {
             height: 3.18rem;
             position: absolute;
             top: 2.18rem;
-            right: 3.7rem;
+            right: 3.8rem;
             background: url(".././../assets/imgs/map/han/map_on.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
@@ -1021,7 +1034,7 @@ export default {
             height: 2.61rem;
             position: absolute;
             top: 1.45rem;
-            right: 0.25rem;
+            right: 0.2rem;
             background: url(".././../assets/imgs/map/qi/map.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
@@ -1032,7 +1045,7 @@ export default {
             height: 2.61rem;
             position: absolute;
             top: 1.45rem;
-            right: 0.25rem;
+            right: 0.2rem;
             background: url(".././../assets/imgs/map/qi/map_on.png") no-repeat;
             background-size: 100% 100%;
             transition: all 0.9s;
@@ -1080,9 +1093,13 @@ export default {
         top: 50%;
         margin-top: -4.83rem;
         transition: all 0.9s ease-in-out;
-        img{
+        img {
             position: absolute;
             z-index: 999;
+            &:nth-of-type(2) {
+                width: 1.37rem;
+                height: 1.06rem;
+            }
         }
         li {
             position: absolute;
