@@ -665,7 +665,7 @@ export default {
         }
         .info {
             width: 7.96rem !important;
-            height: 0.76rem !important;
+            height: 0.94rem !important;
         }
         .corps {
             width: 8.95rem !important;

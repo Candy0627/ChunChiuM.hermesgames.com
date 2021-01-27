@@ -11,7 +11,7 @@
                     data-autoplay
                     autoplay
                     loop
-                    poster="../../assets/imgs/video_bg.jpg"
+                    poster="../../assets/imgs/v1.jpg"
                     v-if="index === tabId"
                 >
                     <source :src="item.videoSrc" type="video/mp4" />

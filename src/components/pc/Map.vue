@@ -923,7 +923,7 @@ export default {
             width: 4.21rem;
             height: 2.73rem;
             position: absolute;
-            top: 0.03rem;
+            top: 0;
             left: 2.18rem;
             background: url(".././../assets/imgs/map/zhao/map.png") no-repeat;
             background-size: 100% 100%;
@@ -934,7 +934,7 @@ export default {
             width: 4.21rem;
             height: 2.73rem;
             position: absolute;
-            top: 0.03rem;
+            top: 0;
             left: 2.18rem;
             background: url(".././../assets/imgs/map/zhao/map_on.png") no-repeat;
             background-size: 100% 100%;

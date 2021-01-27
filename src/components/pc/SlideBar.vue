@@ -97,7 +97,7 @@ export default {
     height: 3.79rem;
     top: 25%;
     left: 0;
-    z-index: 116;
+    z-index: 110;
     .top_bot {
         display: inline-block;
         position: absolute;
