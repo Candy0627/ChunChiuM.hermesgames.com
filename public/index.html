@@ -22,7 +22,7 @@
 			return null;
 		}
 
-		var str = getQueryString("flatform");
+		var str = getQueryString("platform");
 		console.log("截取的地址栏参数", str);
 
 		function IsPC() {
@@ -40,7 +40,7 @@
 			return flag;
 		}
 		if (!IsPC()) {
-			window.location.href = 'mbindex.html?flatform=' + str;
+			window.location.href = 'mbindex.html?platform=' + str;
 		}
 
 	</script>
