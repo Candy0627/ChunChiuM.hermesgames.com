@@ -65,8 +65,11 @@
                 @click.native="handleClickAppoint()"
                 >立即预约</router-link
             >
-            <router-link to="" class="btn btn_app">app</router-link>
-            <router-link to="" class="btn btn_gp">gp</router-link>
+            <div class="fb-like" data-href="https://www.facebook.com/ChunChiuM" data-width="" data-layout="standard" data-action="like" data-size="large"></div>
+            <!-- <div class="fb-like" data-href="https://www.facebook.com/ChunChiuM" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div> -->
+            <router-link to="https://apps.apple.com/tw/app/%E6%98%A5%E7%A7%8Bm/id1544712019" class="btn btn_app">app</router-link>
+            <router-link to="https://play.google.com/store/apps/details?id=com.hermes.chunqiu" class="btn btn_gp">gp</router-link>
+            <router-link to="https://www.facebook.com/ChunChiuM" class="btn btn_fb">fb</router-link>
         </div>
         <!-- appoint end -->
         <img src="../../assets/imgs/appoint/bot.png" alt="" class="bot_img" />
@@ -386,6 +389,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.fb-like{
+    left: 1.23rem;
+    top: 4.9rem;
+}
 //上半场过渡的初始状态，下半场动画的结束状态
 .v-enter,
 .v-leave-to {
@@ -452,7 +459,7 @@ export default {
             }
             &.btn_app {
                 right: 0.63rem;
-                top: 3.82rem;
+                top: 3.6rem;
                 width: 1.18rem;
                 height: 0.41rem;
                 background: url(".././../assets/imgs/appoint/btn_app.png")
@@ -465,10 +472,23 @@ export default {
             }
             &.btn_gp {
                 right: 0.63rem;
-                top: 4.34rem;
+                top: 4.15rem;
                 width: 1.18rem;
                 height: 0.41rem;
                 background: url(".././../assets/imgs/appoint/btn_gp.png")
+                    no-repeat;
+                background-size: 100% 100%;
+                transition: all 0.9s;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+            &.btn_fb {
+                right: 0.63rem;
+                top: 4.72rem;
+                width: 1.18rem;
+                height: 0.41rem;
+                background: url(".././../assets/imgs/appoint/btn_fb.png")
                     no-repeat;
                 background-size: 100% 100%;
                 transition: all 0.9s;

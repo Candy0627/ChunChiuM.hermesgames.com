@@ -2,41 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-	<title><%= htmlWebpackPlugin.options.title %></title>
-	<meta http-equiv="keywords" content="戰國-策略-戰爭-戰略-三國-三國志戰略版slg大戰國志破局三國終章新三國志手機版三國誌三國殺名將傳塔防卡牌神魔少年三國志單機率土之滨真三國大戰無雙三國群英傳守城七雄爭霸業大秦帝國霸王曹操傳-策略遊戲">
-    <meta property="og:description" content="參與《春秋M》事前登錄，領取海量虛寶豪禮！體驗比三國早五百年的紛爭亂世，與我一起滅六國，蕩平天下！"/>
-    <script>
-        function IsPC() {
-            var userAgentInfo = navigator.userAgent;
-            var Agents = ["Android", "iPhone",
-                "SymbianOS", "Windows Phone",
-                "iPad", "iPod"];
-            var flag = true;
-            for (var v = 0; v < Agents.length; v++) {
-                if (userAgentInfo.indexOf(Agents[v]) > 0) {
-                    flag = false;
-                    break;
-                }
-            }
-            return flag;
-        }
-        if (!IsPC()) {
-            window.location.href = 'mbindex.html'
-        }
-    </script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="icon" href="<%= BASE_URL %>favicon.ico">
+	<title>
+		<%= htmlWebpackPlugin.options.title %>
+	</title>
+	<meta http-equiv="keywords"
+		content="戰國-策略-戰爭-戰略-三國-三國志戰略版slg大戰國志破局三國終章新三國志手機版三國誌三國殺名將傳塔防卡牌神魔少年三國志單機率土之滨真三國大戰無雙三國群英傳守城七雄爭霸業大秦帝國霸王曹操傳-策略遊戲">
+	<meta property="og:description" content="參與《春秋M》事前登錄，領取海量虛寶豪禮！體驗比三國早五百年的紛爭亂世，與我一起滅六國，蕩平天下！" />
+	<script>
+		function IsPC() {
+			var userAgentInfo = navigator.userAgent;
+			var Agents = ["Android", "iPhone",
+				"SymbianOS", "Windows Phone",
+				"iPad", "iPod"];
+			var flag = true;
+			for (var v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+					flag = false;
+					break;
+				}
+			}
+			return flag;
+		}
+		if (!IsPC()) {
+			window.location.href = 'mbindex.html'
+		}
+	</script>
 </head>
 
 <body>
-    <noscript>
-        <strong>We're sorry but vue-cli-pages doesn't work properly without JavaScript enabled. Please enable it to
-            continue.</strong>
-    </noscript>
-    <div id="index"></div>
-    <!-- built files will be auto injected -->
+	<noscript>
+		<strong>We're sorry but vue-cli-pages doesn't work properly without JavaScript enabled. Please enable it to
+			continue.</strong>
+	</noscript>
+	<div id="index"></div>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v9.0&appId=282263133045581&autoLogAppEvents=1" nonce="Epavxh7H"></script>
+	<!-- built files will be auto injected -->
 </body>
 
 </html>
