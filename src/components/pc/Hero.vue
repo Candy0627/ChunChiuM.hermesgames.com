@@ -22,146 +22,174 @@
         </ul>
         <!-- 使用animate.css 外面需要再包裹一层 v-if 外面div -->
         <!-- jun 的内容 -->
-            <div class="jun">
-                <div v-if="con === 'jun'">
-                    <div class="people">
-                        <img src="../../assets/imgs/hero/jun_name.png" alt="" class="animate__animated animate__fadeInDown" />
+        <div class="jun">
+            <div v-if="con === 'jun'">
+                <div class="people">
+                    <img
+                        src="../../assets/imgs/hero/jun_name.png"
+                        alt=""
+                        class="animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/jun_people.png"
+                        alt=""
+                        class="peo animate__animated animate__fadeInUp"
+                    />
+                </div>
+                <div class="content">
+                    <img
+                        src="../../assets/imgs/hero/jun_info.png"
+                        alt=""
+                        class="img info animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/title2.png"
+                        alt=""
+                        class="img animate__animated animate__fadeInUp"
+                    />
+                    <div class="corps_center">
                         <img
-                            src="../../assets/imgs/hero/jun_people.png"
+                            src="../../assets/imgs/hero/jun_corps.png"
                             alt=""
-                            class="peo animate__animated animate__fadeInUp"
+                            class="animate__animated animate__fadeInUp"
                         />
-                    </div>
-                    <div class="content">
-                        <img
-                            src="../../assets/imgs/hero/jun_info.png"
-                            alt=""
-                            class="img info animate__animated animate__fadeInDown"
-                        />
-                        <img
-                            src="../../assets/imgs/hero/title2.png"
-                            alt=""
-                            class="img animate__animated animate__fadeInUp"
-                        />
-                        <div class="corps_center">
-                            <img src="../../assets/imgs/hero/jun_corps.png" alt="" class="animate__animated animate__fadeInUp" />
-                            <ol>
-                                <li
-                                    v-for="(item, index) in junArr"
-                                    :key="item.id"
-                                    @click="popShow('jun', index)"
-                                ></li>
-                            </ol>
-                        </div>
+                        <ol>
+                            <li
+                                v-for="(item, index) in junArr"
+                                :key="item.id"
+                                @click="popShow('jun', index)"
+                            ></li>
+                        </ol>
                     </div>
                 </div>
             </div>
+        </div>
         <!-- gong 的内容 -->
-            <div class="gong">
-                <div v-if="con === 'gong'">
-                    <div class="people">
-                        <img src="../../assets/imgs/hero/gong_name.png" alt="" class="animate__animated animate__fadeInDown" />
+        <div class="gong">
+            <div v-if="con === 'gong'">
+                <div class="people">
+                    <img
+                        src="../../assets/imgs/hero/gong_name.png"
+                        alt=""
+                        class="animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/gong_people.png"
+                        alt=""
+                        class="peo animate__animated animate__fadeInUp"
+                    />
+                </div>
+                <div class="content">
+                    <img
+                        src="../../assets/imgs/hero/gong_info.png"
+                        alt=""
+                        class="img info animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/title2.png"
+                        alt=""
+                        class="img animate__animated animate__fadeInUp"
+                    />
+                    <div class="corps_center">
                         <img
-                            src="../../assets/imgs/hero/gong_people.png"
+                            src="../../assets/imgs/hero/gong_corps.png"
                             alt=""
-                            class="peo animate__animated animate__fadeInUp"
+                            class="animate__animated animate__fadeInUp"
                         />
-                    </div>
-                    <div class="content">
-                        <img
-                            src="../../assets/imgs/hero/gong_info.png"
-                            alt=""
-                            class="img info animate__animated animate__fadeInDown"
-                        />
-                        <img
-                            src="../../assets/imgs/hero/title2.png"
-                            alt=""
-                            class="img animate__animated animate__fadeInUp"
-                        />
-                        <div class="corps_center">
-                            <img src="../../assets/imgs/hero/gong_corps.png" alt="" class="animate__animated animate__fadeInUp" />
-                            <ol>
-                                <li
-                                    v-for="(item, index) in gongArr"
-                                    :key="item.id"
-                                    @click="popShow('gong', index)"
-                                ></li>
-                            </ol>
-                        </div>
+                        <ol>
+                            <li
+                                v-for="(item, index) in gongArr"
+                                :key="item.id"
+                                @click="popShow('gong', index)"
+                            ></li>
+                        </ol>
                     </div>
                 </div>
             </div>
+        </div>
         <!-- qi的内容 -->
-            <div class="qi">
-                <div v-if="con === 'qi'">
-                    <div class="people">
-                        <img src="../../assets/imgs/hero/qi_name.png" alt="" class="animate__animated animate__fadeInDown" />
+        <div class="qi">
+            <div v-if="con === 'qi'">
+                <div class="people">
+                    <img
+                        src="../../assets/imgs/hero/qi_name.png"
+                        alt=""
+                        class="animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/qi_people.png"
+                        alt=""
+                        class="peo animate__animated animate__fadeInUp"
+                    />
+                </div>
+                <div class="content">
+                    <img
+                        src="../../assets/imgs/hero/qi_info.png"
+                        alt=""
+                        class="img info animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/title2.png"
+                        alt=""
+                        class="img animate__animated animate__fadeInUp"
+                    />
+                    <div class="corps_center">
                         <img
-                            src="../../assets/imgs/hero/qi_people.png"
+                            src="../../assets/imgs/hero/qi_corps.png"
                             alt=""
-                            class="peo animate__animated animate__fadeInUp"
+                            class="animate__animated animate__fadeInUp"
                         />
-                    </div>
-                    <div class="content">
-                        <img
-                            src="../../assets/imgs/hero/qi_info.png"
-                            alt=""
-                            class="img info animate__animated animate__fadeInDown"
-                        />
-                        <img
-                            src="../../assets/imgs/hero/title2.png"
-                            alt=""
-                            class="img animate__animated animate__fadeInUp"
-                        />
-                        <div class="corps_center">
-                            <img src="../../assets/imgs/hero/qi_corps.png" alt="" class="animate__animated animate__fadeInUp" />
-                            <ol>
-                                <li
-                                    v-for="(item, index) in qiArr"
-                                    :key="item.id"
-                                    @click="popShow('qi', index)"
-                                ></li>
-                            </ol>
-                        </div>
+                        <ol>
+                            <li
+                                v-for="(item, index) in qiArr"
+                                :key="item.id"
+                                @click="popShow('qi', index)"
+                            ></li>
+                        </ol>
                     </div>
                 </div>
             </div>
+        </div>
         <!-- bu的内容 -->
-            <div class="bu">
-                <div v-if="con === 'bu'">
-                    <div class="people">
-                        <img src="../../assets/imgs/hero/bu_name.png" alt="" class="animate__animated animate__fadeInDown" />
+        <div class="bu">
+            <div v-if="con === 'bu'">
+                <div class="people">
+                    <img
+                        src="../../assets/imgs/hero/bu_name.png"
+                        alt=""
+                        class="animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/bu_people.png"
+                        alt=""
+                        class="peo animate__animated animate__fadeInUp"
+                    />
+                </div>
+                <div class="content">
+                    <img
+                        src="../../assets/imgs/hero/bu_info.png"
+                        alt=""
+                        class="img info animate__animated animate__fadeInDown"
+                    />
+                    <img
+                        src="../../assets/imgs/hero/title2.png"
+                        alt=""
+                        class="img animate__animated animate__fadeInUp"
+                    />
+                    <div class="corps_center">
                         <img
-                            src="../../assets/imgs/hero/bu_people.png"
+                            src="../../assets/imgs/hero/bu_corps.png"
                             alt=""
-                            class="peo animate__animated animate__fadeInUp"
+                            class="corps animate__animated animate__fadeInUp"
                         />
-                    </div>
-                    <div class="content">
-                        <img
-                            src="../../assets/imgs/hero/bu_info.png"
-                            alt=""
-                            class="img info animate__animated animate__fadeInDown"
-                        />
-                        <img
-                            src="../../assets/imgs/hero/title2.png"
-                            alt=""
-                            class="img animate__animated animate__fadeInUp"
-                        />
-                        <div class="corps_center">
-                            <img
-                                src="../../assets/imgs/hero/bu_corps.png"
-                                alt=""
-                                class="corps animate__animated animate__fadeInUp"
-                            />
-                            <ol>
-                                <li
-                                    v-for="(item, index) in buArr"
-                                    :key="item.id"
-                                    @click="popShow('bu', index)"
-                                ></li>
-                            </ol>
-                            <!-- <ol>
+                        <ol>
+                            <li
+                                v-for="(item, index) in buArr"
+                                :key="item.id"
+                                @click="popShow('bu', index)"
+                            ></li>
+                        </ol>
+                        <!-- <ol>
                                 <li>
                                     <img src="../../assets/bu/1--1.png" alt="" />
                                     <img src="../../assets/bu/1-1.png" alt="" />
@@ -203,10 +231,10 @@
                                     <img src="../../assets/bu/1-10.png" alt="" />
                                 </li>
                             </ol> -->
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         <!-- 遮罩部分 -->
         <div class="mask" v-show="isMask">
             <div class="mask_in">
@@ -229,9 +257,7 @@
                     <swiper-slide
                         v-for="(item, index) in gongPopList"
                         :key="item.id"
-                        v-if="
-                            gongPopList.length > 0 && selectedType == 'gong'
-                        "
+                        v-if="gongPopList.length > 0 && selectedType == 'gong'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
@@ -510,7 +536,7 @@ export default {
 
 <style scoped lang="scss">
 .animate__animated {
-    animation-duration: .3s;
+    animation-duration: 0.3s;
 }
 .swiper-button-prev,
 .swiper-button-next {
@@ -533,7 +559,7 @@ export default {
 }
 .swiper-container {
     position: absolute;
-    top: -.42rem;
+    top: -0.42rem;
     width: 12rem;
     height: 4rem;
     left: 50%;
