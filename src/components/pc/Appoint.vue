@@ -67,9 +67,12 @@
             >
             <div class="fb-like" data-href="https://www.facebook.com/ChunChiuM" data-width="" data-layout="standard" data-action="like" data-size="large"></div>
             <!-- <div class="fb-like" data-href="https://www.facebook.com/ChunChiuM" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div> -->
-            <router-link to="https://apps.apple.com/tw/app/%E6%98%A5%E7%A7%8Bm/id1544712019" class="btn btn_app">app</router-link>
-            <router-link to="https://play.google.com/store/apps/details?id=com.hermes.chunqiu" class="btn btn_gp">gp</router-link>
-            <router-link to="https://www.facebook.com/ChunChiuM" class="btn btn_fb">fb</router-link>
+            <a href="https://apps.apple.com/tw/app/%E6%98%A5%E7%A7%8Bm/id1544712019" class="btn btn_app"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.hermes.chunqiu" class="btn btn_gp"></a>
+            <a href="https://www.facebook.com/ChunChiuM" class="btn btn_fb"></a>
+            <!-- <router-link to="https://apps.apple.com/tw/app/%E6%98%A5%E7%A7%8Bm/id1544712019" class="btn btn_app">app</router-link> -->
+            <!-- <router-link to="https://play.google.com/store/apps/details?id=com.hermes.chunqiu" class="btn btn_gp">gp</router-link> -->
+            <!-- <router-link to="https://www.facebook.com/ChunChiuM" class="btn btn_fb">fb</router-link> -->
         </div>
         <!-- appoint end -->
         <img src="../../assets/imgs/appoint/bot.png" alt="" class="bot_img" />
