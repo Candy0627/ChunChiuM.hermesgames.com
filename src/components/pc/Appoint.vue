@@ -345,10 +345,10 @@ export default {
             let areaCode = this.area[this.selectedAreaId].areaCode;
             let selectedSimple = this.area[this.selectedAreaId].areaSimple;
             let tel = areaCode + this.phone;
-            console.log("完整的手机号码:", tel);
+            // console.log("完整的手机号码:", tel);
 
             let str = this.getQueryString("flatform");
-            console.log("组件中获取到的地址栏链接是啥", str);
+            // console.log("组件中获取到的地址栏链接是啥", str);
 
             if (!str) {
                 str = "null";
@@ -367,7 +367,7 @@ export default {
             }
 
             if (!this.validatePhone(this.phone, areaCode)) {
-                this.$message("电话号码格式錯誤!");
+                this.$message("電話號碼格式錯誤!");
                 return false;
             }
 
@@ -382,7 +382,7 @@ export default {
                 data
             ) {
                 if (data.code === 200) {
-                    console.log("預約藉口獲取到的值", data);
+                    // console.log("預約藉口獲取到的值", data);
                     obj.$message(data.message);
                 } else {
                     obj.$message(data.message);
