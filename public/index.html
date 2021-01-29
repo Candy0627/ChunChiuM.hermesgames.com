@@ -13,6 +13,18 @@
 		content="戰國-策略-戰爭-戰略-三國-三國志戰略版slg大戰國志破局三國終章新三國志手機版三國誌三國殺名將傳塔防卡牌神魔少年三國志單機率土之滨真三國大戰無雙三國群英傳守城七雄爭霸業大秦帝國霸王曹操傳-策略遊戲">
 	<meta property="og:description" content="參與《春秋M》事前登錄，領取海量虛寶豪禮！體驗比三國早五百年的紛爭亂世，與我一起滅六國，蕩平天下！" />
 	<script>
+
+		function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var l = decodeURI(window.location.search);
+			var r = l.substr(1).match(reg);
+			if (r != null) return unescape(r[2]);
+			return null;
+		}
+
+		var str = getQueryString("flatform");
+		console.log("截取的地址栏参数", str);
+
 		function IsPC() {
 			var userAgentInfo = navigator.userAgent;
 			var Agents = ["Android", "iPhone",
@@ -28,8 +40,9 @@
 			return flag;
 		}
 		if (!IsPC()) {
-			window.location.href = 'mbindex.html'
+			window.location.href = 'mbindex.html?flatform=' + str;
 		}
+
 	</script>
 </head>
 
@@ -40,7 +53,9 @@
 	</noscript>
 	<div id="index"></div>
 	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v9.0&appId=282263133045581&autoLogAppEvents=1" nonce="Epavxh7H"></script>
+	<script async defer crossorigin="anonymous"
+		src="https://connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v9.0&appId=282263133045581&autoLogAppEvents=1"
+		nonce="Epavxh7H"></script>
 	<!-- built files will be auto injected -->
 </body>
 

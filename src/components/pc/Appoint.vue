@@ -37,7 +37,7 @@
             </transition>
 
             <div class="phone">
-                <span class="fl">+{{ selectedAreaCode }}</span>
+                <span class="fl">{{ selectedAreaCode }}</span>
                 <input
                     type="text"
                     class="fr"
@@ -83,6 +83,7 @@
                 src="../../assets/imgs/simpol.png"
                 alt=""
                 class="simpol"
+                v-if="isTrue"
                 :style="{ left: left_simpol + 'rem' }"
             />
             <div class="line">
@@ -196,7 +197,7 @@ export default {
                     id: "0",
                     area: "台灣",
                     areaCode: "886",
-                    tips: "請填0後的9位行動電話號碼",
+                    tips: "請填9位數行動電話號碼",
                     areaSimple: "tw",
                     maxlength: 9
                 },
@@ -228,24 +229,25 @@ export default {
                     id: "4",
                     area: "馬來西亞",
                     areaCode: "60",
-                    tips: "請填9位或者10位數電話號碼",
+                    tips: "請填9或10位數電話號碼",
                     areaSimple: "mlxy",
                     maxlength: 10
                 }
             ],
             ischecksimpol: false,
-            selectedAreaCode: "886",
+            selectedAreaCode: "+886",
             selectedAreaId: 0,
             selectedtips: "請填0後的9位數行動電話號碼",
             selectedSimple: "tw",
             selectedMaxlength: 9,
             number: 100000,
-            left_simpol: 0
+            left_simpol: 0,
+            isTrue: false
         };
     },
     mounted () {
         this.getNumber();
-        console.log("appoint 距离顶部的距离", this.$refs.appoint.getBoundingClientRect().top);
+        // console.log("appoint 距离顶部的距离", this.$refs.appoint.getBoundingClientRect().top);
         this.$emit("getAppointKm", this.$refs.appoint.getBoundingClientRect().top);
     },
     methods: {
@@ -284,38 +286,50 @@ export default {
                     if (data.code === 200) {
                         obj.number = data.data;
                         let n = obj.number;
-                        n = 50000;
+                        // 定义的假数据
+                        // n = 50000;
                         if (n === 0) {
                             obj.left_simpol = 0;
+                            obj.isTrue = false;
                         }
                         if (n > 0 && n < 50000) {
                             obj.left_simpol = 0.18;
+                            obj.isTrue = false;
                         }
                         if (n === 50000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 0.45;
                         }
                         if (n > 50000 && n < 100000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 1.35;
                         }
                         if (n === 100000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 2.3;
                         }
                         if (n > 100000 && n < 200000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 3.3;
                         }
                         if (n === 200000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 4.15;
                         }
                         if (n > 200000 && n < 300000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 5.3;
                         }
                         if (n === 300000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 5.9;
                         }
                         if (n > 300000 && n < 500000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 7.09;
                         }
                         if (n === 500000) {
+                            obj.isTrue = true;
                             obj.left_simpol = 7.6;
                         }
                     } else {
@@ -325,20 +339,17 @@ export default {
             );
         },
         handleClickAppoint () {
-            // console.log(
-            //     "电话号码",
-            //     this.phone,
-            //     "地区",
-            //     "地区代号",
-            //     this.selectedAreaCode,
-            //     this.selectedArea,
-            //     "是否勾选",
-            //     this.checked
-            // );
             let areaCode = this.area[this.selectedAreaId].areaCode;
             let selectedSimple = this.area[this.selectedAreaId].areaSimple;
             let tel = areaCode + this.phone;
             console.log("完整的手机号码:", tel);
+
+            let str = this.getQueryString("flatform");
+            console.log("组件中获取到的地址栏链接是啥", str);
+
+            if (!str) {
+                str = "null";
+            }
 
             if (this.checked === !true) {
                 this.$message(
@@ -352,14 +363,15 @@ export default {
                 return false;
             }
 
-            if (!this.validatePhone(tel, areaCode)) {
+            if (!this.validatePhone(this.phone, areaCode)) {
                 this.$message("电话号码格式錯誤!");
                 return false;
             }
 
             let datas = {
-                phone: tel,
-                zone: selectedSimple
+                phone: "+" + tel,
+                zone: selectedSimple,
+                channel: str
             };
 
             this.postHttp(this, datas, "/api/appointment/store", function (
@@ -374,15 +386,22 @@ export default {
                 }
             });
         },
-        validatePhone (phone, areaCode, number) {
+        validatePhone (phone, areaCode) {
             let map = {
-                886: /^(886)?\d{9,10}$/,
-                852: /^(852)?\d{8}$/,
-                853: /^(853)?\d{8}$/,
-                60: /^(60)?\d{9,10}$/,
-                65: /^(65)?\d{8}$/
+                886: /^9\d{8}$/,
+                852: /^\d{8}$/,
+                853: /^\d{8}$/,
+                65: /^\d{8}$/,
+                60: /^\d{9,10}$/
             };
             return map[areaCode].test(phone);
+        },
+        getQueryString (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var l = decodeURI(window.location.search);
+            var r = l.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
         }
     }
 };
@@ -472,7 +491,7 @@ export default {
             }
             &.btn_gp {
                 right: 0.63rem;
-                top: 4.15rem;
+                top: 4.168rem;
                 width: 1.18rem;
                 height: 0.41rem;
                 background: url(".././../assets/imgs/appoint/btn_gp.png")
