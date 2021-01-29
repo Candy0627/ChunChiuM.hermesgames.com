@@ -3,9 +3,9 @@
         <div class="slidebar animate__animated animate__fadeInLeft">
             <img src="../../assets/imgs/appoint/slide_bar.png" alt="" />
             <ul>
-                <li><a href="javascript:;"></a></li>
-                <li><a href="javascript:;"></a></li>
-                <li><a href="javascript:;"></a></li>
+                <li><a href="https://apps.apple.com/tw/app/%E6%98%A5%E7%A7%8Bm/id1544712019"></a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.hermes.chunqiu"></a></li>
+                <li><a href="https://www.facebook.com/ChunChiuM"></a></li>
             </ul>
             <a href="#appoint" class="top">
                 <img src="../../assets/top.png" alt="" class="top_bot" />

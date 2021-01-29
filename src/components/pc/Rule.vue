@@ -1,5 +1,5 @@
 <template>
-    <img alt="video" src="../../assets/imgs/rules_bg.jpg" width="100%" />
+    <img alt="video" class="rule" src="../../assets/imgs/rules_bg.jpg" width="100%" />
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  font-size: 0;
+.rule{
+    margin-top: -.01rem;
 }
 </style>

@@ -117,49 +117,49 @@
             <img src="../../assets/imgs/map/map_bg.png" alt />
             <div>
                 <em
-                    class="yan_cur animate__animated animate__fadeIn"
+                    class="yan_cur"
                     v-if="selectedName == 'yan'"
                 ></em>
                 <em class="yan" v-else></em>
             </div>
             <div>
                 <em
-                    class="zhao_cur animate__animated animate__fadeIn"
+                    class="zhao_cur"
                     v-if="selectedName == 'zhao'"
                 ></em>
                 <em class="zhao" v-else></em>
             </div>
             <div>
                 <em
-                    class="qin_cur animate__animated animate__fadeIn"
+                    class="qin_cur"
                     v-if="selectedName == 'qin'"
                 ></em>
                 <em class="qin" v-else></em>
             </div>
             <div>
                 <em
-                    class="chu_cur animate__animated animate__fadeIn"
+                    class="chu_cur"
                     v-if="selectedName == 'chu'"
                 ></em>
                 <em class="chu" v-else></em>
             </div>
             <div>
                 <em
-                    class="wei_cur animate__animated animate__fadeIn"
+                    class="wei_cur"
                     v-if="selectedName == 'wei'"
                 ></em>
                 <em class="wei" v-else></em>
             </div>
             <div>
                 <em
-                    class="han_cur animate__animated animate__fadeIn"
+                    class="han_cur"
                     v-if="selectedName == 'han'"
                 ></em>
                 <em class="han" v-else></em>
             </div>
             <div>
                 <em
-                    class="qi_cur animate__animated animate__fadeIn"
+                    class="qi_cur"
                     v-if="selectedName == 'qi'"
                 ></em>
                 <em class="qi" v-else></em>
@@ -896,7 +896,6 @@ export default {
 
         em {
             display: inline-block;
-            transition: all 0.1s;
         }
 
         .yan {
@@ -908,7 +907,6 @@ export default {
             right: 0.61rem;
             background: url(".././../assets/imgs/map/yan/map.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .yan_cur {
@@ -920,7 +918,6 @@ export default {
             right: 0.61rem;
             background: url(".././../assets/imgs/map/yan/map_on.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .zhao {
@@ -931,7 +928,6 @@ export default {
             left: 2.18rem;
             background: url(".././../assets/imgs/map/zhao/map.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .zhao_cur {
@@ -942,7 +938,6 @@ export default {
             left: 2.18rem;
             background: url(".././../assets/imgs/map/zhao/map_on.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .qin {
@@ -953,7 +948,6 @@ export default {
             left: 0;
             background: url(".././../assets/imgs/map/qin/map.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .qin_cur {
@@ -964,7 +958,6 @@ export default {
             left: 0;;
             background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .chu {
@@ -975,7 +968,6 @@ export default {
             right: -0.03rem;
             background: url(".././../assets/imgs/map/chu/map.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .chu_cur {
@@ -986,7 +978,6 @@ export default {
             right: -0.03rem;
             background: url(".././../assets/imgs/map/chu/map_on.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .wei {
@@ -997,7 +988,6 @@ export default {
             right: 1.75rem;
             background: url(".././../assets/imgs/map/wei/map.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .wei_cur {
@@ -1008,7 +998,6 @@ export default {
             right: 1.75rem;
             background: url(".././../assets/imgs/map/wei/map_on.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .han {
@@ -1019,7 +1008,6 @@ export default {
             right: 3.8rem;
             background: url(".././../assets/imgs/map/han/map.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .han_cur {
@@ -1030,7 +1018,6 @@ export default {
             right: 3.8rem;
             background: url(".././../assets/imgs/map/han/map_on.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .qi {
@@ -1041,7 +1028,6 @@ export default {
             right: 0.2rem;
             background: url(".././../assets/imgs/map/qi/map.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
 
         .qi_cur {
@@ -1052,7 +1038,6 @@ export default {
             right: 0.2rem;
             background: url(".././../assets/imgs/map/qi/map_on.png") no-repeat;
             background-size: 100% 100%;
-            transition: all 0.9s;
         }
     }
 }
