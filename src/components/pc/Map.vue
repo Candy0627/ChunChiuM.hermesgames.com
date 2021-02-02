@@ -115,34 +115,6 @@
         <!-- 中间地图 -->
         <div class="map">
             <img src="../../assets/imgs/map/map_bg.png" alt />
-            <!-- <div @click="handleClickMap('yan')">
-                <em class="yan_cur" v-if="selectedName == 'yan'"></em>
-                <em class="yan" v-else></em>
-            </div>
-            <div @click="handleClickMap('zhao')">
-                <em class="zhao_cur" v-if="selectedName == 'zhao'"></em>
-                <em class="zhao" v-else></em>
-            </div>
-            <div @click="handleClickMap('qin')">
-                <em class="qin_cur" v-if="selectedName == 'qin'"></em>
-                <em class="qin" v-else></em>
-            </div>
-            <div @click="handleClickMap('chu')">
-                <em class="chu_cur" v-if="selectedName == 'chu'"></em>
-                <em class="chu" v-else></em>
-            </div>
-            <div @click="handleClickMap('wei')">
-                <em class="wei_cur" v-if="selectedName == 'wei'"></em>
-                <em class="wei" v-else></em>
-            </div>
-            <div @click="handleClickMap('han')">
-                <em class="han_cur" v-if="selectedName == 'han'"></em>
-                <em class="han" v-else></em>
-            </div>
-            <div @click="handleClickMap('qi')">
-                <em class="qi_cur" v-if="selectedName == 'qi'"></em>
-                <em class="qi" v-else></em>
-            </div> -->
             <div v-for="item in mapList" :key="item.id" @click="handleClickMap(item.name)">
                 <em :class="item.cur" class="cur" v-show="selectedName == item.name"></em>
                 <em :class="item.name" class="no"></em>
@@ -732,7 +704,7 @@ export default {
             console.log("当前的点击地图名字", name);
             switch (name) {
             case "qin":
-                this.defaultDeg = -25.75;
+                this.defaultDeg = 0;
                 this.circle[0].name = "yan";
                 this.circle[1].name = "zhao";
                 this.circle[2].name = "qin";
@@ -740,7 +712,7 @@ export default {
                 this.circle[4].name = "wei";
                 this.selectedName = "qin";
                 this.l = -0.03;
-                this.t = 4.58;
+                this.t = 4.54;
                 setTimeout(() => {
                     this.isShow = true;
                 }, 150);
