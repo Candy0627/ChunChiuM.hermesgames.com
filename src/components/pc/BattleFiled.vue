@@ -89,7 +89,7 @@ export default {
                 },
                 {
                     id: "04",
-                    videoSrc: require("../../assets/media/s1.mp4")
+                    videoSrc: require("../../assets/media/s4.mp4")
                 }
             ],
             solganList: [
