@@ -115,8 +115,16 @@
         <!-- 中间地图 -->
         <div class="map">
             <img src="../../assets/imgs/map/map_bg.png" alt />
-            <div v-for="item in mapList" :key="item.id" @click="handleClickMap(item.name)">
-                <em :class="item.cur" class="cur" v-show="selectedName == item.name"></em>
+            <div
+                v-for="item in mapList"
+                :key="item.id"
+                @click="handleClickMap(item.name)"
+            >
+                <em
+                    :class="item.cur"
+                    class="cur"
+                    v-show="selectedName == item.name"
+                ></em>
                 <em :class="item.name" class="no"></em>
             </div>
         </div>
@@ -296,15 +304,15 @@ export default {
             switch (pos) {
             case -52:
                 if (name === "zhao") {
-                    this.defaultDeg = -26;
-                    this.circle[0].name = "qi";
-                    this.circle[1].name = "yan";
-                    this.circle[2].name = "zhao";
-                    this.circle[3].name = "qin";
-                    this.circle[4].name = "chu";
+                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
+                    this.circle[0].name = "yan";
+                    this.circle[1].name = "zhao";
+                    this.circle[2].name = "yan";
+                    this.circle[3].name = "chu";
+                    this.circle[4].name = "wei";
                     this.selectedName = "zhao";
                     this.l = -0.03;
-                    this.t = 4.6;
+                    this.t = 4.62;
                     setTimeout(() => {
                         this.isShow = true;
                     }, 150);
@@ -548,8 +556,8 @@ export default {
                     this.circle[3].name = "qi";
                     this.circle[4].name = "yan";
                     this.selectedName = "han";
-                    this.l = -0.03;
-                    this.t = 4.43;
+                    this.l = 0.03;
+                    this.t = 4.42;
                     setTimeout(() => {
                         this.isShow = true;
                     }, 150);
@@ -598,30 +606,16 @@ export default {
                 }
                 break;
             case 52:
-                if (name === "zhao") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "qi";
-                    this.circle[1].name = "yan";
-                    this.circle[2].name = "zhao";
-                    this.circle[3].name = "qin";
-                    this.circle[4].name = "chu";
-                    this.selectedName = "zhao";
+                if (name === "wei") {
+                    this.defaultDeg = 26 + 26;
+                    this.circle[0].name = "qin";
+                    this.circle[1].name = "chu";
+                    this.circle[2].name = "wei";
+                    this.circle[3].name = "han";
+                    this.circle[4].name = "qi";
+                    this.selectedName = "wei";
                     this.l = -0.03;
-                    this.t = 4.4;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "yan") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "han";
-                    this.circle[1].name = "qi";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "zhao";
-                    this.circle[4].name = "qin";
-                    this.selectedName = "yan";
-                    this.l = -0.03;
-                    this.t = 4.43;
+                    this.t = 4.45;
                     setTimeout(() => {
                         this.isShow = true;
                     }, 150);
@@ -636,6 +630,34 @@ export default {
                     this.selectedName = "qi";
                     this.l = -0.02;
                     this.t = 4.43;
+                    setTimeout(() => {
+                        this.isShow = true;
+                    }, 150);
+                }
+                if (name === "zhao") {
+                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26;
+                    this.circle[0].name = "qi";
+                    this.circle[1].name = "yan";
+                    this.circle[2].name = "zhao";
+                    this.circle[3].name = "qin";
+                    this.circle[4].name = "chu";
+                    this.selectedName = "zhao";
+                    this.l = -0.03;
+                    this.t = 4.4;
+                    setTimeout(() => {
+                        this.isShow = true;
+                    }, 150);
+                }
+                if (name === "chu") {
+                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
+                    this.circle[0].name = "zhao";
+                    this.circle[1].name = "qin";
+                    this.circle[2].name = "chu";
+                    this.circle[3].name = "wei";
+                    this.circle[4].name = "han";
+                    this.selectedName = "chu";
+                    this.l = -0.03;
+                    this.t = 4.28;
                     setTimeout(() => {
                         this.isShow = true;
                     }, 150);
@@ -655,44 +677,30 @@ export default {
                         this.isShow = true;
                     }, 150);
                 }
-                if (name === "wei") {
-                    this.defaultDeg = 26 + 26;
-                    this.circle[0].name = "qin";
-                    this.circle[1].name = "chu";
-                    this.circle[2].name = "wei";
-                    this.circle[3].name = "han";
-                    this.circle[4].name = "qi";
-                    this.selectedName = "wei";
-                    this.l = -0.03;
-                    this.t = 4.45;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "chu") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "zhao";
-                    this.circle[1].name = "qin";
-                    this.circle[2].name = "chu";
-                    this.circle[3].name = "wei";
-                    this.circle[4].name = "han";
-                    this.selectedName = "chu";
-                    this.l = -0.03;
-                    this.t = 4.28;
+                if (name === "yan") {
+                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
+                    this.circle[0].name = "han";
+                    this.circle[1].name = "qi";
+                    this.circle[2].name = "yan";
+                    this.circle[3].name = "zhao";
+                    this.circle[4].name = "qin";
+                    this.selectedName = "yan";
+                    this.l = 0;
+                    this.t = 4.33;
                     setTimeout(() => {
                         this.isShow = true;
                     }, 150);
                 }
                 if (name === "qin") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26;
+                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
                     this.circle[0].name = "yan";
                     this.circle[1].name = "zhao";
                     this.circle[2].name = "qin";
                     this.circle[3].name = "chu";
                     this.circle[4].name = "wei";
                     this.selectedName = "qin";
-                    this.l = -0.03;
-                    this.t = 4.34;
+                    this.l = -0.01;
+                    this.t = 4.24;
                     setTimeout(() => {
                         this.isShow = true;
                     }, 150);
@@ -781,8 +789,8 @@ export default {
                 this.circle[3].name = "qi";
                 this.circle[4].name = "yan";
                 this.selectedName = "han";
-                this.l = -0.03;
-                this.t = 4.45;
+                this.l = 0.02;
+                this.t = 4.42;
                 setTimeout(() => {
                     this.isShow = true;
                 }, 150);
@@ -980,10 +988,10 @@ export default {
         position: absolute;
         right: 3.68rem;
         top: 2.33rem;
-        .cur{
+        .cur {
             z-index: 2;
         }
-        .no{
+        .no {
             z-index: 1;
         }
         img {

@@ -16,7 +16,7 @@
 
             <!-- 地区下拉 -->
             <transition>
-                <ul class="select_ul" v-if="options.isSelect">
+                <ul class="select_ul" v-show="options.isSelect">
                     <li
                         v-for="item in area"
                         :key="item.id"
@@ -57,7 +57,7 @@
                 src="../../assets/imgs/appoint/check.png"
                 alt=""
                 class="check_img"
-                v-if="isCheck"
+                v-show="isCheck"
             />
             <router-link
                 to=""
@@ -111,64 +111,64 @@
                 src="../../assets/imgs/simpol.png"
                 alt=""
                 class="simpol"
-                v-if="isTrue"
+                v-show="isTrue"
                 :style="{ left: left_simpol + 'rem' }"
             />
             <div class="line">
                 <img
                     src="../../assets/imgs/wline0.png"
                     alt=""
-                    v-if="number == 0"
+                    v-show="number == 0"
                 />
                 <img
                     src="../../assets/imgs/wline05.png"
                     alt=""
-                    v-if="number > 0 && number < 50000"
+                    v-show="number > 0 && number < 100000"
                 />
                 <img
                     src="../../assets/imgs/wline5.png"
                     alt=""
-                    v-if="number == 50000"
+                    v-show="number == 100000"
                 />
                 <img
                     src="../../assets/imgs/wline5-10.png"
                     alt=""
-                    v-if="number > 50000 && number < 100000"
+                    v-show="number > 100000 && number < 300000"
                 />
                 <img
                     src="../../assets/imgs/wline10.png"
                     alt=""
-                    v-if="number == 100000"
+                    v-show="number == 300000"
                 />
                 <img
                     src="../../assets/imgs/wline10-20.png"
                     alt=""
-                    v-if="number > 100000 && number < 200000"
+                    v-show="number > 300000 && number < 500000"
                 />
                 <img
                     src="../../assets/imgs/wline20.png"
                     alt=""
-                    v-if="number == 200000"
+                    v-show="number == 500000"
                 />
                 <img
                     src="../../assets/imgs/wline20-30.png"
                     alt=""
-                    v-if="number > 200000 && number < 300000"
+                    v-show="number > 500000 && number < 800000"
                 />
                 <img
                     src="../../assets/imgs/wline30.png"
                     alt=""
-                    v-if="number == 300000"
+                    v-show="number == 800000"
                 />
                 <img
                     src="../../assets/imgs/wline30-50.png"
                     alt=""
-                    v-if="number > 300000 && number < 500000"
+                    v-show="number > 800000 && number < 1000000"
                 />
                 <img
                     src="../../assets/imgs/wline50.png"
                     alt=""
-                    v-if="number == 500000"
+                    v-show="number >= 1000000"
                 />
             </div>
             <img
@@ -180,31 +180,31 @@
                 src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished5w"
-                v-if="number == 50000"
+                v-if="number >= 100000"
             />
             <img
                 src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished10w"
-                v-if="number == 100000"
+                v-if="number >= 300000"
             />
             <img
                 src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished20w"
-                v-if="number == 200000"
+                v-if="number >= 500000"
             />
             <img
                 src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished30w"
-                v-if="number == 300000"
+                v-if="number >= 800000"
             />
             <img
                 src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished50w"
-                v-if="number == 500000"
+                v-if="number >= 1000000"
             />
         </div>
     </div>
@@ -273,7 +273,7 @@ export default {
             selectedtips: "請填0後的9位數行動電話號碼",
             selectedSimple: "tw",
             selectedMaxlength: 9,
-            number: 100000,
+            number: 0,
             left_simpol: 0,
             isTrue: false,
             isLogin: false, // 登录状态,初始为未登陆
@@ -347,48 +347,49 @@ export default {
                         obj.number = data.data;
                         let n = obj.number;
                         // 定义的假数据
-                        // n = 50000;
+                        // n = 850000;
+                        // obj.number = n;
                         if (n === 0) {
                             obj.left_simpol = 0;
                             obj.isTrue = false;
                         }
-                        if (n > 0 && n < 50000) {
+                        if (n > 0 && n < 100000) {
                             obj.left_simpol = 0.18;
                             obj.isTrue = false;
                         }
-                        if (n === 50000) {
+                        if (n === 100000) {
                             obj.isTrue = true;
                             obj.left_simpol = 0.45;
                         }
-                        if (n > 50000 && n < 100000) {
+                        if (n > 100000 && n < 300000) {
                             obj.isTrue = true;
                             obj.left_simpol = 1.35;
                         }
-                        if (n === 100000) {
+                        if (n === 300000) {
                             obj.isTrue = true;
                             obj.left_simpol = 2.3;
                         }
-                        if (n > 100000 && n < 200000) {
+                        if (n > 300000 && n < 500000) {
                             obj.isTrue = true;
                             obj.left_simpol = 3.3;
                         }
-                        if (n === 200000) {
+                        if (n === 500000) {
                             obj.isTrue = true;
                             obj.left_simpol = 4.15;
                         }
-                        if (n > 200000 && n < 300000) {
+                        if (n > 500000 && n < 800000) {
                             obj.isTrue = true;
                             obj.left_simpol = 5.3;
                         }
-                        if (n === 300000) {
+                        if (n === 800000) {
                             obj.isTrue = true;
                             obj.left_simpol = 5.9;
                         }
-                        if (n > 300000 && n < 500000) {
+                        if (n > 800000 && n < 1000000) {
                             obj.isTrue = true;
                             obj.left_simpol = 7.09;
                         }
-                        if (n === 500000) {
+                        if (n >= 1000000) {
                             obj.isTrue = true;
                             obj.left_simpol = 7.6;
                         }
