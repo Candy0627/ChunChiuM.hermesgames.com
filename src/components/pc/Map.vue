@@ -115,54 +115,37 @@
         <!-- 中间地图 -->
         <div class="map">
             <img src="../../assets/imgs/map/map_bg.png" alt />
-            <div>
-                <em
-                    class="yan_cur"
-                    v-if="selectedName == 'yan'"
-                ></em>
+            <!-- <div @click="handleClickMap('yan')">
+                <em class="yan_cur" v-if="selectedName == 'yan'"></em>
                 <em class="yan" v-else></em>
             </div>
-            <div>
-                <em
-                    class="zhao_cur"
-                    v-if="selectedName == 'zhao'"
-                ></em>
+            <div @click="handleClickMap('zhao')">
+                <em class="zhao_cur" v-if="selectedName == 'zhao'"></em>
                 <em class="zhao" v-else></em>
             </div>
-            <div>
-                <em
-                    class="qin_cur"
-                    v-if="selectedName == 'qin'"
-                ></em>
+            <div @click="handleClickMap('qin')">
+                <em class="qin_cur" v-if="selectedName == 'qin'"></em>
                 <em class="qin" v-else></em>
             </div>
-            <div>
-                <em
-                    class="chu_cur"
-                    v-if="selectedName == 'chu'"
-                ></em>
+            <div @click="handleClickMap('chu')">
+                <em class="chu_cur" v-if="selectedName == 'chu'"></em>
                 <em class="chu" v-else></em>
             </div>
-            <div>
-                <em
-                    class="wei_cur"
-                    v-if="selectedName == 'wei'"
-                ></em>
+            <div @click="handleClickMap('wei')">
+                <em class="wei_cur" v-if="selectedName == 'wei'"></em>
                 <em class="wei" v-else></em>
             </div>
-            <div>
-                <em
-                    class="han_cur"
-                    v-if="selectedName == 'han'"
-                ></em>
+            <div @click="handleClickMap('han')">
+                <em class="han_cur" v-if="selectedName == 'han'"></em>
                 <em class="han" v-else></em>
             </div>
-            <div>
-                <em
-                    class="qi_cur"
-                    v-if="selectedName == 'qi'"
-                ></em>
+            <div @click="handleClickMap('qi')">
+                <em class="qi_cur" v-if="selectedName == 'qi'"></em>
                 <em class="qi" v-else></em>
+            </div> -->
+            <div v-for="item in mapList" :key="item.id" @click="handleClickMap(item.name)">
+                <em :class="item.cur" class="cur" v-show="selectedName == item.name"></em>
+                <em :class="item.name" class="no"></em>
             </div>
         </div>
 
@@ -225,7 +208,7 @@
                 <li
                     v-for="(item, index) in circle"
                     :key="item.id"
-                    @click="handleCricle(index, item.name, item.pos)"
+                    @click="handleClickCricle(index, item.name, item.pos)"
                 >
                     <em
                         :data_name="item.name"
@@ -291,7 +274,44 @@ export default {
                 }
             ],
             l: -0.04,
-            t: 4.53
+            t: 4.53,
+            mapList: [
+                {
+                    id: 1,
+                    name: "yan",
+                    cur: "yan_cur"
+                },
+                {
+                    id: 2,
+                    name: "zhao",
+                    cur: "zhao_cur"
+                },
+                {
+                    id: 3,
+                    name: "qin",
+                    cur: "qin_cur"
+                },
+                {
+                    id: 4,
+                    name: "chu",
+                    cur: "chu_cur"
+                },
+                {
+                    id: 5,
+                    name: "wei",
+                    cur: "wei_cur"
+                },
+                {
+                    id: 6,
+                    name: "han",
+                    cur: "han_cur"
+                },
+                {
+                    id: 7,
+                    name: "qi",
+                    cur: "qi_cur"
+                }
+            ]
         };
     },
     mounted () {
@@ -299,7 +319,7 @@ export default {
         this.isShow = true;
     },
     methods: {
-        handleCricle (i, name, pos) {
+        handleClickCricle (i, name, pos) {
             this.isShow = false;
             switch (pos) {
             case -52:
@@ -707,10 +727,109 @@ export default {
                 }
             }
         },
-        clickYan () {
-            this.isY1 = true;
-            this.isY1_1 = true;
-            this.defaultDeg = -30;
+        handleClickMap (name) {
+            this.isShow = false;
+            console.log("当前的点击地图名字", name);
+            switch (name) {
+            case "qin":
+                this.defaultDeg = -25.75;
+                this.circle[0].name = "yan";
+                this.circle[1].name = "zhao";
+                this.circle[2].name = "qin";
+                this.circle[3].name = "chu";
+                this.circle[4].name = "wei";
+                this.selectedName = "qin";
+                this.l = -0.03;
+                this.t = 4.58;
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 150);
+                break;
+            case "zhao":
+                this.defaultDeg = -25.75;
+                this.circle[0].name = "qi";
+                this.circle[1].name = "yan";
+                this.circle[2].name = "zhao";
+                this.circle[3].name = "qin";
+                this.circle[4].name = "chu";
+                this.selectedName = "zhao";
+                this.l = -0.03;
+                this.t = 4.58;
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 150);
+                break;
+            case "yan":
+                this.defaultDeg = -(26 + 26);
+                this.circle[0].name = "han";
+                this.circle[1].name = "qi";
+                this.circle[2].name = "yan";
+                this.circle[3].name = "zhao";
+                this.circle[4].name = "qin";
+                this.selectedName = "yan";
+                this.l = -0.03;
+                this.t = 4.62;
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 150);
+                break;
+            case "chu":
+                this.defaultDeg = 26;
+                this.circle[0].name = "zhao";
+                this.circle[1].name = "qin";
+                this.circle[2].name = "chu";
+                this.circle[3].name = "wei";
+                this.circle[4].name = "han";
+                this.selectedName = "chu";
+                this.l = -0.04;
+                this.t = 4.5;
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 150);
+                break;
+            case "wei":
+                this.defaultDeg = 26 + 26;
+                this.circle[0].name = "qin";
+                this.circle[1].name = "chu";
+                this.circle[2].name = "wei";
+                this.circle[3].name = "han";
+                this.circle[4].name = "qi";
+                this.selectedName = "wei";
+                this.l = -0.03;
+                this.t = 4.45;
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 150);
+                break;
+            case "han":
+                this.defaultDeg = 26 + 26 + 26;
+                this.circle[0].name = "chu";
+                this.circle[1].name = "wei";
+                this.circle[2].name = "han";
+                this.circle[3].name = "qi";
+                this.circle[4].name = "yan";
+                this.selectedName = "han";
+                this.l = -0.03;
+                this.t = 4.45;
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 150);
+                break;
+            case "qi":
+                this.defaultDeg = 26 + 26 + 26 + 26;
+                this.circle[0].name = "wei";
+                this.circle[1].name = "han";
+                this.circle[2].name = "qi";
+                this.circle[3].name = "yan";
+                this.circle[4].name = "zhao";
+                this.selectedName = "qi";
+                this.l = -0.03;
+                this.t = 4.45;
+                setTimeout(() => {
+                    this.isShow = true;
+                }, 150);
+                break;
+            }
         }
     }
 };
@@ -889,13 +1008,19 @@ export default {
         position: absolute;
         right: 3.68rem;
         top: 2.33rem;
-
+        .cur{
+            z-index: 2;
+        }
+        .no{
+            z-index: 1;
+        }
         img {
             width: 100%;
         }
 
         em {
             display: inline-block;
+            cursor: pointer;
         }
 
         .yan {
@@ -907,6 +1032,11 @@ export default {
             right: 0.61rem;
             background: url(".././../assets/imgs/map/yan/map.png") no-repeat;
             background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/yan/map_on.png")
+                    no-repeat;
+                background-size: 100% 100%;
+            }
         }
 
         .yan_cur {
@@ -928,6 +1058,11 @@ export default {
             left: 2.18rem;
             background: url(".././../assets/imgs/map/zhao/map.png") no-repeat;
             background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/zhao/map_on.png")
+                    no-repeat;
+                background-size: 100% 100%;
+            }
         }
 
         .zhao_cur {
@@ -948,6 +1083,11 @@ export default {
             left: 0;
             background: url(".././../assets/imgs/map/qin/map.png") no-repeat;
             background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/qin/map_on.png")
+                    no-repeat;
+                background-size: 100% 100%;
+            }
         }
 
         .qin_cur {
@@ -955,7 +1095,7 @@ export default {
             height: 6.32rem;
             position: absolute;
             top: 0.75rem;
-            left: 0;;
+            left: 0;
             background: url(".././../assets/imgs/map/qin/map_on.png") no-repeat;
             background-size: 100% 100%;
         }
@@ -968,6 +1108,11 @@ export default {
             right: -0.03rem;
             background: url(".././../assets/imgs/map/chu/map.png") no-repeat;
             background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/chu/map_on.png")
+                    no-repeat;
+                background-size: 100% 100%;
+            }
         }
 
         .chu_cur {
@@ -988,6 +1133,11 @@ export default {
             right: 1.75rem;
             background: url(".././../assets/imgs/map/wei/map.png") no-repeat;
             background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/wei/map_on.png")
+                    no-repeat;
+                background-size: 100% 100%;
+            }
         }
 
         .wei_cur {
@@ -1008,6 +1158,11 @@ export default {
             right: 3.8rem;
             background: url(".././../assets/imgs/map/han/map.png") no-repeat;
             background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/han/map_on.png")
+                    no-repeat;
+                background-size: 100% 100%;
+            }
         }
 
         .han_cur {
@@ -1028,6 +1183,11 @@ export default {
             right: 0.2rem;
             background: url(".././../assets/imgs/map/qi/map.png") no-repeat;
             background-size: 100% 100%;
+            &:hover {
+                background: url(".././../assets/imgs/map/qi/map_on.png")
+                    no-repeat;
+                background-size: 100% 100%;
+            }
         }
 
         .qi_cur {

@@ -56,7 +56,7 @@ export default {
         },
         initPv () {
             this.getHttp(this, "", "/api/appointment/pv", function (obj, res) {
-                console.log("统计的pv", res.message);
+                // console.log("统计的pv", res.message);
             });
         }
     }
