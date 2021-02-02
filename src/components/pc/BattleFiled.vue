@@ -23,16 +23,17 @@
                 :key="item.id"
                 class="solgan"
             >
-                <img :src="item.imgSrc" alt="" v-if="index === tabId" />
+                <img :src="item.imgSrc" alt="" v-show="index === tabId" class="animate__animated animate__fadeInDown" />
             </div>
         </div>
-        <ul class="video_battle">
+        <ul>
             <li
                 v-for="(item, index) in filedList"
                 :key="item.id"
                 @click="handleTab(index)"
             >
-                {{ item.name }}
+                <img :src="item.onSrc" alt="" class="on" v-if="tabId===index">
+                <img :src="item.unSrc" alt=""  class="un" v-else>
             </li>
         </ul>
     </div>
@@ -50,19 +51,27 @@ export default {
             filedList: [
                 {
                     id: "00001",
-                    name: "真實戰場"
+                    name: "真實戰場",
+                    unSrc: require("../../assets/imgs/battle/n1.png"),
+                    onSrc: require("../../assets/imgs/battle/n1_.png")
                 },
                 {
                     id: "00002",
-                    name: "四季天時"
+                    name: "四季天時",
+                    unSrc: require("../../assets/imgs/battle/n2.png"),
+                    onSrc: require("../../assets/imgs/battle/n2_.png")
                 },
                 {
                     id: "00003",
-                    name: "海量兵種"
+                    name: "海量兵種",
+                    unSrc: require("../../assets/imgs/battle/n3.png"),
+                    onSrc: require("../../assets/imgs/battle/n3_.png")
                 },
                 {
                     id: "00004",
-                    name: "攻城略地"
+                    name: "攻城略地",
+                    unSrc: require("../../assets/imgs/battle/n4.png"),
+                    onSrc: require("../../assets/imgs/battle/n4_.png")
                 }
             ],
             videoList: [
@@ -152,58 +161,63 @@ export default {
             margin-right: .66rem;
             color: #ac9f7a;
             font-size: 0.24rem;
-            text-indent: -9999px;
+            transition: all .3s;
             cursor: pointer;
+            img{
+                display: block;
+            }
+            .un{
+
+            }
+            .on{
+
+            }
             &:nth-child(1) {
                 width: 1.88rem;
                 height: 0.5rem;
-                background: url(".././../assets/imgs/battle/n1.png") no-repeat;
-                background-size: 100% 100%;
                 &:hover {
                     width: 1.88rem;
                     height: 0.5rem;
                     background: url(".././../assets/imgs/battle/n1_.png")
                         no-repeat;
                     background-size: 100% 100%;
+                    transform: scale(1.1,1.1);
                 }
             }
             &:nth-child(2) {
                 width: 1.88rem;
                 height: 0.5rem;
-                background: url(".././../assets/imgs/battle/n2.png") no-repeat;
-                background-size: 100% 100%;
                 &:hover {
                     width: 1.88rem;
                     height: 0.5rem;
                     background: url(".././../assets/imgs/battle/n2_.png")
                         no-repeat;
                     background-size: 100% 100%;
+                    transform: scale(1.1,1.1);
                 }
             }
             &:nth-child(3) {
                 width: 1.88rem;
                 height: 0.5rem;
-                background: url(".././../assets/imgs/battle/n3.png") no-repeat;
-                background-size: 100% 100%;
                 &:hover {
                     width: 1.88rem;
                     height: 0.5rem;
                     background: url(".././../assets/imgs/battle/n3_.png")
                         no-repeat;
                     background-size: 100% 100%;
+                    transform: scale(1.1,1.1);
                 }
             }
             &:nth-child(4) {
                 width: 1.88rem;
                 height: 0.5rem;
-                background: url(".././../assets/imgs/battle/n4.png") no-repeat;
-                background-size: 100% 100%;
                 &:hover {
                     width: 1.88rem;
                     height: 0.5rem;
                     background: url(".././../assets/imgs/battle/n4_.png")
                         no-repeat;
                     background-size: 100% 100%;
+                    transform: scale(1.1,1.1);
                 }
             }
         }

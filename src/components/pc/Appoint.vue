@@ -65,14 +65,36 @@
                 @click.native="handleClickAppoint()"
                 >立即预约</router-link
             >
-            <div class="fb-like" data-href="https://www.facebook.com/ChunChiuM" data-width="" data-layout="standard" data-action="like" data-size="large"></div>
-            <!-- <div class="fb-like" data-href="https://www.facebook.com/ChunChiuM" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div> -->
-            <a href="https://apps.apple.com/tw/app/%E6%98%A5%E7%A7%8Bm/id1544712019" class="btn btn_app"></a>
-            <a href="https://play.google.com/store/apps/details?id=com.hermes.chunqiu" class="btn btn_gp"></a>
+            <div class="fb-login-button self-fb" @click="fbLogin()">
+                <img src="../../assets/imgs/appoint/fb_login.png" alt="" />
+            </div>
+            <!-- <div
+                class="fb-login-button"
+                data-width=""
+                data-size="medium"
+                data-button-type="login_with"
+                data-layout="default"
+                data-auto-logout-link="false"
+                data-use-continue-as="false"
+                @click="fbLogin()"
+            ></div> -->
+            <div
+                class="fb-like"
+                data-href="https://www.facebook.com/ChunChiuM"
+                data-width=""
+                data-layout="standard"
+                data-action="like"
+                data-size="large"
+            ></div>
+            <a
+                href="https://chunqiuios.onelink.me/GB4k/c8a448d2"
+                class="btn btn_app"
+            ></a>
+            <a
+                href="https://chunqiuand.onelink.me/ZoEl/87776227"
+                class="btn btn_gp"
+            ></a>
             <a href="https://www.facebook.com/ChunChiuM" class="btn btn_fb"></a>
-            <!-- <router-link to="https://apps.apple.com/tw/app/%E6%98%A5%E7%A7%8Bm/id1544712019" class="btn btn_app">app</router-link> -->
-            <!-- <router-link to="https://play.google.com/store/apps/details?id=com.hermes.chunqiu" class="btn btn_gp">gp</router-link> -->
-            <!-- <router-link to="https://www.facebook.com/ChunChiuM" class="btn btn_fb">fb</router-link> -->
         </div>
         <!-- appoint end -->
         <img src="../../assets/imgs/appoint/bot.png" alt="" class="bot_img" />
@@ -151,27 +173,32 @@
                 alt=""
                 class="appoint_process"
             />
-            <img src="../../assets/imgs/appoint/finished.png"
+            <img
+                src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished5w"
                 v-if="number == 50000"
             />
-             <img src="../../assets/imgs/appoint/finished.png"
+            <img
+                src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished10w"
                 v-if="number == 100000"
             />
-            <img src="../../assets/imgs/appoint/finished.png"
+            <img
+                src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished20w"
                 v-if="number == 200000"
             />
-            <img src="../../assets/imgs/appoint/finished.png"
+            <img
+                src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished30w"
                 v-if="number == 300000"
             />
-            <img src="../../assets/imgs/appoint/finished.png"
+            <img
+                src="../../assets/imgs/appoint/finished.png"
                 alt=""
                 class="finished finished50w"
                 v-if="number == 500000"
@@ -245,13 +272,43 @@ export default {
             selectedMaxlength: 9,
             number: 100000,
             left_simpol: 0,
-            isTrue: false
+            isTrue: false,
+            isLogin: false, // 登录状态,初始为未登陆
+            facebookId: 0
         };
     },
     mounted () {
         this.getNumber();
-        // console.log("appoint 距离顶部的距离", this.$refs.appoint.getBoundingClientRect().top);
-        this.$emit("getAppointKm", this.$refs.appoint.getBoundingClientRect().top);
+        this.$emit(
+            "getAppointKm",
+            this.$refs.appoint.getBoundingClientRect().top
+        );
+
+        // fb 初始化
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: "272873607521962",
+                status: true,
+                xfbml: true,
+                version: "v2.7"
+            });
+        };
+
+        // localStorage 判断时间是否超过24小时，超过清除缓存记录
+        let storeTime = localStorage.getItem("date");
+        if (storeTime) {
+            let curTime = new Date().getTime();
+            console.log("当前的时间戳", curTime);
+            // 24h
+            // if (curTime - storeTime > 86400000) {
+            //     localStorage.clear();
+            // }
+            if (curTime - storeTime > 120000) {
+                localStorage.clear();
+            }
+        } else {
+            console.log("用户第一次登录,未缓存数据");
+        }
     },
     methods: {
         handleClickShow () {
@@ -341,19 +398,49 @@ export default {
                 }
             );
         },
+        initUv () {
+            let datas = "";
+            this.getHttp(this, datas, "/api/appointment/uv", function (obj, data) {
+                console.log(data.message);
+            });
+        },
+        fbLogin () {
+            // 已登录才能进行预约接口
+            let that = this;
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    console.log("欢迎光临!获取你的信息.... ");
+                    FB.api("/me", function (response) {
+                        that.facebookId = response.id;
+                        console.log("很高兴看到你, " + response.name + ".", "fb id是", that.facebookId);
+                        localStorage.setItem("userInfo", response);
+                        localStorage.setItem("date", new Date());
+                        // 登录过后要统计uv
+                        that.initUv();
+                    });
+                } else {
+                    console.log(
+                        "用户已取消登录或未完全授权."
+                    );
+                }
+            });
+        },
         handleClickAppoint () {
             let areaCode = this.area[this.selectedAreaId].areaCode;
             let selectedSimple = this.area[this.selectedAreaId].areaSimple;
             let tel = areaCode + this.phone;
-            // console.log("完整的手机号码:", tel);
-
             let str = this.getQueryString("flatform");
-            // console.log("组件中获取到的地址栏链接是啥", str);
 
             if (!str) {
                 str = "null";
             }
 
+            if (!this.isLogin) {
+                this.$message(
+                    "請先進行facebook登錄!"
+                );
+                return false;
+            }
             if (this.checked === !true) {
                 this.$message(
                     "請您先勾選同意個人資料的蒐集使用及接收獎勵簡訊!"
@@ -371,23 +458,27 @@ export default {
                 return false;
             }
 
-            let datas = {
-                phone: "+" + tel,
-                zone: selectedSimple,
-                channel: str
-            };
+            if (this.isLogin) {
+                let datas = {
+                    phone: "+" + tel,
+                    zone: selectedSimple,
+                    channel: str,
+                    facebook_id: this.facebookId
+                };
 
-            this.postHttp(this, datas, "/api/appointment/store", function (
-                obj,
-                data
-            ) {
-                if (data.code === 200) {
-                    // console.log("預約藉口獲取到的值", data);
-                    obj.$message(data.message);
-                } else {
-                    obj.$message(data.message);
-                }
-            });
+                this.postHttp(this, datas, "/api/appointment/store", function (
+                    obj,
+                    data
+                ) {
+                    if (data.code === 200) {
+                        obj.$message(data.message);
+                    } else {
+                        obj.$message(data.message);
+                    }
+                });
+            } else {
+                this.$message("請先進行facebook登錄!");
+            }
         },
         validatePhone (phone, areaCode) {
             let map = {
@@ -411,9 +502,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.fb-like{
-    left: 1.23rem;
-    top: 4.9rem;
+.fb-like {
+    height: 27px !important;
+    left: 2.8rem;
+    top: 1.32rem;
+}
+.fb-login-button {
+    width: 2.4rem;
+    height: 0.46rem;
+    position: absolute;
+    left: 2.22rem;
+    top: 1.32rem;
+    z-index: 1;
+    cursor: pointer;
+}
+.fb-login-button {
+    left: 1.7rem;
+}
+.self-fb img {
+    width: 1.46rem;
+    height: 0.29rem;
 }
 //上半场过渡的初始状态，下半场动画的结束状态
 .v-enter,
@@ -454,8 +562,8 @@ export default {
             position: absolute;
             width: 0.18rem;
             height: 0.18rem;
-            left: 4.13rem;
-            top: 1.48rem;
+            left: 4.05rem;
+            top: 3.11rem;
             cursor: pointer;
         }
         .btn {
@@ -464,7 +572,7 @@ export default {
             text-indent: -9999px;
             &.btn_appoint_now {
                 left: 4.02rem;
-                top: 3.72rem;
+                top: 4.7rem;
                 width: 1.91rem;
                 height: 0.56rem;
                 background: url(".././../assets/imgs/appoint/btn_appoint.png")
@@ -480,8 +588,8 @@ export default {
                 }
             }
             &.btn_app {
-                right: 0.63rem;
-                top: 3.6rem;
+                right: 0.59rem;
+                top: 3.59rem;
                 width: 1.18rem;
                 height: 0.41rem;
                 background: url(".././../assets/imgs/appoint/btn_app.png")
@@ -493,8 +601,8 @@ export default {
                 }
             }
             &.btn_gp {
-                right: 0.63rem;
-                top: 4.168rem;
+                right: 0.59rem;
+                top: 4.1rem;
                 width: 1.18rem;
                 height: 0.41rem;
                 background: url(".././../assets/imgs/appoint/btn_gp.png")
@@ -506,8 +614,8 @@ export default {
                 }
             }
             &.btn_fb {
-                right: 0.63rem;
-                top: 4.72rem;
+                right: 0.59rem;
+                top: 4.6rem;
                 width: 1.18rem;
                 height: 0.41rem;
                 background: url(".././../assets/imgs/appoint/btn_fb.png")
@@ -524,7 +632,7 @@ export default {
             width: 3.79rem;
             height: 0.47rem;
             left: 4.14rem;
-            top: 0.92rem;
+            top: 2.52rem;
             text-align: center;
             border: none;
             background: none;
@@ -549,8 +657,8 @@ export default {
         }
         .select_ul {
             position: absolute;
-            left: 2.22rem;
-            top: 1.4rem;
+            left: 2.16rem;
+            top: 3.03rem;
             width: 1.72rem;
             height: 2.25rem;
             background: url(".././../assets/imgs/select_bg.png") no-repeat;
@@ -576,7 +684,7 @@ export default {
             text-align: center;
             position: absolute;
             left: 2.22rem;
-            top: 1rem;
+            top: 2.65rem;
             font-size: 0.22rem;
             color: #ffffff;
             text-align: left;
@@ -644,25 +752,25 @@ export default {
             top: -0.6rem;
             left: 0;
         }
-        .finished{
+        .finished {
             width: 0.62rem;
             height: 0.71rem;
             position: absolute;
-            top: .71rem;
+            top: 0.71rem;
         }
-        .finished5w{
-            left: .26rem;
+        .finished5w {
+            left: 0.26rem;
         }
-        .finished10w{
+        .finished10w {
             left: 2.1rem;
         }
-        .finished20w{
+        .finished20w {
             left: 3.94rem;
         }
-        .finished30w{
+        .finished30w {
             left: 5.78rem;
         }
-        .finished50w{
+        .finished50w {
             left: 7.62rem;
         }
     }

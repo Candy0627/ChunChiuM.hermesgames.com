@@ -23,7 +23,7 @@
         <!-- 使用animate.css 外面需要再包裹一层 v-if 外面div -->
         <!-- jun 的内容 -->
         <div class="jun">
-            <div v-if="con === 'jun'">
+            <div v-show="con === 'jun'">
                 <div class="people">
                     <img
                         src="../../assets/imgs/hero/jun_name.png"
@@ -66,7 +66,7 @@
         </div>
         <!-- gong 的内容 -->
         <div class="gong">
-            <div v-if="con === 'gong'">
+            <div v-show="con === 'gong'">
                 <div class="people">
                     <img
                         src="../../assets/imgs/hero/gong_name.png"
@@ -109,7 +109,7 @@
         </div>
         <!-- qi的内容 -->
         <div class="qi">
-            <div v-if="con === 'qi'">
+            <div v-show="con === 'qi'">
                 <div class="people">
                     <img
                         src="../../assets/imgs/hero/qi_name.png"
@@ -152,7 +152,7 @@
         </div>
         <!-- bu的内容 -->
         <div class="bu">
-            <div v-if="con === 'bu'">
+            <div v-show="con === 'bu'">
                 <div class="people">
                     <img
                         src="../../assets/imgs/hero/bu_name.png"
@@ -249,7 +249,7 @@
                     <swiper-slide
                         v-for="(item, index) in junPopList"
                         :key="item.id"
-                        v-if="junPopList.length > 0 && selectedType == 'jun'"
+                        v-show="junPopList.length > 0 && selectedType == 'jun'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
@@ -257,7 +257,7 @@
                     <swiper-slide
                         v-for="(item, index) in gongPopList"
                         :key="item.id"
-                        v-if="gongPopList.length > 0 && selectedType == 'gong'"
+                        v-show="gongPopList.length > 0 && selectedType == 'gong'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
@@ -265,7 +265,7 @@
                     <swiper-slide
                         v-for="(item, index) in qiPopList"
                         :key="item.id"
-                        v-if="qiPopList.length > 0 && selectedType == 'qi'"
+                        v-show="qiPopList.length > 0 && selectedType == 'qi'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
@@ -273,7 +273,7 @@
                     <swiper-slide
                         v-for="(item, index) in buPopList"
                         :key="item.id"
-                        v-if="buPopList.length > 0 && selectedType == 'bu'"
+                        v-show="buPopList.length > 0 && selectedType == 'bu'"
                     >
                         <img :src="item.imgSrc" alt="" />
                     </swiper-slide>
