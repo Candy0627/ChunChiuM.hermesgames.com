@@ -7,7 +7,7 @@
                 <li><a href="https://chunqiuand.onelink.me/ZoEl/87776227"></a></li>
                 <li><a href="https://www.facebook.com/ChunChiuM"></a></li>
             </ul>
-            <a href="#appoint" class="top">
+            <a href="javascript:;" class="top" @click="backTop()">
                 <img src="../../assets/top.png" alt="" class="top_bot" />
             </a>
         </div>
@@ -56,7 +56,7 @@ export default {
                 document.documentElement.scrollTop || document.body.scrollTop;
             const timeTop = setInterval(() => {
                 document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
-                if (top <= 1080) {
+                if (top <= 0) {
                     this.isSlideBar = true;
                     clearInterval(timeTop);
                 }

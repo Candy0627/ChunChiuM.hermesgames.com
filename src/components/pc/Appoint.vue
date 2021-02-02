@@ -305,7 +305,7 @@ export default {
             // if (curTime - storeTime > 86400000) {
             //     localStorage.clear();
             // }
-            if (curTime - storeTime > 120000) {
+            if (curTime - storeTime > 300000) {
                 localStorage.clear();
             }
         } else {
