@@ -66,7 +66,7 @@
                 >立即预约</router-link
             >
             <div>
-                <div class="fb-login-button self-fb" @click="fbLogin()" v-if="isLogin">
+                <div class="fb-login-button self-fb" @click="fbLogin()" v-if="!isLogin">
                     <img src="../../assets/imgs/appoint/fb_login.png" alt="" />
                 </div>
                 <span v-else></span>

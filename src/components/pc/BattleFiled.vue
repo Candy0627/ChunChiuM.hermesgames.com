@@ -12,7 +12,7 @@
                     autoplay
                     loop
                     poster="../../assets/imgs/v1.jpg"
-                    v-if="index === tabId"
+                    v-show="index === tabId"
                 >
                     <source :src="item.videoSrc" type="video/mp4" />
                 </video>
