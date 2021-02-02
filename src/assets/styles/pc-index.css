@@ -176,13 +176,13 @@ input：：-webkit-input-placeholder{
 
 
 /* 单行文字超出省略 */
-.ellipsis-one{
+.ep-one{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 /* 多行文字超出省略 */
-.ellipsis-two{
+.ep-two{
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
