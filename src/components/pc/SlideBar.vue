@@ -22,7 +22,7 @@ export default {
     },
     data () {
         return {
-            isSlideBar: false
+            isSlideBar: true
         };
     },
     mounted () {
