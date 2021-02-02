@@ -65,8 +65,11 @@
                 @click.native="handleClickAppoint()"
                 >立即预约</router-link
             >
-            <div class="fb-login-button self-fb" @click="fbLogin()">
-                <img src="../../assets/imgs/appoint/fb_login.png" alt="" />
+            <div>
+                <div class="fb-login-button self-fb" @click="fbLogin()" v-if="isLogin">
+                    <img src="../../assets/imgs/appoint/fb_login.png" alt="" />
+                </div>
+                <span v-else></span>
             </div>
             <!-- <div
                 class="fb-login-button"
@@ -274,7 +277,8 @@ export default {
             left_simpol: 0,
             isTrue: false,
             isLogin: false, // 登录状态,初始为未登陆
-            facebookId: 0
+            facebookId: 0,
+            facebookName: ""
         };
     },
     mounted () {
@@ -284,7 +288,6 @@ export default {
             this.$refs.appoint.getBoundingClientRect().top
         );
 
-        // fb 初始化
         window.fbAsyncInit = function () {
             FB.init({
                 appId: "272873607521962",
@@ -294,7 +297,6 @@ export default {
             });
         };
 
-        // localStorage 判断时间是否超过24小时，超过清除缓存记录
         let storeTime = localStorage.getItem("date");
         if (storeTime) {
             let curTime = new Date().getTime();
@@ -331,9 +333,7 @@ export default {
         handleCheckbox () {
             console.log(this.checked);
             if (this.checked === false) {
-                // console.log("已选中");
             } else {
-                // console.log("未选中");
             }
         },
         getNumber () {
@@ -399,7 +399,9 @@ export default {
             );
         },
         initUv () {
-            let datas = "";
+            let datas = {
+                facebook_id: this.facebookId
+            };
             this.getHttp(this, datas, "/api/appointment/uv", function (obj, data) {
                 console.log(data.message);
             });
@@ -411,8 +413,10 @@ export default {
                 if (response.authResponse) {
                     console.log("欢迎光临!获取你的信息.... ");
                     FB.api("/me", function (response) {
+                        that.isLogin = true;
                         that.facebookId = response.id;
-                        console.log("很高兴看到你, " + response.name + ".", "fb id是", that.facebookId);
+                        this.facebookName = response.name;
+                        console.log(response, "很高兴看到你, " + response.name + ".", "fb id是", that.facebookId);
                         localStorage.setItem("userInfo", response);
                         localStorage.setItem("date", new Date());
                         // 登录过后要统计uv
