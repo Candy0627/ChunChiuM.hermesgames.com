@@ -415,7 +415,7 @@ export default {
                     FB.api("/me", function (response) {
                         that.isLogin = true;
                         that.facebookId = response.id;
-                        this.facebookName = response.name;
+                        that.facebookName = response.name;
                         console.log(response, "很高兴看到你, " + response.name + ".", "fb id是", that.facebookId);
                         localStorage.setItem("userInfo", JSON.stringify(response));
                         localStorage.setItem("date", new Date());
