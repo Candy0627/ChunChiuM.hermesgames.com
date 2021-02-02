@@ -77,19 +77,19 @@ export default {
             videoList: [
                 {
                     id: "01",
-                    videoSrc: require("../../assets/media/battle.mp4")
+                    videoSrc: require("../../assets/media/s1.mp4")
                 },
                 {
                     id: "02",
-                    videoSrc: require("../../assets/media/top.mp4")
+                    videoSrc: require("../../assets/media/s2.mp4")
                 },
                 {
                     id: "03",
-                    videoSrc: require("../../assets/media/battle.mp4")
+                    videoSrc: require("../../assets/media/s3.mp4")
                 },
                 {
                     id: "04",
-                    videoSrc: require("../../assets/media/top.mp4")
+                    videoSrc: require("../../assets/media/s1.mp4")
                 }
             ],
             solganList: [
