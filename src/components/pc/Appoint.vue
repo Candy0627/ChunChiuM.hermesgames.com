@@ -69,7 +69,7 @@
                 <div class="fb-login-button self-fb" @click="fbLogin()" v-if="!isLogin">
                     <img src="../../assets/imgs/appoint/fb_login.png" alt="" />
                 </div>
-                <span v-else></span>
+                <div class="self-span ep-one" v-else> {{facebookName}}</div>
             </div>
             <!-- <div
                 class="fb-login-button"
@@ -417,7 +417,7 @@ export default {
                         that.facebookId = response.id;
                         this.facebookName = response.name;
                         console.log(response, "很高兴看到你, " + response.name + ".", "fb id是", that.facebookId);
-                        localStorage.setItem("userInfo", response);
+                        localStorage.setItem("userInfo", JSON.stringify(response));
                         localStorage.setItem("date", new Date());
                         // 登录过后要统计uv
                         that.initUv();
@@ -519,6 +519,18 @@ export default {
     top: 1.32rem;
     z-index: 1;
     cursor: pointer;
+}
+.self-span {
+    width: 1.4rem;
+    height: 0.3rem;
+    position: absolute;
+    left: 2.22rem;
+    top: 1.32rem;
+    z-index: 1;
+    font-size: 0.2rem;
+    cursor: pointer;
+    color: #000;
+    text-align: left;
 }
 .fb-login-button {
     left: 1.7rem;
