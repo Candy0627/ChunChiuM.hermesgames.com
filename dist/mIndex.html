@@ -3,12 +3,11 @@
 			var l = decodeURI(window.location.search);
 			var r = l.substr(1).match(reg);
 			if (r != null) return unescape(r[2]);
-			return null;
+			return -1;
 		}
 
 		var str = getQueryString("platform");
 		// console.log("截取的地址栏参数", str);
-
 		function IsPC() {
 			var userAgentInfo = navigator.userAgent;
 			var Agents = ["Android", "iPhone",
