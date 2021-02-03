@@ -36,13 +36,9 @@
                 v-for="(item, index) in filedList"
                 :key="item.id"
                 @click="handleTab(index)"
+                @mouseenter="enter()"
             >
-                <img
-                    :src="item.onSrc"
-                    alt=""
-                    class="on"
-                    v-if="tabId === index"
-                />
+                <img :src="item.onSrc" alt="" class="on" v-if="tabId === index" />
                 <img :src="item.unSrc" alt="" class="un" v-else />
             </li>
         </ul>
@@ -125,7 +121,7 @@ export default {
     methods: {
         handleTab (i) {
             this.tabId = i;
-            console.log("当前的是第几个video", i);
+            // console.log("当前的是第几个video", i);
         }
     }
 };
