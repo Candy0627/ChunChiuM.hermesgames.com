@@ -278,7 +278,8 @@ export default {
             isTrue: false,
             isLogin: false, // 登录状态,初始为未登陆
             facebookId: 0,
-            facebookName: ""
+            facebookName: "",
+            platform: ""
         };
     },
     mounted () {
@@ -302,15 +303,13 @@ export default {
             let curTime = new Date().getTime();
             console.log("当前的时间戳", curTime);
             // 24h
-            // if (curTime - storeTime > 86400000) {
-            //     localStorage.clear();
-            // }
-            if (curTime - storeTime > 300000) {
+            if (curTime - storeTime > 86400000) {
                 localStorage.clear();
             }
         } else {
-            console.log("用户第一次登录,未缓存数据");
         }
+
+        this.initPv();
     },
     methods: {
         handleClickShow () {
@@ -399,9 +398,31 @@ export default {
                 }
             );
         },
-        initUv () {
+        init () {
+            if (window.pageYOffset >= this.val - 100) {
+                this.isSlideBar = true;
+            } else {
+                this.isSlideBar = false;
+            }
+        },
+        initPv () {
+            if (!this.platform) {
+                this.platform = -1;
+            }
             let datas = {
-                facebook_id: this.facebookId
+                platform: this.platform
+            };
+            this.getHttp(this, datas, "/api/appointment/pv", function (obj, res) {
+                // console.log("统计的pv", res.message);
+            });
+        },
+        initUv () {
+            if (!this.platform) {
+                this.platform = -1;
+            }
+            let datas = {
+                facebook_id: this.facebookId,
+                platform: this.platform
             };
             this.getHttp(this, datas, "/api/appointment/uv", function (obj, data) {
                 console.log(data.message);
@@ -434,10 +455,10 @@ export default {
             let areaCode = this.area[this.selectedAreaId].areaCode;
             let selectedSimple = this.area[this.selectedAreaId].areaSimple;
             let tel = areaCode + this.phone;
-            let str = this.getQueryString("flatform");
+            this.platform = this.getQueryString("flatform");
 
-            if (!str) {
-                str = "null";
+            if (!this.platform) {
+                this.platform = -1;
             }
 
             if (!this.isLogin) {
@@ -462,12 +483,12 @@ export default {
                 this.$message("電話號碼格式錯誤!");
                 return false;
             }
-
+            console.log("platform 的值", this.platform);
             if (this.isLogin) {
                 let datas = {
                     phone: "+" + tel,
                     zone: selectedSimple,
-                    channel: str,
+                    platform: this.platform,
                     facebook_id: this.facebookId
                 };
 

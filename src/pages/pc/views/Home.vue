@@ -35,29 +35,16 @@ export default {
     },
     data () {
         return {
-            isSlideBar: false,
+            isSlideBar: true,
             val: 0
         };
     },
     mounted () {
         window.addEventListener("scroll", this.init, true);
-        this.initPv();
     },
     methods: {
         getAppointKm (val) {
             this.val = val;
-        },
-        init () {
-            if (window.pageYOffset >= this.val - 100) {
-                this.isSlideBar = true;
-            } else {
-                this.isSlideBar = false;
-            }
-        },
-        initPv () {
-            this.getHttp(this, "", "/api/appointment/pv", function (obj, res) {
-                // console.log("统计的pv", res.message);
-            });
         }
     }
 };
