@@ -113,7 +113,7 @@
         </div>
 
         <!-- 中间地图 -->
-        <div class="map" v-if="isTest">
+        <div class="map">
             <img src="../../assets/imgs/map/map_bg.png" alt />
             <div
                 v-for="item in mapList"
@@ -133,15 +133,16 @@
         <div class="circle">
             <!-- 小圆 -->
             <img src="../../assets/imgs/smalll.png" alt class="cicle_small" />
-            <ul :class="{ active: isActive }" class="ul" :style="{ transform: `rotate(${defaultDeg}deg)` }">
+            <ul :class="{ active: isActive }" class="ul">
                 <!-- 大圆 -->
-                <!-- <img
+                <img
                     src="../../assets/imgs/big.png"
                     alt
                     class="cicle_big"
-                    :style="{ transform: `rotate(${defaultDeg}deg)`}"
-                /> -->
-                <!-- <img
+                    :style="{ transform: `rotate(${defaultDeg}deg)` }"
+                />
+
+                <img
                     src="../../assets/imgs/map/yan/name_on.png"
                     alt=""
                     :style="{ left: `${l}rem`, top: `${t}rem` }"
@@ -182,27 +183,25 @@
                     alt=""
                     :style="{ left: `${l}rem`, top: `${t}rem` }"
                     v-if="isShow && selectedName == 'qi'"
-                /> -->
-
-                <!-- <li
-                    v-for="(item, index) in circle"
-                    :key="item.id"
-                    @click="handleSelfCricle(index, item.name, item.pos)"
-                >
-                    <em
-                        :data_name="item.name"
-                        :data_pos="item.pos"
-                        :class="item.class"
-                    ></em>
-                </li> -->
+                />
 
                 <li
                     v-for="(item, index) in circle"
                     :key="item.id"
-                    @click="handleSelfCricle(item.id,index, item.name, item.pos)"
-                    :class="item.class"
-                    :data-id="item.id"
-                ></li>
+                    @click="handleClickCricle(index, item.name, item.pos)"
+                >
+                    <em
+                        :data_name="item.name"
+                        :data_pos="item.pos"
+                        :class="{
+                            m_52: item.pos === -52,
+                            m_26: item.pos === -26,
+                            m0: item.pos === 0,
+                            m26: item.pos === 26,
+                            m52: item.pos === 52
+                        }"
+                    ></em>
+                </li>
             </ul>
         </div>
     </div>
@@ -230,83 +229,28 @@ export default {
             circle: [
                 {
                     id: 1,
-                    name: "qin",
-                    pos: 0,
-                    class: "cm0"
+                    name: "yan",
+                    pos: -52
                 },
                 {
                     id: 2,
                     name: "zhao",
-                    class: "cm1"
+                    pos: -26
                 },
                 {
                     id: 3,
-                    name: "yan",
-                    class: "cm2"
+                    name: "qin",
+                    pos: 0
                 },
                 {
                     id: 4,
-                    name: "qi",
-                    pos: 52,
-                    class: "cm3"
+                    name: "chu",
+                    pos: 26
                 },
                 {
                     id: 5,
-                    name: "han",
-                    pos: 52,
-                    class: "cm4"
-                },
-                {
-                    id: 6,
                     name: "wei",
-                    pos: 52,
-                    class: "cm5"
-                },
-                {
-                    id: 7,
-                    name: "chu",
-                    pos: 26,
-                    class: "cm6"
-                },
-                {
-                    id: 8,
-                    name: "qin",
-                    pos: 0,
-                    class: "cm7"
-                },
-                {
-                    id: 9,
-                    name: "zhao",
-                    class: "cm8"
-                },
-                {
-                    id: 10,
-                    name: "yan",
-                    class: "cm9"
-                },
-                {
-                    id: 11,
-                    name: "qi",
-                    pos: 52,
-                    class: "cm10"
-                },
-                {
-                    id: 12,
-                    name: "han",
-                    pos: 52,
-                    class: "cm11"
-                },
-                {
-                    id: 13,
-                    name: "wei",
-                    pos: 52,
-                    class: "cm12"
-                },
-                {
-                    id: 14,
-                    name: "chu",
-                    pos: 26,
-                    class: "cm13"
+                    pos: 52
                 }
             ],
             l: -0.04,
@@ -347,8 +291,7 @@ export default {
                     name: "qi",
                     cur: "qi_cur"
                 }
-            ],
-            isTest: false
+            ]
         };
     },
     mounted () {
@@ -356,11 +299,6 @@ export default {
         this.isShow = true;
     },
     methods: {
-        handleSelfCricle (id, i, name, pos) {
-            // 临界点，就近原则
-            this.defaultDeg = -(id * 25.714) + 25.714;
-            console.log("点击之后度数", this.defaultDeg);
-        },
         handleClickCricle (i, name, pos) {
             this.isShow = false;
             switch (pos) {
@@ -1277,15 +1215,13 @@ export default {
 
     ul {
         position: absolute;
-        width: 9.96rem;
-        height: 9.97rem;
-        // right: -36%;
-        right: 10%;
+        width: 10.12rem;
+        height: 9.99rem;
+        right: -36%;
+        // right: 10%;
         top: 50%;
         margin-top: -4.83rem;
         transition: all 0.9s ease-in-out;
-        background: url(".././../assets/imgs/big.png") no-repeat;
-        background-size: 100% 100%;
         img {
             position: absolute;
             z-index: 999;
@@ -1296,10 +1232,9 @@ export default {
         }
         li {
             position: absolute;
-            width: 1.06rem;
+            width: 1.37rem;
             height: 1.07rem;
             border-radius: 100%;
-            transition: all 0.9s;
             cursor: pointer;
 
             .center0 {
@@ -1312,6 +1247,12 @@ export default {
                 left: 0;
                 top: 0;
                 margin-top: 0;
+            }
+
+            &:nth-child(1) {
+                width: 1.06rem;
+                height: 1.07rem;
+                transition: all 0.9s;
             }
 
             em {
@@ -1363,149 +1304,10 @@ export default {
                 left: 1.94rem;
                 top: 7.79rem;
             }
-            &.cm0{
-                left: 0.18rem;
-                top: 4.5rem;
-                border:6px solid pink
-            }
-            &.cm1{
-                left: .55rem;
-                top: 2.65rem;
-                border:6px solid blue
-            }
-            &.cm2{
-                left: 1.72rem;
-                top: 1.15rem;
-                border:6px solid green
-            }
-            &.cm3{
-                left: 3.46rem;
-                top: .29rem;
-                border:6px solid yellowgreen
-            }
-            &.cm4{
-                left: 5.42rem;
-                top: .28rem;
-                border:6px solid yellow
-            }
-            &.cm5{
-                left: 7.15rem;
-                top: 1.1rem;
-                border:6px solid red
-            }
-            &.cm6{
-                left: 8.34rem;
-                top: 2.63rem;
-                border:6px solid purple
-            }
-            &.cm7{
-                left: 8.73rem;
-                top: 4.47rem;
-                border:6px solid pink
-            }
-            &.cm8{
-                left: 8.32rem;
-                top: 6.3rem;
-                border:6px solid blue
-            }
-            &.cm9{
-                left: 7.14rem;
-                top: 7.8rem;
-                border:6px solid green
-            }
-            &.cm10{
-                left: 5.39rem;
-                top: 8.63rem;
-                border:6px solid yellowgreen
-            }
-            &.cm11{
-                left: 3.47rem;
-                top: 8.58rem;
-                border:6px solid yellow
-            }
-            &.cm12{
-                left: 1.79rem;
-                top: 7.84rem;
-                border:6px solid red
-            }
-            &.cm13{
-                left: 0.58rem;
-                top: 6.35rem;
-                border:6px solid purple
-            }
-            &.c1{
-                left: 1.72rem;
-                top: 1.15rem;
-                border:6px solid green
-            }
-            &.c2{
-                left: .55rem;
-                top: 2.65rem;
-                border:6px solid blue
-            }
-            &.c3{
-                left: 0.18rem;
-                top: 4.5rem;
-                border:6px solid pink
-            }
-            &.c4{
-                left: 0.58rem;
-                top: 6.35rem;
-                border:6px solid purple
-            }
-            &.c5{
-                left: 1.79rem;
-                top: 7.84rem;
-                border:6px solid red
-            }
-            &.c6{
-                left: 3.47rem;
-                top: 8.58rem;
-                border:6px solid yellow
-            }
-            &.c7{
-                left: 5.39rem;
-                top: 8.63rem;
-                border:6px solid yellowgreen
-            }
-            &.c8{
-                left: 7.14rem;
-                top: 7.8rem;
-                border:6px solid green
-            }
-            &.c9{
-                left: 8.32rem;
-                top: 6.3rem;
-                border:6px solid blue
-            }
-            &.c10{
-                left: 8.73rem;
-                top: 4.47rem;
-                border:6px solid pink
-            }
-            &.c11{
-                left: 8.34rem;
-                top: 2.63rem;
-                border:6px solid purple
-            }
-            &.c12{
-                left: 7.15rem;
-                top: 1.1rem;
-                border:6px solid red
-            }
-            &.c13{
-                left: 5.42rem;
-                top: .28rem;
-                border:6px solid yellow
-            }
-            &.c14{
-                left: 3.46rem;
-                top: .29rem;
-                border:6px solid yellowgreen
-            }
+
             .qin {
-                left: 5.42rem;
-                top: 8.64rem;
+                left: 0.29rem;
+                top: 4.53rem;
             }
 
             .chu {
