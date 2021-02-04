@@ -37,7 +37,7 @@
             </transition>
 
             <div class="phone">
-                <span class="fl">{{ selectedAreaCode }}</span>
+                <span class="fl">+{{ selectedAreaCode }}</span>
                 <input
                     type="text"
                     class="fr"
@@ -268,7 +268,7 @@ export default {
                 }
             ],
             ischecksimpol: false,
-            selectedAreaCode: "+886",
+            selectedAreaCode: "886",
             selectedAreaId: 0,
             selectedtips: "請填0後的9位數行動電話號碼",
             selectedSimple: "tw",
@@ -327,7 +327,6 @@ export default {
             this.selectedtips = tips;
             this.selectedSimple = areaSimple;
             this.selectedMaxlength = maxlength;
-            console.log("此时选中的id", this.selectedAreaId);
         },
         handleCheckbox () {
             console.log(this.checked);
@@ -460,7 +459,6 @@ export default {
             if (!this.platform) {
                 this.platform = -1;
             }
-
             if (!this.isLogin) {
                 this.$message(
                     "請先進行facebook登錄!"
@@ -478,12 +476,11 @@ export default {
                 this.$message("電話號碼不能爲空！");
                 return false;
             }
-
             if (!this.validatePhone(this.phone, areaCode)) {
                 this.$message("電話號碼格式錯誤!");
                 return false;
             }
-            console.log("platform 的值", this.platform);
+            console.log(this.platform);
             if (this.isLogin) {
                 let datas = {
                     phone: "+" + tel,
