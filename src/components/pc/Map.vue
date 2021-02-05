@@ -348,7 +348,8 @@ export default {
                     cur: "qi_cur"
                 }
             ],
-            isTest: false
+            isTest: false,
+            count: 0
         };
     },
     mounted () {
@@ -357,9 +358,97 @@ export default {
     },
     methods: {
         handleSelfCricle (id, i, name, pos) {
-            // 临界点，就近原则
-            this.defaultDeg = -(id * 25.714) + 25.714;
-            console.log("点击之后度数", this.defaultDeg);
+            // this.defaultDeg = -(id * 25.714) + 25.714;
+            // 点击下面，顺时针
+            if (id === 14) {
+                this.defaultDeg = 25.714 * 1;
+            }
+            if (id === 13) {
+                this.defaultDeg = 25.714 * 2;
+            }
+            if (id === 12) {
+                this.defaultDeg = 25.714 * 3;
+            }
+            if (id === 11) {
+                this.defaultDeg = 25.714 * 4;
+            }
+            if (id === 10) {
+                this.defaultDeg = 25.714 * 5;
+            }
+            if (id === 9) {
+                this.defaultDeg = 25.714 * 6;
+            }
+            if (id === 8) {
+                this.defaultDeg = 25.714 * 7;
+            }
+            if (id === 7) {
+                this.defaultDeg = 25.714 * 8;
+            }
+            if (id === 6) {
+                this.defaultDeg = 25.714 * 9;
+            }
+            if (id === 5) {
+                this.defaultDeg = 25.714 * 10;
+            }
+            if (id === 4) {
+                this.defaultDeg = 25.714 * 11;
+            }
+            if (id === 3) {
+                this.defaultDeg = 25.714 * 12;
+            }
+            if (id === 2) {
+                this.defaultDeg = 25.714 * 13;
+            }
+            if (id === 1) {
+                this.defaultDeg = 25.714 * 14;
+                this.count++;
+            }
+            if (this.count === 1) {
+                // 顺时针已经旋转一圈了
+                if (id === 14) {
+                    this.defaultDeg = 25.714 * 15;
+                }
+                if (id === 13) {
+                    this.defaultDeg = 25.714 * 16;
+                }
+                if (id === 12) {
+                    this.defaultDeg = 25.714 * 17;
+                }
+                if (id === 11) {
+                    this.defaultDeg = 25.714 * 18;
+                }
+                if (id === 10) {
+                    this.defaultDeg = 25.714 * 19;
+                }
+                if (id === 9) {
+                    this.defaultDeg = 25.714 * 20;
+                }
+                if (id === 8) {
+                    this.defaultDeg = 25.714 * 21;
+                }
+                if (id === 7) {
+                    this.defaultDeg = 25.714 * 22;
+                }
+                if (id === 6) {
+                    this.defaultDeg = 25.714 * 23;
+                }
+                if (id === 5) {
+                    this.defaultDeg = 25.714 * 24;
+                }
+                if (id === 4) {
+                    this.defaultDeg = 25.714 * 25;
+                }
+                if (id === 3) {
+                    this.defaultDeg = 25.714 * 26;
+                }
+                if (id === 2) {
+                    this.defaultDeg = 25.714 * 27;
+                }
+                if (id === 1) {
+                    this.count++;
+                    this.defaultDeg = 25.714 * 28;
+                }
+            }
         },
         handleClickCricle (i, name, pos) {
             this.isShow = false;
