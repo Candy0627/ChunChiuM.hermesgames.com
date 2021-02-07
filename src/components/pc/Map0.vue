@@ -291,7 +291,8 @@ export default {
                     name: "qi",
                     cur: "qi_cur"
                 }
-            ]
+            ],
+            c: 0
         };
     },
     mounted () {
@@ -303,103 +304,124 @@ export default {
             this.isShow = false;
             switch (pos) {
             case -52:
-                if (name === "zhao") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "yan";
-                    this.circle[1].name = "zhao";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "chu";
-                    this.circle[4].name = "wei";
-                    this.selectedName = "zhao";
-                    this.l = -0.03;
-                    this.t = 4.62;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
+                if (this.c === 1) {
+                    if (name === "yan") {
+                        alert("此时燕到下一个循环了");
+                        this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26);
+                        this.circle[0].name = "han";
+                        this.circle[1].name = "qi";
+                        this.circle[2].name = "yan";
+                        this.circle[3].name = "zhao";
+                        this.circle[4].name = "qin";
+                        this.selectedName = "yan";
+                        this.l = -0.03;
+                        this.t = 4.62;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                    }
                 }
-                if (name === "yan") {
-                    this.defaultDeg = -(26 + 26);
-                    this.circle[0].name = "han";
-                    this.circle[1].name = "qi";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "zhao";
-                    this.circle[4].name = "qin";
-                    this.selectedName = "yan";
-                    this.l = -0.03;
-                    this.t = 4.62;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qi") {
-                    this.defaultDeg = -(26 + 26 + 26);
-                    this.circle[0].name = "wei";
-                    this.circle[1].name = "han";
-                    this.circle[2].name = "qi";
-                    this.circle[3].name = "yan";
-                    this.circle[4].name = "zhao";
-                    this.selectedName = "qi";
-                    this.l = -0.02;
-                    this.t = 4.6;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "han") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26);
-                    this.circle[0].name = "chu";
-                    this.circle[1].name = "wei";
-                    this.circle[2].name = "han";
-                    this.circle[3].name = "qi";
-                    this.circle[4].name = "yan";
-                    this.selectedName = "han";
-                    this.l = -0.03;
-                    this.t = 4.57;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "wei") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "qin";
-                    this.circle[1].name = "chu";
-                    this.circle[2].name = "wei";
-                    this.circle[3].name = "han";
-                    this.circle[4].name = "qi";
-                    this.selectedName = "wei";
-                    this.l = -0.03;
-                    this.t = 4.58;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "chu") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "zhao";
-                    this.circle[1].name = "qin";
-                    this.circle[2].name = "chu";
-                    this.circle[3].name = "wei";
-                    this.circle[4].name = "han";
-                    this.selectedName = "chu";
-                    this.l = -0.03;
-                    this.t = 4.59;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qin") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "yan";
-                    this.circle[1].name = "zhao";
-                    this.circle[2].name = "qin";
-                    this.circle[3].name = "chu";
-                    this.circle[4].name = "wei";
-                    this.selectedName = "qin";
-                    this.l = -0.03;
-                    this.t = 4.63;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
+                if (this.c === 0) {
+                    if (name === "zhao") {
+                        this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
+                        this.circle[0].name = "yan";
+                        this.circle[1].name = "zhao";
+                        this.circle[2].name = "yan";
+                        this.circle[3].name = "chu";
+                        this.circle[4].name = "wei";
+                        this.selectedName = "zhao";
+                        this.l = -0.03;
+                        this.t = 4.62;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                        this.c++;
+                        console.log("此时c的值", this.c);
+                    }
+                    if (name === "yan") {
+                        this.defaultDeg = -(26 + 26);
+                        this.circle[0].name = "han";
+                        this.circle[1].name = "qi";
+                        this.circle[2].name = "yan";
+                        this.circle[3].name = "zhao";
+                        this.circle[4].name = "qin";
+                        this.selectedName = "yan";
+                        this.l = -0.03;
+                        this.t = 4.62;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                    }
+                    if (name === "qi") {
+                        this.defaultDeg = -(26 + 26 + 26);
+                        this.circle[0].name = "wei";
+                        this.circle[1].name = "han";
+                        this.circle[2].name = "qi";
+                        this.circle[3].name = "yan";
+                        this.circle[4].name = "zhao";
+                        this.selectedName = "qi";
+                        this.l = -0.02;
+                        this.t = 4.6;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                    }
+                    if (name === "han") {
+                        this.defaultDeg = -(26 + 26 + 26 + 26);
+                        this.circle[0].name = "chu";
+                        this.circle[1].name = "wei";
+                        this.circle[2].name = "han";
+                        this.circle[3].name = "qi";
+                        this.circle[4].name = "yan";
+                        this.selectedName = "han";
+                        this.l = -0.03;
+                        this.t = 4.57;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                    }
+                    if (name === "wei") {
+                        this.defaultDeg = -(26 + 26 + 26 + 26 + 26);
+                        this.circle[0].name = "qin";
+                        this.circle[1].name = "chu";
+                        this.circle[2].name = "wei";
+                        this.circle[3].name = "han";
+                        this.circle[4].name = "qi";
+                        this.selectedName = "wei";
+                        this.l = -0.03;
+                        this.t = 4.58;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                    }
+                    if (name === "chu") {
+                        this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26);
+                        this.circle[0].name = "zhao";
+                        this.circle[1].name = "qin";
+                        this.circle[2].name = "chu";
+                        this.circle[3].name = "wei";
+                        this.circle[4].name = "han";
+                        this.selectedName = "chu";
+                        this.l = -0.03;
+                        this.t = 4.59;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                    }
+                    if (name === "qin") {
+                        this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
+                        this.circle[0].name = "yan";
+                        this.circle[1].name = "zhao";
+                        this.circle[2].name = "qin";
+                        this.circle[3].name = "chu";
+                        this.circle[4].name = "wei";
+                        this.selectedName = "qin";
+                        this.l = -0.03;
+                        this.t = 4.63;
+                        setTimeout(() => {
+                            this.isShow = true;
+                        }, 150);
+                    }
                 }
                 break;
             case -26:

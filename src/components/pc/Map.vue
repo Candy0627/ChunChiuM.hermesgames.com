@@ -195,13 +195,14 @@
                         :class="item.class"
                     ></em>
                 </li> -->
-
                 <li
                     v-for="(item, index) in circle"
                     :key="item.id"
-                    @click="handleSelfCricle(item.id,index, item.name, item.pos)"
+                    @click="handleSelfCricle(item.id, index, item.name, item.pos)"
                     :class="item.class"
                     :data-id="item.id"
+                    :data-name="item.name"
+                    :data-pos="item.pos"
                 ></li>
             </ul>
         </div>
@@ -231,82 +232,86 @@ export default {
                 {
                     id: 1,
                     name: "qin",
-                    pos: 0,
-                    class: "cm0"
+                    class: "cm0",
+                    pos: 0
                 },
                 {
                     id: 2,
                     name: "zhao",
-                    class: "cm1"
+                    class: "cm1",
+                    pos: -25.71
                 },
                 {
                     id: 3,
                     name: "yan",
-                    class: "cm2"
+                    class: "cm2",
+                    pos: -51.42
                 },
                 {
                     id: 4,
                     name: "qi",
-                    pos: 52,
-                    class: "cm3"
+                    class: "cm3",
+                    pos: 0
                 },
                 {
                     id: 5,
                     name: "han",
-                    pos: 52,
-                    class: "cm4"
+                    class: "cm4",
+                    pos: 0
                 },
                 {
                     id: 6,
                     name: "wei",
-                    pos: 52,
-                    class: "cm5"
+                    class: "cm5",
+                    pos: 0
                 },
                 {
                     id: 7,
                     name: "chu",
-                    pos: 26,
-                    class: "cm6"
+                    class: "cm6",
+                    pos: 0
                 },
                 {
                     id: 8,
                     name: "qin",
-                    pos: 0,
-                    class: "cm7"
+                    class: "cm7",
+                    pos: 0
                 },
                 {
                     id: 9,
                     name: "zhao",
-                    class: "cm8"
+                    class: "cm8",
+                    pos: 0
                 },
                 {
                     id: 10,
                     name: "yan",
-                    class: "cm9"
+                    class: "cm9",
+                    pos: 0
                 },
                 {
                     id: 11,
                     name: "qi",
-                    pos: 52,
-                    class: "cm10"
+                    class: "cm10",
+                    pos: 0
                 },
                 {
                     id: 12,
                     name: "han",
-                    pos: 52,
-                    class: "cm11"
+                    class: "cm11",
+                    pos: 0
                 },
                 {
                     id: 13,
                     name: "wei",
-                    pos: 52,
-                    class: "cm12"
+                    class: "cm12",
+                    pos: 51.42
                 },
                 {
                     id: 14,
                     name: "chu",
-                    pos: 26,
-                    class: "cm13"
+                    class: "cm13",
+                    pos: 25.71
                 }
             ],
             l: -0.04,
@@ -358,505 +363,104 @@ export default {
     },
     methods: {
         handleSelfCricle (id, i, name, pos) {
-            // this.defaultDeg = -(id * 25.714) + 25.714;
+            this.defaultDeg = -(id * 25.71) + 25.71;
+            // 修改位置
+            // switch (pos) {
+            //     case -25.71:
+            //         break;
+            //     }
+            // }
+
             // 点击下面，顺时针
-            if (id === 14) {
-                this.defaultDeg = 25.714 * 1;
-            }
-            if (id === 13) {
-                this.defaultDeg = 25.714 * 2;
-            }
-            if (id === 12) {
-                this.defaultDeg = 25.714 * 3;
-            }
-            if (id === 11) {
-                this.defaultDeg = 25.714 * 4;
-            }
-            if (id === 10) {
-                this.defaultDeg = 25.714 * 5;
-            }
-            if (id === 9) {
-                this.defaultDeg = 25.714 * 6;
-            }
-            if (id === 8) {
-                this.defaultDeg = 25.714 * 7;
-            }
-            if (id === 7) {
-                this.defaultDeg = 25.714 * 8;
-            }
-            if (id === 6) {
-                this.defaultDeg = 25.714 * 9;
-            }
-            if (id === 5) {
-                this.defaultDeg = 25.714 * 10;
-            }
-            if (id === 4) {
-                this.defaultDeg = 25.714 * 11;
-            }
-            if (id === 3) {
-                this.defaultDeg = 25.714 * 12;
-            }
-            if (id === 2) {
-                this.defaultDeg = 25.714 * 13;
-            }
-            if (id === 1) {
-                this.defaultDeg = 25.714 * 14;
-                this.count++;
-            }
-            if (this.count === 1) {
-                // 顺时针已经旋转一圈了
-                if (id === 14) {
-                    this.defaultDeg = 25.714 * 15;
-                }
-                if (id === 13) {
-                    this.defaultDeg = 25.714 * 16;
-                }
-                if (id === 12) {
-                    this.defaultDeg = 25.714 * 17;
-                }
-                if (id === 11) {
-                    this.defaultDeg = 25.714 * 18;
-                }
-                if (id === 10) {
-                    this.defaultDeg = 25.714 * 19;
-                }
-                if (id === 9) {
-                    this.defaultDeg = 25.714 * 20;
-                }
-                if (id === 8) {
-                    this.defaultDeg = 25.714 * 21;
-                }
-                if (id === 7) {
-                    this.defaultDeg = 25.714 * 22;
-                }
-                if (id === 6) {
-                    this.defaultDeg = 25.714 * 23;
-                }
-                if (id === 5) {
-                    this.defaultDeg = 25.714 * 24;
-                }
-                if (id === 4) {
-                    this.defaultDeg = 25.714 * 25;
-                }
-                if (id === 3) {
-                    this.defaultDeg = 25.714 * 26;
-                }
-                if (id === 2) {
-                    this.defaultDeg = 25.714 * 27;
-                }
-                if (id === 1) {
-                    this.count++;
-                    this.defaultDeg = 25.714 * 28;
-                }
-            }
-        },
-        handleClickCricle (i, name, pos) {
-            this.isShow = false;
-            switch (pos) {
-            case -52:
-                if (name === "zhao") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "yan";
-                    this.circle[1].name = "zhao";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "chu";
-                    this.circle[4].name = "wei";
-                    this.selectedName = "zhao";
-                    this.l = -0.03;
-                    this.t = 4.62;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "yan") {
-                    this.defaultDeg = -(26 + 26);
-                    this.circle[0].name = "han";
-                    this.circle[1].name = "qi";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "zhao";
-                    this.circle[4].name = "qin";
-                    this.selectedName = "yan";
-                    this.l = -0.03;
-                    this.t = 4.62;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qi") {
-                    this.defaultDeg = -(26 + 26 + 26);
-                    this.circle[0].name = "wei";
-                    this.circle[1].name = "han";
-                    this.circle[2].name = "qi";
-                    this.circle[3].name = "yan";
-                    this.circle[4].name = "zhao";
-                    this.selectedName = "qi";
-                    this.l = -0.02;
-                    this.t = 4.6;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "han") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26);
-                    this.circle[0].name = "chu";
-                    this.circle[1].name = "wei";
-                    this.circle[2].name = "han";
-                    this.circle[3].name = "qi";
-                    this.circle[4].name = "yan";
-                    this.selectedName = "han";
-                    this.l = -0.03;
-                    this.t = 4.57;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "wei") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "qin";
-                    this.circle[1].name = "chu";
-                    this.circle[2].name = "wei";
-                    this.circle[3].name = "han";
-                    this.circle[4].name = "qi";
-                    this.selectedName = "wei";
-                    this.l = -0.03;
-                    this.t = 4.58;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "chu") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "zhao";
-                    this.circle[1].name = "qin";
-                    this.circle[2].name = "chu";
-                    this.circle[3].name = "wei";
-                    this.circle[4].name = "han";
-                    this.selectedName = "chu";
-                    this.l = -0.03;
-                    this.t = 4.59;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qin") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "yan";
-                    this.circle[1].name = "zhao";
-                    this.circle[2].name = "qin";
-                    this.circle[3].name = "chu";
-                    this.circle[4].name = "wei";
-                    this.selectedName = "qin";
-                    this.l = -0.03;
-                    this.t = 4.63;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                break;
-            case -26:
-                if (name === "zhao") {
-                    this.defaultDeg = -25.75;
-                    this.circle[0].name = "qi";
-                    this.circle[1].name = "yan";
-                    this.circle[2].name = "zhao";
-                    this.circle[3].name = "qin";
-                    this.circle[4].name = "chu";
-                    this.selectedName = "zhao";
-                    this.l = -0.03;
-                    this.t = 4.58;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "yan") {
-                    this.defaultDeg = -(25.75 + 25.75);
-                    this.circle[0].name = "han";
-                    this.circle[1].name = "qi";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "zhao";
-                    this.circle[4].name = "qin";
-                    this.selectedName = "yan";
-                    this.l = -0.03;
-                    this.t = 4.58;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qi") {
-                    this.defaultDeg = -(26 + 26 + 26);
-                    this.circle[0].name = "wei";
-                    this.circle[1].name = "han";
-                    this.circle[2].name = "qi";
-                    this.circle[3].name = "yan";
-                    this.circle[4].name = "zhao";
-                    this.selectedName = "qi";
-                    this.l = -0.02;
-                    this.t = 4.6;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "han") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26);
-                    this.circle[0].name = "chu";
-                    this.circle[1].name = "wei";
-                    this.circle[2].name = "han";
-                    this.circle[3].name = "qi";
-                    this.circle[4].name = "yan";
-                    this.selectedName = "han";
-                    this.l = -0.02;
-                    this.t = 4.56;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "wei") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "qin";
-                    this.circle[1].name = "chu";
-                    this.circle[2].name = "wei";
-                    this.circle[3].name = "han";
-                    this.circle[4].name = "qi";
-                    this.selectedName = "wei";
-                    this.l = -0.04;
-                    this.t = 4.59;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "chu") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "zhao";
-                    this.circle[1].name = "qin";
-                    this.circle[2].name = "chu";
-                    this.circle[3].name = "wei";
-                    this.circle[4].name = "han";
-                    this.selectedName = "chu";
-                    this.l = -0.03;
-                    this.t = 4.59;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qin") {
-                    this.defaultDeg = -(26 + 26 + 26 + 26 + 26 + 26 + 26);
-                    this.circle[0].name = "yan";
-                    this.circle[1].name = "zhao";
-                    this.circle[2].name = "qin";
-                    this.circle[3].name = "chu";
-                    this.circle[4].name = "wei";
-                    this.selectedName = "qin";
-                    this.l = -0.03;
-                    this.t = 4.63;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                break;
-            case 0:
-                this.defaultDeg = 0;
-                break;
-            case 26:
-                if (name === "zhao") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "qi";
-                    this.circle[1].name = "yan";
-                    this.circle[2].name = "zhao";
-                    this.circle[3].name = "qin";
-                    this.circle[4].name = "chu";
-                    this.selectedName = "zhao";
-                    this.l = -0.03;
-                    this.t = 4.4;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "yan") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "han";
-                    this.circle[1].name = "qi";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "zhao";
-                    this.circle[4].name = "qin";
-                    this.selectedName = "yan";
-                    this.l = -0.03;
-                    this.t = 4.43;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qi") {
-                    this.defaultDeg = 26 + 26 + 26 + 26;
-                    this.circle[0].name = "wei";
-                    this.circle[1].name = "han";
-                    this.circle[2].name = "qi";
-                    this.circle[3].name = "yan";
-                    this.circle[4].name = "zhao";
-                    this.selectedName = "qi";
-                    this.l = -0.03;
-                    this.t = 4.43;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "han") {
-                    this.defaultDeg = 26 + 26 + 26;
-                    this.circle[0].name = "chu";
-                    this.circle[1].name = "wei";
-                    this.circle[2].name = "han";
-                    this.circle[3].name = "qi";
-                    this.circle[4].name = "yan";
-                    this.selectedName = "han";
-                    this.l = 0.03;
-                    this.t = 4.42;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "wei") {
-                    this.defaultDeg = 26 + 26;
-                    this.circle[0].name = "qin";
-                    this.circle[1].name = "chu";
-                    this.circle[2].name = "wei";
-                    this.circle[3].name = "han";
-                    this.circle[4].name = "qi";
-                    this.selectedName = "wei";
-                    this.l = -0.03;
-                    this.t = 4.46;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "chu") {
-                    this.defaultDeg = 26;
-                    this.circle[0].name = "zhao";
-                    this.circle[1].name = "qin";
-                    this.circle[2].name = "chu";
-                    this.circle[3].name = "wei";
-                    this.circle[4].name = "han";
-                    this.selectedName = "chu";
-                    this.l = -0.04;
-                    this.t = 4.5;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qin") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "yan";
-                    this.circle[1].name = "zhao";
-                    this.circle[2].name = "qin";
-                    this.circle[3].name = "chu";
-                    this.circle[4].name = "wei";
-                    this.selectedName = "qin";
-                    this.l = -0.03;
-                    this.t = 4.33;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                break;
-            case 52:
-                if (name === "wei") {
-                    this.defaultDeg = 26 + 26;
-                    this.circle[0].name = "qin";
-                    this.circle[1].name = "chu";
-                    this.circle[2].name = "wei";
-                    this.circle[3].name = "han";
-                    this.circle[4].name = "qi";
-                    this.selectedName = "wei";
-                    this.l = -0.03;
-                    this.t = 4.45;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qi") {
-                    this.defaultDeg = 26 + 26 + 26 + 26;
-                    this.circle[0].name = "wei";
-                    this.circle[1].name = "han";
-                    this.circle[2].name = "qi";
-                    this.circle[3].name = "yan";
-                    this.circle[4].name = "zhao";
-                    this.selectedName = "qi";
-                    this.l = -0.02;
-                    this.t = 4.43;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "zhao") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "qi";
-                    this.circle[1].name = "yan";
-                    this.circle[2].name = "zhao";
-                    this.circle[3].name = "qin";
-                    this.circle[4].name = "chu";
-                    this.selectedName = "zhao";
-                    this.l = -0.03;
-                    this.t = 4.4;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "chu") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "zhao";
-                    this.circle[1].name = "qin";
-                    this.circle[2].name = "chu";
-                    this.circle[3].name = "wei";
-                    this.circle[4].name = "han";
-                    this.selectedName = "chu";
-                    this.l = -0.03;
-                    this.t = 4.28;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "han") {
-                    this.defaultDeg =
-                        26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "chu";
-                    this.circle[1].name = "wei";
-                    this.circle[2].name = "han";
-                    this.circle[3].name = "qi";
-                    this.circle[4].name = "yan";
-                    this.selectedName = "han";
-                    this.l = -0.02;
-                    this.t = 4.26;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "yan") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "han";
-                    this.circle[1].name = "qi";
-                    this.circle[2].name = "yan";
-                    this.circle[3].name = "zhao";
-                    this.circle[4].name = "qin";
-                    this.selectedName = "yan";
-                    this.l = 0;
-                    this.t = 4.33;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-                if (name === "qin") {
-                    this.defaultDeg = 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26 + 26;
-                    this.circle[0].name = "yan";
-                    this.circle[1].name = "zhao";
-                    this.circle[2].name = "qin";
-                    this.circle[3].name = "chu";
-                    this.circle[4].name = "wei";
-                    this.selectedName = "qin";
-                    this.l = -0.01;
-                    this.t = 4.24;
-                    setTimeout(() => {
-                        this.isShow = true;
-                    }, 150);
-                }
-            }
+            // if (id === 14) {
+            //     this.defaultDeg = 25.71 * 1;
+            // }
+            // if (id === 13) {
+            //     this.defaultDeg = 25.71 * 2;
+            // }
+            // if (id === 12) {
+            //     this.defaultDeg = 25.71 * 3;
+            // }
+            // if (id === 11) {
+            //     this.defaultDeg = 25.71 * 4;
+            // }
+            // if (id === 10) {
+            //     this.defaultDeg = 25.71 * 5;
+            // }
+            // if (id === 9) {
+            //     this.defaultDeg = 25.71 * 6;
+            // }
+            // if (id === 8) {
+            //     this.defaultDeg = 25.71 * 7;
+            // }
+            // if (id === 7) {
+            //     this.defaultDeg = 25.71 * 8;
+            // }
+            // if (id === 6) {
+            //     this.defaultDeg = 25.71 * 9;
+            // }
+            // if (id === 5) {
+            //     this.defaultDeg = 25.71 * 10;
+            // }
+            // if (id === 4) {
+            //     this.defaultDeg = 25.71 * 11;
+            // }
+            // if (id === 3) {
+            //     this.defaultDeg = 25.71 * 12;
+            // }
+            // if (id === 2) {
+            //     this.defaultDeg = 25.71 * 13;
+            // }
+            // if (id === 1) {
+            //     this.defaultDeg = 25.71 * 14;
+            //     this.count++;
+            // }
+            // if (this.count === 1) {
+            //     // 顺时针已经旋转一圈了
+            //     if (id === 14) {
+            //         this.defaultDeg = 25.71 * 15;
+            //     }
+            //     if (id === 13) {
+            //         this.defaultDeg = 25.71 * 16;
+            //     }
+            //     if (id === 12) {
+            //         this.defaultDeg = 25.71 * 17;
+            //     }
+            //     if (id === 11) {
+            //         this.defaultDeg = 25.71 * 18;
+            //     }
+            //     if (id === 10) {
+            //         this.defaultDeg = 25.71 * 19;
+            //     }
+            //     if (id === 9) {
+            //         this.defaultDeg = 25.71 * 20;
+            //     }
+            //     if (id === 8) {
+            //         this.defaultDeg = 25.71 * 21;
+            //     }
+            //     if (id === 7) {
+            //         this.defaultDeg = 25.71 * 22;
+            //     }
+            //     if (id === 6) {
+            //         this.defaultDeg = 25.71 * 23;
+            //     }
+            //     if (id === 5) {
+            //         this.defaultDeg = 25.71 * 24;
+            //     }
+            //     if (id === 4) {
+            //         this.defaultDeg = 25.71 * 25;
+            //     }
+            //     if (id === 3) {
+            //         this.defaultDeg = 25.71 * 26;
+            //     }
+            //     if (id === 2) {
+            //         this.defaultDeg = 25.71 * 27;
+            //     }
+            //     if (id === 1) {
+            //         this.count++;
+            //         this.defaultDeg = 25.71 * 28;
+            //     }
+            // }
         },
         handleClickMap (name) {
             this.isShow = false;
@@ -1455,72 +1059,72 @@ export default {
             &.cm0{
                 left: 0.18rem;
                 top: 4.5rem;
-                border:6px solid pink
+                // border:6px solid pink
             }
             &.cm1{
                 left: .55rem;
                 top: 2.65rem;
-                border:6px solid blue
+                // border:6px solid blue
             }
             &.cm2{
                 left: 1.72rem;
                 top: 1.15rem;
-                border:6px solid green
+                // border:6px solid green
             }
             &.cm3{
                 left: 3.46rem;
                 top: .29rem;
-                border:6px solid yellowgreen
+                // border:6px solid yellowgreen
             }
             &.cm4{
                 left: 5.42rem;
                 top: .28rem;
-                border:6px solid yellow
+                // border:6px solid yellow
             }
             &.cm5{
                 left: 7.15rem;
                 top: 1.1rem;
-                border:6px solid red
+                // border:6px solid red
             }
             &.cm6{
                 left: 8.34rem;
                 top: 2.63rem;
-                border:6px solid purple
+                // border:6px solid purple
             }
             &.cm7{
                 left: 8.73rem;
                 top: 4.47rem;
-                border:6px solid pink
+                // border:6px solid pink
             }
             &.cm8{
                 left: 8.32rem;
                 top: 6.3rem;
-                border:6px solid blue
+                // border:6px solid blue
             }
             &.cm9{
                 left: 7.14rem;
                 top: 7.8rem;
-                border:6px solid green
+                // border:6px solid green
             }
             &.cm10{
                 left: 5.39rem;
                 top: 8.63rem;
-                border:6px solid yellowgreen
+                // border:6px solid yellowgreen
             }
             &.cm11{
                 left: 3.47rem;
                 top: 8.58rem;
-                border:6px solid yellow
+                // border:6px solid yellow
             }
             &.cm12{
                 left: 1.79rem;
                 top: 7.84rem;
-                border:6px solid red
+                // border:6px solid red
             }
             &.cm13{
                 left: 0.58rem;
                 top: 6.35rem;
-                border:6px solid purple
+                // border:6px solid purple
             }
             &.c1{
                 left: 1.72rem;
