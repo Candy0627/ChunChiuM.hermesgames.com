@@ -239,13 +239,13 @@ export default {
                     id: 2,
                     name: "zhao",
                     class: "cm1",
-                    pos: -25.71
+                    pos: -25
                 },
                 {
                     id: 3,
                     name: "yan",
                     class: "cm2",
-                    pos: -51.42
+                    pos: -51
                 },
                 {
                     id: 4,
@@ -305,13 +305,13 @@ export default {
                     id: 13,
                     name: "wei",
                     class: "cm12",
-                    pos: 51.42
+                    pos: 51
                 },
                 {
                     id: 14,
                     name: "chu",
                     class: "cm13",
-                    pos: 25.71
+                    pos: 25
                 }
             ],
             l: -0.04,
@@ -354,7 +354,9 @@ export default {
                 }
             ],
             isTest: false,
-            count: 0
+            beforeDeg: 0,
+            selectId: 0,
+            count: 0 // 定义次数
         };
     },
     mounted () {
@@ -363,12 +365,69 @@ export default {
     },
     methods: {
         handleSelfCricle (id, i, name, pos) {
-            this.defaultDeg = -(id * 25.71) + 25.71;
+            this.beforeDeg = this.defaultDeg;
+            this.selectId = id;
+
+            switch (pos) {
+            case -25:
+                this.circle[i].pos = 0;
+                if (i === 13) {
+                    this.circle[13 - i].pos = -25;
+                } else {
+                    this.circle[i + 1].pos = -25;
+                    this.circle[i + 2].pos = -51;
+                    this.circle[i - 1].pos = 25;
+                    this.circle[i - 2].pos = 51;
+                }
+
+                if (this.count === 0) {
+                    this.defaultDeg = -(id * 25.71) + 25.71;
+                    // 楚
+                    if (id === 14) {
+                        this.beforeDeg = this.beforeDeg + (-25.71);
+                        this.count++;
+                    }
+                } else if (this.count === 1) {
+                    if (id === this.selectId) {
+                        this.defaultDeg = this.beforeDeg - 25.71;
+                    }
+                    if (id === 14) {
+                        console.log("第二个的循环的结束", id);
+                    }
+                }
+                break;
+            case -51:
+                this.circle[i].pos = 0;
+                if (i === 12) {
+                    this.circle[0].pos = -51;
+                } else {
+                    this.circle[i + 2].pos = -51;
+                }
+
+                if (this.count === 0) {
+                    this.defaultDeg = -(id * 25.71) + 25.71;
+                    // 楚
+                    if (id === 13) {
+                        console.log("此时deid是多少", id);
+                        this.beforeDeg = this.beforeDeg + (-25.71);
+                        this.count++;
+                    }
+                } else if (this.count === 1) {
+                    console.log("此时在这个位置已经转过一次", this.count);
+                    if (id === this.selectId) {
+                        this.defaultDeg = this.beforeDeg - 25.71 * 2;
+                    }
+                    if (id === 13) {
+                        console.log("第二个的循环的结束", id);
+                    }
+                }
+            }
+
             // 修改位置
             // switch (pos) {
-            //     case -25.71:
-            //         break;
-            //     }
+            // case -25.71:
+            //     console.log("当前点击的是", pos);
+            //     break;
             // }
 
             // 点击下面，顺时针
@@ -973,7 +1032,7 @@ export default {
         width: 9.96rem;
         height: 9.97rem;
         // right: -36%;
-        right: 10%;
+        right: 15%;
         top: 50%;
         margin-top: -4.83rem;
         transition: all 0.9s ease-in-out;
