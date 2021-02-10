@@ -200,9 +200,10 @@
                     :key="item.id"
                     @click="handleSelfCricle(item.id, index, item.name, item.pos)"
                     :class="item.class"
-                    :data-id="item.id"
-                    :data-name="item.name"
+                    :data-index="index"
                     :data-pos="item.pos"
+                    :data-name="item.name"
+                    :data-id="item.id"
                 ></li>
             </ul>
         </div>
@@ -370,33 +371,74 @@ export default {
 
             switch (pos) {
             case -25:
+                console.log("-25此时点击的index", i);
                 this.circle[i].pos = 0;
-                if (i === 13) {
-                    this.circle[13 - i].pos = -25;
-                } else {
-                    this.circle[i + 1].pos = -25;
-                    this.circle[i + 2].pos = -51;
-                    this.circle[i - 1].pos = 25;
-                    this.circle[i - 2].pos = 51;
-                }
-
                 if (this.count === 0) {
+                    console.log("此时转的是第" + this.count + "圈");
                     this.defaultDeg = -(id * 25.71) + 25.71;
-                    // 楚
-                    if (id === 14) {
+                    if (i === 1) {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 2) {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else if (i === 12) {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[12 - i].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else if (i === 13) {
                         this.beforeDeg = this.beforeDeg + (-25.71);
                         this.count++;
+                        this.circle[13 - i].pos = -25;
+                        this.circle[i - 12].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
                     }
                 } else if (this.count === 1) {
+                    console.log("此时转的是第" + this.count + "圈");
                     if (id === this.selectId) {
                         this.defaultDeg = this.beforeDeg - 25.71;
                     }
-                    if (id === 14) {
-                        console.log("第二个的循环的结束", id);
+                    if (i === 0) {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 13].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 1) {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 12) {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[12 - i].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else if (i === 13) {
+                        this.circle[13 - i].pos = -25;
+                        this.circle[i - 12].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else {
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
                     }
                 }
                 break;
             case -51:
+                console.log("-51此时点击的index", i);
                 this.circle[i].pos = 0;
                 if (i === 12) {
                     this.circle[0].pos = -51;
@@ -422,104 +464,6 @@ export default {
                     }
                 }
             }
-
-            // 修改位置
-            // switch (pos) {
-            // case -25.71:
-            //     console.log("当前点击的是", pos);
-            //     break;
-            // }
-
-            // 点击下面，顺时针
-            // if (id === 14) {
-            //     this.defaultDeg = 25.71 * 1;
-            // }
-            // if (id === 13) {
-            //     this.defaultDeg = 25.71 * 2;
-            // }
-            // if (id === 12) {
-            //     this.defaultDeg = 25.71 * 3;
-            // }
-            // if (id === 11) {
-            //     this.defaultDeg = 25.71 * 4;
-            // }
-            // if (id === 10) {
-            //     this.defaultDeg = 25.71 * 5;
-            // }
-            // if (id === 9) {
-            //     this.defaultDeg = 25.71 * 6;
-            // }
-            // if (id === 8) {
-            //     this.defaultDeg = 25.71 * 7;
-            // }
-            // if (id === 7) {
-            //     this.defaultDeg = 25.71 * 8;
-            // }
-            // if (id === 6) {
-            //     this.defaultDeg = 25.71 * 9;
-            // }
-            // if (id === 5) {
-            //     this.defaultDeg = 25.71 * 10;
-            // }
-            // if (id === 4) {
-            //     this.defaultDeg = 25.71 * 11;
-            // }
-            // if (id === 3) {
-            //     this.defaultDeg = 25.71 * 12;
-            // }
-            // if (id === 2) {
-            //     this.defaultDeg = 25.71 * 13;
-            // }
-            // if (id === 1) {
-            //     this.defaultDeg = 25.71 * 14;
-            //     this.count++;
-            // }
-            // if (this.count === 1) {
-            //     // 顺时针已经旋转一圈了
-            //     if (id === 14) {
-            //         this.defaultDeg = 25.71 * 15;
-            //     }
-            //     if (id === 13) {
-            //         this.defaultDeg = 25.71 * 16;
-            //     }
-            //     if (id === 12) {
-            //         this.defaultDeg = 25.71 * 17;
-            //     }
-            //     if (id === 11) {
-            //         this.defaultDeg = 25.71 * 18;
-            //     }
-            //     if (id === 10) {
-            //         this.defaultDeg = 25.71 * 19;
-            //     }
-            //     if (id === 9) {
-            //         this.defaultDeg = 25.71 * 20;
-            //     }
-            //     if (id === 8) {
-            //         this.defaultDeg = 25.71 * 21;
-            //     }
-            //     if (id === 7) {
-            //         this.defaultDeg = 25.71 * 22;
-            //     }
-            //     if (id === 6) {
-            //         this.defaultDeg = 25.71 * 23;
-            //     }
-            //     if (id === 5) {
-            //         this.defaultDeg = 25.71 * 24;
-            //     }
-            //     if (id === 4) {
-            //         this.defaultDeg = 25.71 * 25;
-            //     }
-            //     if (id === 3) {
-            //         this.defaultDeg = 25.71 * 26;
-            //     }
-            //     if (id === 2) {
-            //         this.defaultDeg = 25.71 * 27;
-            //     }
-            //     if (id === 1) {
-            //         this.count++;
-            //         this.defaultDeg = 25.71 * 28;
-            //     }
-            // }
         },
         handleClickMap (name) {
             this.isShow = false;
@@ -1032,7 +976,7 @@ export default {
         width: 9.96rem;
         height: 9.97rem;
         // right: -36%;
-        right: 15%;
+        right: 53%;
         top: 50%;
         margin-top: -4.83rem;
         transition: all 0.9s ease-in-out;
