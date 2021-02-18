@@ -357,7 +357,10 @@ export default {
             isTest: false,
             beforeDeg: 0,
             selectId: 0,
-            count: 0 // 定义次数
+            count: 0, // 定义次数
+            j: 1,
+            n: false,
+            s: false
         };
     },
     mounted () {
@@ -371,98 +374,224 @@ export default {
 
             switch (pos) {
             case -25:
-                console.log("-25此时点击的index", i);
                 this.circle[i].pos = 0;
+                this.n = true;
                 if (this.count === 0) {
-                    console.log("此时转的是第" + this.count + "圈");
+                    console.log("-25,此时转的是第" + this.count + "圈");
                     this.defaultDeg = -(id * 25.71) + 25.71;
-                    if (i === 1) {
-                        this.circle[i + 1].pos = -25;
+                    if (i === 0) {
+                        console.log("此时是0次0");
                         this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 13].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 1) {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i + 12].pos = 51;
                     } else if (i === 2) {
-                        this.circle[i + 1].pos = -25;
                         this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i - 2].pos = 51;
                     } else if (i === 12) {
-                        this.circle[i + 1].pos = -25;
                         this.circle[12 - i].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i - 2].pos = 51;
                     } else if (i === 13) {
                         this.beforeDeg = this.beforeDeg + (-25.71);
-                        this.count++;
-                        this.circle[13 - i].pos = -25;
                         this.circle[i - 12].pos = -51;
+                        this.circle[13 - i].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i - 2].pos = 51;
+                        this.count++;
                     } else {
-                        this.circle[i + 1].pos = -25;
                         this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i - 2].pos = 51;
                     }
                 } else if (this.count === 1) {
-                    console.log("此时转的是第" + this.count + "圈");
+                    console.log("-25,此时转的是第" + this.count + "圈");
                     if (id === this.selectId) {
                         this.defaultDeg = this.beforeDeg - 25.71;
                     }
                     if (i === 0) {
-                        this.circle[i + 1].pos = -25;
                         this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i + 13].pos = 25;
                         this.circle[i + 12].pos = 51;
                     } else if (i === 1) {
-                        this.circle[i + 1].pos = -25;
                         this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i + 12].pos = 51;
                     } else if (i === 12) {
-                        this.circle[i + 1].pos = -25;
                         this.circle[12 - i].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i - 2].pos = 51;
                     } else if (i === 13) {
-                        this.circle[13 - i].pos = -25;
                         this.circle[i - 12].pos = -51;
+                        this.circle[13 - i].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i - 2].pos = 51;
                     } else {
-                        this.circle[i + 1].pos = -25;
                         this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
                         this.circle[i - 1].pos = 25;
                         this.circle[i - 2].pos = 51;
                     }
                 }
                 break;
             case -51:
-                console.log("-51此时点击的index", i);
+                console.log("-51", i);
                 this.circle[i].pos = 0;
-                if (i === 12) {
-                    this.circle[0].pos = -51;
-                } else {
-                    this.circle[i + 2].pos = -51;
-                }
-
+                this.n = true;
                 if (this.count === 0) {
+                    console.log("-51,此时转的是第" + this.count + "圈");
                     this.defaultDeg = -(id * 25.71) + 25.71;
-                    // 楚
-                    if (id === 13) {
-                        console.log("此时deid是多少", id);
-                        this.beforeDeg = this.beforeDeg + (-25.71);
+                    if (i === 0) {
+                        console.log("-51,此时是i为次0");
+                        this.defaultDeg = this.beforeDeg - 25.71 * 2;
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 13].pos = 25;
+                        this.circle[i + 12].pos = 51;
                         this.count++;
+                    } else if (i === 12) {
+                        this.circle[i - 12].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                        this.count++;
+                    } else if (i === 13) {
+                        this.circle[i - 12].pos = -51;
+                        this.circle[i - 13].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
                     }
                 } else if (this.count === 1) {
-                    console.log("此时在这个位置已经转过一次", this.count);
+                    console.log("-51,此时转的是第" + this.count + "圈");
                     if (id === this.selectId) {
                         this.defaultDeg = this.beforeDeg - 25.71 * 2;
                     }
-                    if (id === 13) {
-                        console.log("第二个的循环的结束", id);
+                    if (i === 0) {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 13].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 1) {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 12) {
+                        this.circle[i - 12].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else if (i === 13) {
+                        this.circle[i - 12].pos = -51;
+                        this.circle[i - 13].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
                     }
                 }
+                break;
+            case 25:
+                console.log("-51", i);
+                this.circle[i].pos = 0;
+                this.s = true;
+                if (this.n === true) {
+                    // 已逆时针转过了
+                    console.log("n的值", this.n, "点了逆时针，再点击要顺时针，要清空度数");
+                    this.defaultDeg = -this.defaultDeg;
+                    debugger;
+                }
+                if (this.count === 0) {
+                    console.log("25,此时转的是第" + this.count + "圈", this.defaultDeg);
+                    this.defaultDeg = this.j * 25.71;
+                    this.j++;
+                    if (i === 0) {
+                        console.log("此时是0次0");
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 13].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 1) {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 2) {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else if (i === 12) {
+                        this.circle[12 - i].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else if (i === 13) {
+                        // this.beforeDeg = this.beforeDeg + (-25.71);
+                        this.circle[i - 12].pos = -51;
+                        this.circle[13 - i].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                        // this.count++;
+                    } else {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    }
+                } else if (this.count === 1) {
+                    console.log("25,此时转的是第" + this.count + "圈");
+                    if (id === this.selectId) {
+                        this.defaultDeg = this.beforeDeg - 25.71;
+                    }
+                    if (i === 0) {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i + 13].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 1) {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i + 12].pos = 51;
+                    } else if (i === 12) {
+                        this.circle[12 - i].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else if (i === 13) {
+                        this.circle[i - 12].pos = -51;
+                        this.circle[13 - i].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    } else {
+                        this.circle[i + 2].pos = -51;
+                        this.circle[i + 1].pos = -25;
+                        this.circle[i - 1].pos = 25;
+                        this.circle[i - 2].pos = 51;
+                    }
+                }
+                break;
             }
         },
         handleClickMap (name) {
