@@ -311,14 +311,16 @@ export default {
             switch (pos) {
             case -52:
                 this.ni_52 = true;
-                if (this.shun26) {
-                    // this.defaultDeg = 0;
+                if (this.ni_26 && this.ni_52 && !this.shun26 && !this.shun52) {
+                    this.defaultDeg = this.defaultDeg + (-25.7142857142857143 * 2);
+                    // this.ni_26 = false;
+                    // this.ni_52 = false;
+                } else if (this.shun26) {
                     this.shun26 = false;
-                    this.defaultDeg = -this.defaultDeg - 25.7142857142857143 * 2;
+                    this.defaultDeg = this.defaultDeg + (-25.7142857142857143 * 2);
                 } else if (this.shun52) {
-                    // this.defaultDeg = 0;
                     this.shun52 = false;
-                    this.defaultDeg = -this.defaultDeg - 25.7142857142857143 * 2;
+                    this.defaultDeg = this.defaultDeg + (-25.7142857142857143 * 2);
                 } else if (this.count === 0) {
                     if (name === "zhao") {
                         this.defaultDeg = -25.7142857142857143 * 2 * 4;
@@ -448,14 +450,16 @@ export default {
                 break;
             case -26:
                 this.ni_26 = true;
-                if (this.shun26) {
-                    // this.defaultDeg = 0;
+                if (this.ni_26 && this.ni_52 && !this.shun26 && !this.shun52) {
+                    this.defaultDeg = this.defaultDeg - 25.7142857142857143 * 1;
+                    // this.ni_26 = false;
+                    // this.ni_52 = false;
+                } else if (this.shun26) {
                     this.shun26 = false;
-                    this.defaultDeg = -this.defaultDeg - 25.7142857142857143 * 1;
+                    this.defaultDeg = this.defaultDeg - 25.7142857142857143 * 1;
                 } else if (this.shun52) {
-                    // this.defaultDeg = 0;
                     this.shun52 = false;
-                    this.defaultDeg = -this.defaultDeg - 25.7142857142857143 * 1;
+                    this.defaultDeg = this.defaultDeg - 25.7142857142857143 * 1;
                 } else if (this.count === 0) {
                     if (name === "zhao") {
                         this.defaultDeg = -25.7142857142857143;
@@ -580,12 +584,14 @@ export default {
                 break;
             case 26:
                 this.shun26 = true;
-                if (this.ni_26) {
-                    // this.defaultDeg = 0;
+                if (!this.ni_26 && !this.ni_52 && this.shun26 && this.shun52) {
+                    this.defaultDeg = this.defaultDeg + 25.7142857142857143 * 1;
+                    // this.shun26 = false;
+                    // this.shun52 = false;
+                } else if (this.ni_26) {
                     this.ni_26 = false;
                     this.defaultDeg = this.defaultDeg + 25.7142857142857143 * 1;
                 } else if (this.ni_52) {
-                    // this.defaultDeg = 0;
                     this.ni_52 = false;
                     this.defaultDeg = this.defaultDeg + 25.7142857142857143 * 1;
                 } else if (this.count === 0) {
@@ -716,14 +722,16 @@ export default {
                 break;
             case 52:
                 this.shun52 = true;
-                if (this.ni_26) {
-                    // this.defaultDeg = 0;
+                if (!this.ni_26 && !this.ni_52 && this.shun26 && this.shun52) {
+                    this.defaultDeg = this.defaultDeg + 25.7142857142857143 * 2;
+                    // this.shun26 = false;
+                    // this.shun52 = false;
+                } else if (this.ni_26) {
                     this.ni_26 = false;
                     this.defaultDeg = this.defaultDeg + 25.7142857142857143 * 2;
                 } else if (this.ni_52) {
-                    this.defaultDeg = 0;
                     this.ni_52 = false;
-                    this.defaultDeg = 25.7142857142857143 * 2;
+                    this.defaultDeg = this.defaultDeg + 25.7142857142857143 * 2;
                 } else if (this.count === 0) {
                     if (name === "wei") {
                         this.defaultDeg = 25.7142857142857143 * 2 * 1;
